@@ -155,7 +155,7 @@ body {
 section {
     padding: var(--section-padding-desktop);
     position: relative;
-    overflow: hidden;
+    /* overflow: visible; */ /* Changed from hidden to allow sticky headers to work correctly */
 }
 
 @media (max-width: 768px) {
@@ -191,6 +191,23 @@ img {
 /* --------------------------------------------------------------------------
    TYPOGRAPHY
    -------------------------------------------------------------------------- */
+/* Sticky Section Titles (Shiv-style) */
+.container > h2,
+.explore-header > h2 {
+    position: sticky;
+    top: 98px; /* Clears Navbar (44px) + Sub-nav (54px) */
+    z-index: 100;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Backgrounds for sticky headers to prevent text overlap */
+.bg-white .container > h2, .bg-white .explore-header, .bg-white .explore-header > h2 { background-color: var(--color-bg-white); }
+.bg-gray .container > h2, .bg-gray .explore-header, .bg-gray .explore-header > h2 { background-color: var(--color-bg-gray); }
+.bg-dark .container > h2, .bg-dark .explore-header, .bg-dark .explore-header > h2 { background-color: var(--color-bg-dark); }
+.contact-apple-dark .container > h2 { background-color: var(--color-bg-dark); }
+
 h1 {
     font-size: 96px;
     font-weight: 200;
@@ -199,15 +216,13 @@ h1 {
     will-change: transform, opacity;
 }
 
+/* Base h2 (non-sticky) reset for other uses */
 h2 {
     font-size: 56px;
     font-weight: 600;
     letter-spacing: -0.005em;
     line-height: 1.08;
-    position: sticky;
-    top: 80px;
     background: transparent;
-    z-index: 10;
 }
 
 .subheadline {
@@ -338,7 +353,7 @@ h2 {
     display: flex;
     align-items: center;
     background: var(--color-bg-white);
-    padding-top: 44px;
+    padding-top: 120px; /* Increased to clear Navbar + Sub-nav */
 }
 
 .hero-grid {
