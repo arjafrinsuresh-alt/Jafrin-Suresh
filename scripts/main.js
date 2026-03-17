@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
+                    // Start typewriter after loader is gone
+                    setTimeout(typeText, 400);
                 }, 800);
             }, 2000); // 2 seconds loading
         });
@@ -29,47 +31,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const sunIcon = document.getElementById('sun-icon');
     const body = document.body;
 
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Initial check (Priority: LocalStorage > System Preffered)
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (prefersDark) {
+        setTheme('dark');
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+    }
+
     // ----------------------------------------------------------------------
-    // TYPEWRITER EFFECT
+    // 1.5 TYPEWRITER EFFECT
     // ----------------------------------------------------------------------
     const taglineElement = document.getElementById('typewriter-tagline');
     const textToType = "Designing spaces that shape experiences.";
     let charIndex = 0;
 
     function typeText() {
-        if (charIndex < textToType.length) {
+        if (taglineElement && charIndex < textToType.length) {
             taglineElement.textContent += textToType.charAt(charIndex);
             charIndex++;
-            setTimeout(typeText, 70); // Speed of typing
+            setTimeout(typeText, 70); 
         }
-    }
-
-    // Start typewriter after a short delay (for hero entrance)
-    setTimeout(typeText, 800);
-
-    // Check saved theme in localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.replace('light-mode', 'dark-mode');
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'block';
-    }
-
-    // Toggle theme on button click
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            if (body.classList.contains('light-mode')) {
-                body.classList.replace('light-mode', 'dark-mode');
-                localStorage.setItem('theme', 'dark');
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                body.classList.replace('dark-mode', 'light-mode');
-                localStorage.setItem('theme', 'light');
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-            }
-        });
     }
 
     // ----------------------------------------------------------------------
