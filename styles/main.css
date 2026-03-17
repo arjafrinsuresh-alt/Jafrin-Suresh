@@ -456,20 +456,22 @@ h2 {
     align-items: start;
 }
 
-.about-photo-card {
+.photo-wrapper {
+    width: 100%;
     aspect-ratio: 3/4;
-    background: var(--color-travertine);
+    overflow: hidden;
     border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-sandstone);
+    background: var(--color-travertine); /* Placeholder background during load */
 }
 
-.about-photo-card .placeholder-text {
-    color: var(--color-clay);
-    margin-top: 10px;
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: contrast(1.05) brightness(0.97);
+    display: block;
+    transition: var(--transition-apple);
 }
 
 .brass-label {
@@ -537,6 +539,10 @@ h2 {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+    .photo-wrapper {
+        border-radius: 12px;
+        max-height: 420px;
     }
 }
 
