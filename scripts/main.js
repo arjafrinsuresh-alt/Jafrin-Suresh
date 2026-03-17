@@ -1,55 +1,69 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ----------------------------------------------------------------------
-    // TASK 1: INTRO OVERLAY
+    // TASK 1: INTRO OVERLAY & HERO SEQUENCING
     // ----------------------------------------------------------------------
     const introOverlay = document.getElementById('intro-overlay');
     const heroName = document.querySelector('.hero-name');
+    const heroTagline = document.querySelector('.hero-tagline');
     
     setTimeout(() => {
         if (introOverlay) {
             introOverlay.classList.add('hide');
         }
-        // Run hero text animation after intro finishes
+        
+        // Sequence the hero reveal after intro exits
         setTimeout(() => {
             if (heroName) {
                 heroName.classList.add('animate');
-                // Apply stagger
                 const words = heroName.querySelectorAll('.word');
-                words.forEach((word, index) => {
-                    word.style.animationDelay = `${0.3 + index * 0.15}s`;
+                words.forEach((word, idx) => {
+                    word.style.animationDelay = `${0.3 + idx * 0.15}s`;
                 });
             }
-        }, 300);
-    }, 2400); // Intro lasts 2.5s (matching CSS progress bar)
+            
+            // Tagline follows name
+            setTimeout(() => {
+                if (heroTagline) {
+                    heroTagline.classList.add('animate');
+                    const tags = heroTagline.querySelectorAll('.tag-word');
+                    tags.forEach((tag, idx) => {
+                        tag.style.animationDelay = `${0.4 + idx * 0.1}s`;
+                    });
+                }
+            }, 600);
+            
+        }, 500);
+    }, 2500);
 
 
     // ----------------------------------------------------------------------
-    // TASK 3: ARCHITECTURAL CUSTOM CURSOR
+    // ARCHITECTURAL CUSTOM CURSOR (DOT + SQUARE)
     // ----------------------------------------------------------------------
     const cursorDot = document.getElementById('cursor-dot');
     const cursorSquare = document.getElementById('cursor-square');
-    const links = document.querySelectorAll('a, button, .project-card-dark, .photo-container');
+    const interactive = document.querySelectorAll('a, button, .project-card-dark, .photo-container, .mobile-nav-toggle');
 
     if (cursorDot && cursorSquare) {
+        // Track mouse with high performance
         window.addEventListener('mousemove', (e) => {
             const { clientX: x, clientY: y } = e;
             
-            // Immediate position for dot
+            // Immediate dot
             cursorDot.style.left = `${x}px`;
             cursorDot.style.top = `${y}px`;
             
-            // Lag/smooth position for square trailing
-            // Using requestAnimationFrame for better performance
+            // Lagging square via CSS transition (0.1s lag in CSS)
             cursorSquare.style.left = `${x}px`;
             cursorSquare.style.top = `${y}px`;
         });
 
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
+        // Toggle state on hover
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => {
                 cursorSquare.classList.add('hover-diamond');
             });
-            link.addEventListener('mouseleave', () => {
+            el.addEventListener('mouseleave', () => {
                 cursorSquare.classList.remove('hover-diamond');
             });
         });
@@ -57,53 +71,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ----------------------------------------------------------------------
-    // TASK 4: WIPE PANEL (Cinematic Page Transition)
+    // MOBILE MENU TOGGLE
     // ----------------------------------------------------------------------
-    const wipePanel = document.getElementById('wipe-panel');
-    const navLinks = document.querySelectorAll('.nav-link, .nav-logo');
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const navMenu = document.querySelector('.nav-center');
+    const navLinksList = document.querySelectorAll('.nav-link');
 
-    // Smooth page transitions or section transitions
-    function pageTransition(href) {
-        if (wipePanel) {
-            wipePanel.classList.add('start-wipe');
-            setTimeout(() => {
-                window.location.href = href;
-                // Since this might be same-page hash, handle reset
-                setTimeout(() => {
-                    wipePanel.classList.remove('start-wipe');
-                }, 800);
-            }, 500);
-        } else {
-            window.location.href = href;
-        }
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isVisible = navMenu.style.display === 'flex';
+            navMenu.style.display = isVisible ? 'none' : 'flex';
+            
+            // Hamburger animation would go here if needed
+        });
+
+        navLinksList.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    navMenu.style.display = 'none';
+                }
+            });
+        });
     }
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href.startsWith('#')) {
-                // For same page anchors, maybe just smooth scroll but let's do the cinematic effect
-                e.preventDefault();
-                // If intro is still active, don't wipe
-                if (!introOverlay.classList.contains('hide')) return;
-                
-                wipePanel.classList.add('start-wipe');
-                setTimeout(() => {
-                    const targetEl = document.querySelector(href);
-                    if (targetEl) {
-                        targetEl.scrollIntoView({ behavior: 'auto' });
-                    }
-                    setTimeout(() => {
-                        wipePanel.classList.remove('start-wipe');
-                    }, 500);
-                }, 500);
-            }
-        });
-    });
-
 
     // ----------------------------------------------------------------------
-    // NAVBAR SCROLL EFFECT
+    // NAVBAR SCROLL & BLUR
     // ----------------------------------------------------------------------
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -116,70 +109,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ----------------------------------------------------------------------
-    // DARK MODE TOGGLE
+    // DARK MODE TOGGLE (Moon icon functionality)
     // ----------------------------------------------------------------------
     const darkToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-
     if (darkToggle) {
         darkToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            darkToggle.innerHTML = isDark ? '☀️' : '🌙';
-            
-            // Update CSS variables for dark mode if needed (or handle in CSS with .dark-mode selector)
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            darkToggle.querySelector('.icon-moon').textContent = isDark ? '☀️' : '🌙';
         });
     }
 
 
     // ----------------------------------------------------------------------
-    // INTERSECTION OBSERVER - REVEAL SYSTEM
+    // INTERSECTION OBSERVER - PROFESSIONAL REVEAL SYSTEM
     // ----------------------------------------------------------------------
-    const revealOptions = { threshold: 0.15 };
+    const baseOptions = { threshold: 0.15, rootMargin: "0px 0px -20px 0px" };
 
-    const revealOnScroll = new IntersectionObserver((entries) => {
+    const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 
-                // Handle staggered children if needed
-                if (entry.target.classList.contains('reveal-stagger')) {
-                    const items = entry.target.querySelectorAll('.skill-item');
-                    items.forEach((item, idx) => {
+                // Specific Staggers
+                if (entry.target.closest('.skills-grid-columns')) {
+                    const skillItems = entry.target.querySelectorAll('.skill-item');
+                    skillItems.forEach((item, idx) => {
                         setTimeout(() => {
                             item.classList.add('active');
-                        }, idx * 50);
+                        }, idx * 60);
                     });
-                }
-                
-                if (entry.target.classList.contains('reveal-item')) {
-                    // Staggering within a container? 
-                    // This handled by direct class addition
-                }
-
-                // Photo reveal logic
-                if (entry.target.classList.contains('reveal-photo')) {
-                    // Already adds 'active' which triggers CSS animation
                 }
             }
         });
-    }, revealOptions);
+    }, baseOptions);
 
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-stagger, .reveal-photo');
-    revealElements.forEach(el => revealOnScroll.observe(el));
+    // Apply to standard reveals
+    document.querySelectorAll('.reveal-up, .photo-container').forEach(el => scrollObserver.observe(el));
 
-    // Handle Timeline staggered reveal carefully
-    const timelineEntries = document.querySelectorAll('.timeline-item');
+    // Staggered lists (Skills columns)
+    document.querySelectorAll('.skill-column').forEach(col => scrollObserver.observe(col));
+
+    // Staggered Timeline Items
+    const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, idx) => {
             if (entry.isIntersecting) {
+                // Ensure they sequence properly even if arriving at once
+                const visibleEntries = [...timelineItems].filter(ti => ti.classList.contains('active')).length;
                 setTimeout(() => {
                     entry.target.classList.add('active');
-                }, idx * 150); // Small stagger
+                }, visibleEntries * 150);
             }
         });
     }, { threshold: 0.3 });
     
-    timelineEntries.forEach(item => timelineObserver.observe(item));
+    timelineItems.forEach(item => timelineObserver.observe(item));
 
 });
