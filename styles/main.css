@@ -13,13 +13,15 @@
     /* TYPOGRAPHY */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     
-    /* LIGHT THEME COLORS */
-    --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f5f5f7;  /* Apple's signature light gray */
-    --color-text-primary: #1d1d1f;   /* Apple's signature dark gray */
-    --color-text-secondary: #515154; /* Darker secondary for better contrast */
-    --color-accent: #0066cc;         /* Apple signature blue */
-    --color-border: #d2d2d7;
+    /* EARTHY THEME COLORS */
+    --color-bg-primary: #F5F2EE;    /* Warm Travertine Background */
+    --color-bg-primary-rgb: 245, 242, 238;
+    --color-bg-secondary: #E8E0D4;  /* Concrete Surface Background */
+    --color-text-primary: #2C2420;   /* Deep Earthy Dark Brown/Black */
+    --color-text-secondary: #8C7B68; /* Muted Clay Gray */
+    --color-accent: #5C4A3A;         /* Rich Soil/Oak CTA & Active */
+    --color-accent-rgb: 92, 74, 58;
+    --color-border: #C4B8A5;         /* Soft Sandstone Border */
     
     /* LAYOUT & SPACING */
     --max-width-container: 1200px;
@@ -31,14 +33,14 @@
     --transition-ease: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* DARK THEME COLORS */
+/* Darker Earthy Theme */
 body.dark-mode {
-    --color-bg-primary: #000000;
-    --color-bg-secondary: #1d1d1f;
-    --color-text-primary: #f5f5f7;
-    --color-text-secondary: #a1a1a6; /* Brighter for dark mode visibility */
-    --color-accent: #2997ff;
-    --color-border: #424245;
+    --color-bg-primary: #2C2420;
+    --color-bg-secondary: #3D332F;
+    --color-text-primary: #F5F2EE;
+    --color-text-secondary: #C4B8A5;
+    --color-accent: #E8E0D4;
+    --color-border: #5C4A3A;
 }
 
 /* --------------------------------------------------------------------------
@@ -174,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    background-color: var(--color-bg-primary);
     z-index: 10000;
     display: flex;
     justify-content: center;
@@ -183,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body.dark-mode .loader-overlay {
-    background-color: #000000;
+    background-color: var(--color-bg-primary);
 }
 
 .loader-content {
@@ -258,16 +260,16 @@ body.dark-mode .loader-overlay {
 
 .navbar.scrolled {
     padding: 15px 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(var(--color-bg-primary-rgb), 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 body.dark-mode .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(44, 36, 32, 0.85);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .nav-container {
@@ -524,8 +526,8 @@ body.dark-mode .navbar.scrolled {
     position: absolute;
     bottom: -40px;
     left: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #000;
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
     padding: 8px 16px;
     border-radius: 30px;
     font-size: 0.9rem;
@@ -704,14 +706,14 @@ body.dark-mode .navbar.scrolled {
 /* Task 8: Enhanced Contact Section */
 .footer {
     position: relative;
-    background: linear-gradient(-45deg, #f5f5f7, #ffffff, #f5f5f7);
+    background: linear-gradient(-45deg, var(--color-bg-primary), var(--color-bg-secondary), var(--color-bg-primary));
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     text-align: center;
 }
 
 body.dark-mode .footer {
-    background: linear-gradient(-45deg, #000, #1d1d1f, #000);
+    background: linear-gradient(-45deg, #2C2420, #3D332F, #2C2420);
 }
 
 @keyframes gradientBG {
