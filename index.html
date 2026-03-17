@@ -30,32 +30,127 @@
         </div>
     </nav>
 
-    <!-- Sub-nav sticky chip row (Section 1 Requirement) -->
+    <!-- Sub-nav sticky chip row (Task 1 Fix) -->
     <div class="sub-nav">
         <div class="sub-nav-container">
             <a href="#hero" class="nav-chip">Jafrin.</a>
-            <a href="#explore" class="nav-chip">About</a>
+            <a href="#about" class="nav-chip">About</a>
             <a href="#skills" class="nav-chip">Skills</a>
-            <a href="#explore" class="nav-chip">Projects</a>
+            <a href="#projects" class="nav-chip">Projects</a>
             <a href="#timeline" class="nav-chip">Experience</a>
             <a href="#contact" class="nav-chip">Contact</a>
         </div>
     </div>
  
     <!-- ==========================================
-         SECTION 1: HERO (Apple iPhone Style)
+         SECTION 1: HERO (Task 4 Upgrade)
     =========================================== -->
     <header id="hero" class="hero-section">
         <div class="container">
-            <h1 class="hero-headline reveal-up">Jafrin.</h1>
-            <p class="subheadline reveal-up delay-1">RIBA Part 2 Architectural Designer · BIM Technologist · London.</p>
+            <div class="hero-grid">
+                <div class="hero-text-col reveal-up">
+                    <h1 class="hero-headline">Jafrin.</h1>
+                    <p class="subheadline">RIBA Part 2 Architectural Designer · BIM Technologist · London.</p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn-primary">View Projects →</a>
+                        <a href="assets/Jafrin_Part II.pdf" class="btn-outline" download>Download CV</a>
+                    </div>
+                </div>
+                <div class="hero-profile-placeholder reveal-up delay-2">
+                    <div class="circular-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.4;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="placeholder-text">[ Your photo ]</span>
+                </div>
+            </div>
         </div>
     </header>
- 
+
     <!-- ==========================================
-         SECTION 2: "Explore the Work"
+         TASK 2: ABOUT SECTION (NEW)
     =========================================== -->
-    <section id="explore" class="explore-section">
+    <section id="about" class="about-section bg-white reveal-up">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-photo-col">
+                    <div class="about-photo-card">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="placeholder-text">[ Your photo here ]</span>
+                    </div>
+                </div>
+                <div class="about-text-col">
+                    <span class="brass-label">RIBA PART 2 · BIM TECHNOLOGIST</span>
+                    <h2>Jafrin Suretha Suresh</h2>
+                    <p class="bio-paragraph">
+                        As a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies, I am driven by the intersection of innovative design and rigorous technical execution. My expertise spans the entire project lifecycle, ensuring seamless delivery across complex residential and commercial developments.
+                    </p>
+                    
+                    <div class="cv-card">
+                        <div class="cv-info">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <div class="cv-text">
+                                <h4>Curriculum Vitae</h4>
+                                <p>Download full CV — PDF</p>
+                            </div>
+                        </div>
+                        <a href="assets/Jafrin_Part II.pdf" class="btn-brass-pill" download>↓ Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FEATURE CARDS GRID (Task 3 Order)
+    =========================================== -->
+    <section id="features" class="features-grid-section bg-gray">
+        <div class="container">
+            <h2 class="reveal-up" style="margin-bottom: 50px;">What I bring to every project.</h2>
+            <div class="features-grid">
+                <div class="feature-card dark reveal-up">
+                    <h3 class="feature-title">BIM Coordination</h3>
+                    <p class="feature-desc">ISO 19650-compliant digital workflows.</p>
+                </div>
+                <div class="feature-card light reveal-up delay-1" style="background-color: #F5F2EE;">
+                    <h3 class="feature-title">Sustainable Design</h3>
+                    <p class="feature-desc">Green roofs, performance metrics, lifecycle thinking.</p>
+                </div>
+                <div class="feature-card light reveal-up" style="background-color: #F5F2EE;">
+                    <h3 class="feature-title">Revit & Navisworks</h3>
+                    <p class="feature-desc">End-to-end BIM authoring and clash detection.</p>
+                </div>
+                <div class="feature-card dark reveal-up delay-1">
+                    <h3 class="feature-title">Visualisation</h3>
+                    <p class="feature-desc">Lumion, Enscape, V-Ray. Photorealistic renders.</p>
+                </div>
+                <div class="feature-card dark reveal-up">
+                    <h3 class="feature-title">RIBA Part 1 & 2</h3>
+                    <p class="feature-desc">Academically grounded. Practically proven.</p>
+                </div>
+                <div class="feature-card light reveal-up delay-1" style="background-color: #F5F2EE;">
+                    <h3 class="feature-title">London-Based</h3>
+                    <p class="feature-desc">Currently at A&N Architects, open to opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: PROJECTS (Task 1 Rename)
+    =========================================== -->
+    <section id="projects" class="explore-section bg-white">
         <div class="container">
             <div class="explore-header reveal-up">
                 <h2>Explore the Work.</h2>
@@ -112,42 +207,7 @@
     </section>
 
     <!-- ==========================================
-         SECTION 3: FEATURE CARDS GRID
-    =========================================== -->
-    <section id="features" class="features-grid-section bg-white">
-        <div class="container">
-            <h2 class="reveal-up" style="margin-bottom: 50px;">What I bring to every project.</h2>
-            <div class="features-grid">
-                <div class="feature-card dark reveal-up">
-                    <h3 class="feature-title">BIM Coordination</h3>
-                    <p class="feature-desc">ISO 19650-compliant digital workflows.</p>
-                </div>
-                <div class="feature-card light reveal-up delay-1" style="background-color: #F5F2EE;">
-                    <h3 class="feature-title">Sustainable Design</h3>
-                    <p class="feature-desc">Green roofs, performance metrics, lifecycle thinking.</p>
-                </div>
-                <div class="feature-card light reveal-up" style="background-color: #F5F2EE;">
-                    <h3 class="feature-title">Revit & Navisworks</h3>
-                    <p class="feature-desc">End-to-end BIM authoring and clash detection.</p>
-                </div>
-                <div class="feature-card dark reveal-up delay-1">
-                    <h3 class="feature-title">Visualisation</h3>
-                    <p class="feature-desc">Lumion, Enscape, V-Ray. Photorealistic renders.</p>
-                </div>
-                <div class="feature-card dark reveal-up">
-                    <h3 class="feature-title">RIBA Part 1 & 2</h3>
-                    <p class="feature-desc">Academically grounded. Practically proven.</p>
-                </div>
-                <div class="feature-card light reveal-up delay-1" style="background-color: #F5F2EE;">
-                    <h3 class="feature-title">London-Based</h3>
-                    <p class="feature-desc">Currently at A&N Architects, open to opportunities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         SECTION 4: CINEMATIC BANNER
+         SECTION 5: CINEMATIC BANNER
     =========================================== -->
     <section id="banner" class="banner-section bg-gray">
         <div class="container">
@@ -156,14 +216,14 @@
                 <div class="banner-overlay">
                     <span class="banner-label">SELECTED WORKS</span>
                     <h2 class="banner-title">Designing spaces that shape experiences.</h2>
-                    <a href="#explore" class="pill-button">View Portfolio ›</a>
+                    <a href="#projects" class="pill-button">View Portfolio ›</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-         SECTION 5: SKILLS ACCORDION
+         SECTION 6: SKILLS ACCORDION
     =========================================== -->
     <section id="skills" class="skills-accordion-section bg-white">
         <div class="container">
@@ -218,35 +278,49 @@
     </section>
 
     <!-- ==========================================
-         SECTION 6: EXPERIENCE TIMELINE
+         SECTION 7: TIMELINE (Task 5 Redesign)
     =========================================== -->
-    <section id="timeline" class="timeline-section bg-white">
+    <section id="timeline" class="timeline-section bg-gray">
         <div class="container">
             <h2 class="reveal-up" style="margin-bottom: 50px;">Experience & Education.</h2>
             
-            <div class="timeline-list">
-                <div class="timeline-entry reveal-up">
-                    <span class="entry-date">Oct 2025 – Present</span>
-                    <div class="entry-main">
+            <div class="timeline-grid">
+                <!-- EXPERIENCE COLUMN -->
+                <div class="timeline-column">
+                    <h3 class="timeline-col-label">EXPERIENCE</h3>
+                    
+                    <div class="timeline-entry reveal-up delay-1">
+                        <span class="entry-date">Oct 2025 – Present</span>
                         <h3 class="entry-title">Architectural Designer</h3>
                         <p class="entry-org">A&N Architects, London, UK</p>
+                        <p class="entry-desc">Managing 4+ planning applications end-to-end across 3–5 live residential extension and refurbishment schemes.</p>
+                        <a href="assets/Jafrin_Part II.pdf" class="apple-pill-link" download style="margin-top: 15px; display: inline-flex;">Download CV ›</a>
                     </div>
-                    <a href="assets/Jafrin_Part%20II.pdf" class="apple-pill-link">Download CV <span>›</span></a>
-                </div>
 
-                <div class="timeline-entry reveal-up">
-                    <span class="entry-date">2024 – 2025</span>
-                    <div class="entry-main">
-                        <h3 class="entry-title">MSc Advanced Construction Technologies & BIM</h3>
-                        <p class="entry-org">University of Strathclyde, Glasgow, UK</p>
-                    </div>
-                </div>
-
-                <div class="timeline-entry reveal-up">
-                    <span class="entry-date">Dec 2022 – Dec 2023</span>
-                    <div class="entry-main">
+                    <div class="timeline-entry reveal-up delay-2">
+                        <span class="entry-date">Dec 2022 – Dec 2023</span>
                         <h3 class="entry-title">Architectural Assistant</h3>
                         <p class="entry-org">Ruby Builders, Chennai, India</p>
+                        <p class="entry-desc">Produced technical drawing sheets and delivered photorealistic renders using Lumion and V-Ray.</p>
+                    </div>
+                </div>
+
+                <!-- EDUCATION COLUMN -->
+                <div class="timeline-column">
+                    <h3 class="timeline-col-label">EDUCATION</h3>
+                    
+                    <div class="timeline-entry reveal-up delay-1">
+                        <span class="entry-date">2024 – 2025</span>
+                        <h3 class="entry-title">MSc Advanced Construction Technologies & BIM</h3>
+                        <p class="entry-org">University of Strathclyde, Glasgow, UK</p>
+                        <p class="entry-desc">Dissertation: Enhancing Green Roof Design through Advanced BIM Integration.</p>
+                    </div>
+
+                    <div class="timeline-entry reveal-up delay-2">
+                        <span class="entry-date">2018 – 2023</span>
+                        <h3 class="entry-title">Bachelor of Architecture (BArch) — Distinction</h3>
+                        <p class="entry-org">Sathyabama Institute of Science and Technology, Chennai</p>
+                        <p class="entry-desc">RIBA Part 1 & 2 equivalent. Thesis: Airport terminal expansion, passenger flow modelling.</p>
                     </div>
                 </div>
             </div>
@@ -254,7 +328,7 @@
     </section>
  
     <!-- ==========================================
-         SECTION 7: CONTACT (Dark Apple Style)
+         SECTION 8: CONTACT (Dark Apple Style)
     =========================================== -->
     <section id="contact" class="contact-apple-dark">
         <div class="container text-center">

@@ -20,6 +20,13 @@
     --color-text-muted: #6E6E73;
     
     --color-accent: #0071E3; /* Apple Blue */
+
+    /* ARCHITECTURAL ACCENTS */
+    --color-brass: #B8922A;
+    --color-clay: #8C7B68;
+    --color-travertine: #E8E0D4;
+    --color-sandstone: #C4B8A5;
+    --color-slate: #1A1A18;
     
     /* LAYOUT & SPACING */
     --max-width-container: 1100px;
@@ -212,16 +219,195 @@ h2 {
    SECTION 1: HERO
    -------------------------------------------------------------------------- */
 .hero-section {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     background: var(--color-bg-white);
-    padding-top: 120px;
+    padding-top: 44px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
 }
 
 .hero-headline {
     margin-bottom: 10px;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background: #000000;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-pill);
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: var(--transition-apple);
+}
+
+.btn-primary:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #000000;
+    color: #000000;
+    padding: 12px 24px;
+    border-radius: var(--border-radius-pill);
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: var(--transition-apple);
+}
+
+.btn-outline:hover {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.hero-profile-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.circular-placeholder {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    border: 2px dashed var(--color-brass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--color-brass);
+}
+
+.placeholder-text {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-profile-placeholder {
+        display: none;
+    }
+    .hero-headline {
+        font-size: clamp(48px, 12vw, 80px);
+    }
+    .hero-ctas {
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION: ABOUT
+   -------------------------------------------------------------------------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-photo-card {
+    aspect-ratio: 3/4;
+    background: var(--color-travertine);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-sandstone);
+}
+
+.about-photo-card .placeholder-text {
+    color: var(--color-clay);
+    margin-top: 10px;
+}
+
+.brass-label {
+    color: var(--color-brass);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.bio-paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    margin: 24px 0 40px;
+}
+
+.cv-card {
+    background: var(--color-slate);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.cv-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cv-text h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.cv-text p {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+}
+
+.btn-brass-pill {
+    background: var(--color-brass);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none !important;
+    transition: var(--transition-apple);
+}
+
+.btn-brass-pill:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -488,54 +674,67 @@ h2 {
 /* --------------------------------------------------------------------------
    SECTION 6: EXPERIENCE TIMELINE
    -------------------------------------------------------------------------- */
-.timeline-entry {
-    border-top: 1px solid rgba(0,0,0,0.1);
-    padding: 40px 0;
+.timeline-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: baseline;
-    opacity: 0;
-    transform: translateY(20px);
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.timeline-col-label {
+    color: var(--color-brass);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-brass);
+    margin-bottom: 32px;
+    display: block;
+}
+
+.timeline-entry {
+    border-top: 1px solid var(--color-travertine);
+    padding-top: 20px;
+    margin-bottom: 28px;
+    display: block; /* Changed for new layout */
+    opacity: 1; /* Resetting basic timeline reveal as per specific task */
+    transform: none;
     transition: var(--transition-apple);
 }
 
-.timeline-entry.reveal {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .entry-date {
-    font-size: 14px;
-    color: var(--color-text-muted);
+    font-size: 11px;
+    color: var(--color-clay);
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .entry-title {
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 500;
+    color: #1A1A18;
+    margin-bottom: 4px;
 }
 
 .entry-org {
-    color: var(--color-text-muted);
-    margin-top: 8px;
+    color: var(--color-clay);
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
-.apple-pill-link {
-    justify-self: end;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-weight: 500;
-    color: var(--color-accent);
+.entry-desc {
+    font-size: 13px;
+    color: #6B6B6B;
+    line-height: 1.6;
 }
 
-.apple-pill-link span { transition: transform 0.3s ease; }
-.apple-pill-link:hover span { transform: translateX(4px); }
-
-@media (max-width: 768px) {
-    .timeline-entry { grid-template-columns: 1fr; gap: 10px; }
-    .apple-pill-link { justify-self: start; margin-top: 10px; }
+@media (max-width: 900px) {
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 /* --------------------------------------------------------------------------
