@@ -1,162 +1,185 @@
-/**
- * main.js
- * Redesign: Apple-style + Shiv's Motion Interactivity
- * Handles scroll reveals, accordion, intro transitions, and page wipes.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ----------------------------------------------------------------------
-    // TASK 1 & 6: INTRO SCREEN & HERO SCROLL SCALE
+    // TASK 1: INTRO OVERLAY
     // ----------------------------------------------------------------------
     const introOverlay = document.getElementById('intro-overlay');
-    const progressBar = document.querySelector('.intro-progress-bar');
-    const heroH1 = document.querySelector('.hero-headline');
-
-    if (introOverlay) {
-        // Start progress bar animation
-        setTimeout(() => {
-            progressBar.style.width = '100%';
-            progressBar.style.transition = 'width 2.5s linear';
-        }, 10);
-
-        // Slide up after 2.5s
-        setTimeout(() => {
-            introOverlay.classList.add('exit');
-            // Initial check for reveal-up animations in hero
-            document.querySelectorAll('.hero-section .reveal-up').forEach(el => el.classList.add('active'));
-        }, 2500);
-    }
-
-    // Scroll-Linked Text Scale for Hero Headline
-    window.addEventListener('scroll', () => {
-        if (!heroH1) return;
-        window.requestAnimationFrame(() => {
-            const progress = Math.min(window.scrollY / 400, 1);
-            heroH1.style.transform = `scale(${1 - progress * 0.4})`;
-            heroH1.style.opacity = 1 - progress;
-        });
-    });
-
-    // ----------------------------------------------------------------------
-    // TASK 4: FULL-PAGE SECTION WIPE TRANSITION
-    // ----------------------------------------------------------------------
-    function pageTransition(targetId) {
-        const wipe = document.getElementById('wipe-panel');
-        const target = document.querySelector(targetId);
-        
-        if (wipe) {
-            // First: Reset panel to left
-            wipe.style.transition = 'none';
-            wipe.style.transform = 'translateX(-100%)';
-            
-            // Trigger animation
-            setTimeout(() => {
-                wipe.style.transition = 'transform 0.4s cubic-bezier(0.76, 0, 0.24, 1)';
-                wipe.style.transform = 'translateX(0)';
-                
-                setTimeout(() => {
-                    // Midway point (covered by black): scroll instantly
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'auto'
-                        });
-                    }
-                    
-                    // Slide panel out to the right
-                    wipe.style.transform = 'translateX(100%)';
-                }, 400);
-            }, 10);
+    const heroName = document.querySelector('.hero-name');
+    
+    setTimeout(() => {
+        if (introOverlay) {
+            introOverlay.classList.add('hide');
         }
-    }
-
-    // Intercept nav links (nav-chips and nav-logo)
-    const links = document.querySelectorAll('.nav-chip, .nav-logo');
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                pageTransition(href);
+        // Run hero text animation after intro finishes
+        setTimeout(() => {
+            if (heroName) {
+                heroName.classList.add('animate');
+                // Apply stagger
+                const words = heroName.querySelectorAll('.word');
+                words.forEach((word, index) => {
+                    word.style.animationDelay = `${0.3 + index * 0.15}s`;
+                });
             }
-        });
-    });
+        }, 300);
+    }, 2400); // Intro lasts 2.5s (matching CSS progress bar)
 
-    // ----------------------------------------------------------------------
-    // SCROLL REVEAL ANIMATIONS (Intersection Observer)
-    // ----------------------------------------------------------------------
-    const revealElements = document.querySelectorAll('.reveal-up, .timeline-entry');
-
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealOnScroll = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal', 'active');
-            }
-        });
-    }, revealOptions);
-
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
-
-    // ----------------------------------------------------------------------
-    // SKILLS ACCORDION LOGIC
-    // ----------------------------------------------------------------------
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    const skillImg = document.getElementById('skill-display-img');
-
-    if (accordionItems.length > 0 && skillImg) {
-        accordionItems.forEach(item => {
-            item.addEventListener('click', () => {
-                accordionItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                
-                const newImgSrc = item.getAttribute('data-img');
-                skillImg.style.opacity = '0';
-                
-                setTimeout(() => {
-                    skillImg.src = newImgSrc;
-                    skillImg.style.opacity = '1';
-                }, 400);
-            });
-        });
-    }
 
     // ----------------------------------------------------------------------
     // TASK 3: ARCHITECTURAL CUSTOM CURSOR
     // ----------------------------------------------------------------------
     const cursorDot = document.getElementById('cursor-dot');
-    const cursorRing = document.getElementById('cursor-ring');
-    const interactiveElements = document.querySelectorAll('a, button, .nav-chip, .explore-card, .feature-card, .btn-brass-pill, .btn-primary, .btn-outline');
+    const cursorSquare = document.getElementById('cursor-square');
+    const links = document.querySelectorAll('a, button, .project-card-dark, .photo-container');
 
-    if (cursorDot && cursorRing) {
+    if (cursorDot && cursorSquare) {
         window.addEventListener('mousemove', (e) => {
             const { clientX: x, clientY: y } = e;
+            
+            // Immediate position for dot
             cursorDot.style.left = `${x}px`;
             cursorDot.style.top = `${y}px`;
             
-            cursorRing.style.left = `${x}px`;
-            cursorRing.style.top = `${y}px`;
+            // Lag/smooth position for square trailing
+            // Using requestAnimationFrame for better performance
+            cursorSquare.style.left = `${x}px`;
+            cursorSquare.style.top = `${y}px`;
         });
 
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorRing.classList.add('active');
-                if (el.classList.contains('explore-card')) {
-                    cursorRing.classList.add('diamond');
-                }
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursorSquare.classList.add('hover-diamond');
             });
-            el.addEventListener('mouseleave', () => {
-                cursorRing.classList.remove('active');
-                cursorRing.classList.remove('diamond');
+            link.addEventListener('mouseleave', () => {
+                cursorSquare.classList.remove('hover-diamond');
             });
         });
     }
+
+
+    // ----------------------------------------------------------------------
+    // TASK 4: WIPE PANEL (Cinematic Page Transition)
+    // ----------------------------------------------------------------------
+    const wipePanel = document.getElementById('wipe-panel');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-logo');
+
+    // Smooth page transitions or section transitions
+    function pageTransition(href) {
+        if (wipePanel) {
+            wipePanel.classList.add('start-wipe');
+            setTimeout(() => {
+                window.location.href = href;
+                // Since this might be same-page hash, handle reset
+                setTimeout(() => {
+                    wipePanel.classList.remove('start-wipe');
+                }, 800);
+            }, 500);
+        } else {
+            window.location.href = href;
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                // For same page anchors, maybe just smooth scroll but let's do the cinematic effect
+                e.preventDefault();
+                // If intro is still active, don't wipe
+                if (!introOverlay.classList.contains('hide')) return;
+                
+                wipePanel.classList.add('start-wipe');
+                setTimeout(() => {
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'auto' });
+                    }
+                    setTimeout(() => {
+                        wipePanel.classList.remove('start-wipe');
+                    }, 500);
+                }, 500);
+            }
+        });
+    });
+
+
+    // ----------------------------------------------------------------------
+    // NAVBAR SCROLL EFFECT
+    // ----------------------------------------------------------------------
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+
+    // ----------------------------------------------------------------------
+    // DARK MODE TOGGLE
+    // ----------------------------------------------------------------------
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            darkToggle.innerHTML = isDark ? '☀️' : '🌙';
+            
+            // Update CSS variables for dark mode if needed (or handle in CSS with .dark-mode selector)
+        });
+    }
+
+
+    // ----------------------------------------------------------------------
+    // INTERSECTION OBSERVER - REVEAL SYSTEM
+    // ----------------------------------------------------------------------
+    const revealOptions = { threshold: 0.15 };
+
+    const revealOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                
+                // Handle staggered children if needed
+                if (entry.target.classList.contains('reveal-stagger')) {
+                    const items = entry.target.querySelectorAll('.skill-item');
+                    items.forEach((item, idx) => {
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, idx * 50);
+                    });
+                }
+                
+                if (entry.target.classList.contains('reveal-item')) {
+                    // Staggering within a container? 
+                    // This handled by direct class addition
+                }
+
+                // Photo reveal logic
+                if (entry.target.classList.contains('reveal-photo')) {
+                    // Already adds 'active' which triggers CSS animation
+                }
+            }
+        });
+    }, revealOptions);
+
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-stagger, .reveal-photo');
+    revealElements.forEach(el => revealOnScroll.observe(el));
+
+    // Handle Timeline staggered reveal carefully
+    const timelineEntries = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, idx * 150); // Small stagger
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    timelineEntries.forEach(item => timelineObserver.observe(item));
 
 });
