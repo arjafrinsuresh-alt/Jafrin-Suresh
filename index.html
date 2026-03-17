@@ -51,9 +51,10 @@
         <div class="sub-nav-container">
             <a href="#hero" class="nav-chip">Jafrin.</a>
             <a href="#about" class="nav-chip">About</a>
+            <a href="#projects" class="nav-chip">Work</a>
+            <a href="#gallery" class="nav-chip">Gallery</a>
             <a href="#skills" class="nav-chip">Skills</a>
-            <a href="#projects" class="nav-chip">Projects</a>
-            <a href="#timeline" class="nav-chip">Experience</a>
+            <a href="#timeline" class="nav-chip">CV</a>
             <a href="#contact" class="nav-chip">Contact</a>
         </div>
     </div>
@@ -198,17 +199,25 @@
             </div>
 
             <div class="project-cards-row reveal-up">
+                <!-- 
+                  MAINTENANCE TIP: 
+                  To add a new project, copy one of the <article class="explore-card"> blocks below. 
+                  Update the <img> src, <h3> title, and <p> year. 
+                  The hover effect is handled automatically in main.css.
+                -->
+
                 <!-- Project 1 -->
                 <article class="explore-card">
                     <div class="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800" alt="Sustainable Green Roof Integration" class="card-image" loading="lazy">
                     </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Sustainable Green Roof</h3>
-                        <p class="card-year">2024</p>
+                    <div class="card-overlay">
+                        <div class="card-overlay-text">
+                            <h3 class="card-title">Sustainable Green Roof</h3>
+                            <p class="card-year">London · 2024</p>
+                        </div>
                         <div class="card-ctas">
-                            <a href="#" class="cta-link">Learn more ›</a>
-                            <a href="#" class="cta-link">View drawings ›</a>
+                            <a href="#" class="cta-link">View project ›</a>
                         </div>
                     </div>
                 </article>
@@ -218,12 +227,13 @@
                     <div class="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" alt="Residential Extension Planning" class="card-image" loading="lazy">
                     </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Residential Extension</h3>
-                        <p class="card-year">2023</p>
+                    <div class="card-overlay">
+                        <div class="card-overlay-text">
+                            <h3 class="card-title">Residential Extension</h3>
+                            <p class="card-year">Surrey · 2023</p>
+                        </div>
                         <div class="card-ctas">
-                            <a href="#" class="cta-link">Learn more ›</a>
-                            <a href="#" class="cta-link">View drawings ›</a>
+                            <a href="#" class="cta-link">View project ›</a>
                         </div>
                     </div>
                 </article>
@@ -233,12 +243,13 @@
                     <div class="card-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" alt="Airport Terminal Expansion Concept" class="card-image" loading="lazy">
                     </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Airport Terminal</h3>
-                        <p class="card-year">2022</p>
+                    <div class="card-overlay">
+                        <div class="card-overlay-text">
+                            <h3 class="card-title">Airport Terminal</h3>
+                            <p class="card-year">International · 2022</p>
+                        </div>
                         <div class="card-ctas">
-                            <a href="#" class="cta-link">Learn more ›</a>
-                            <a href="#" class="cta-link">View drawings ›</a>
+                            <a href="#" class="cta-link">View project ›</a>
                         </div>
                     </div>
                 </article>
@@ -247,9 +258,45 @@
     </section>
 
     <!-- ==========================================
-         SECTION 5: CINEMATIC BANNER
+         SECTION 5: STUDIO GALLERY (Interactive Masonry)
     =========================================== -->
-    <section id="banner" class="banner-section bg-gray">
+    <section id="gallery" class="gallery-section bg-gray">
+        <div class="container">
+            <h2 class="reveal-up" style="margin-bottom: 50px;">Studio Fragments.</h2>
+            <div class="gallery-grid reveal-up">
+                <!-- 
+                  MAINTENANCE TIP: 
+                  Masonry style gallery. Add images with class="gallery-item-wrapper".
+                  To make a 'tall' card, add class 'tall'.
+                -->
+                <div class="gallery-item-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=800" alt="Model Detail" class="gallery-img">
+                    <div class="gallery-caption">Physical Model Study</div>
+                </div>
+                <div class="gallery-item-wrapper tall">
+                    <img src="https://images.unsplash.com/photo-1487958449913-d9274906c2e8?auto=format&fit=crop&q=80&w=800" alt="Building Detail" class="gallery-img">
+                    <div class="gallery-caption">Facade Texture</div>
+                </div>
+                <div class="gallery-item-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800" alt="Light Study" class="gallery-img">
+                    <div class="gallery-caption">Atrium Sunlight</div>
+                </div>
+                <div class="gallery-item-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800" alt="Sketch" class="gallery-img">
+                    <div class="gallery-caption">Concept Sketch</div>
+                </div>
+                <div class="gallery-item-wrapper tall">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Office Space" class="gallery-img">
+                    <div class="gallery-caption">BIM Studio Work</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: CINEMATIC BANNER
+    =========================================== -->
+    <section id="banner" class="banner-section bg-white">
         <div class="container">
             <div class="cinematic-banner reveal-up">
                 <img src="images/hero-bg.jpg" alt="Architectural Building" class="banner-img" loading="lazy">
