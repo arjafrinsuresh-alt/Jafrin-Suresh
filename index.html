@@ -20,7 +20,7 @@
     <!-- Link to Google Fonts for elegant typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Link to local CSS files -->
     <link rel="stylesheet" href="styles/main.css">
@@ -29,7 +29,7 @@
 <body class="light-mode">
     
     <!-- ==========================================
-         LOADING SCREEN (Task 7)
+         LOADING SCREEN
     =========================================== -->
     <div id="loader" class="loader-overlay">
         <div class="loader-content">
@@ -45,7 +45,6 @@
     =========================================== -->
     <nav id="navbar" class="navbar">
         <div class="nav-container">
-            <!-- Update your logo or name here -->
             <a href="#hero" class="nav-logo">Jafrin.</a>
             
             <ul class="nav-links">
@@ -56,13 +55,11 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             
-            <!-- Dark Mode Toggle Button -->
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                 <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </button>
  
-            <!-- Mobile Menu Toggle -->
             <button class="mobile-menu-btn" aria-label="Open Menu">
                 <span></span>
                 <span></span>
@@ -75,17 +72,13 @@
          HERO SECTION
     =========================================== -->
     <header id="hero" class="hero-section">
-        <!-- HOW TO UPDATE HERO VIDEO: 
-             Generate or obtain your cinematic video, save it as an mp4, place it in the 'images' folder, and update the src attribute below -->
         <video autoplay loop muted playsinline poster="images/hero-bg.jpg" class="hero-background-video parallax" data-speed="0.5">
             <source src="images/hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <!-- Update your name below -->
             <h1 class="hero-title reveal-up">Jafrin Suretha Suresh</h1>
-            <!-- Update your tagline below -->
             <p id="typewriter-tagline" class="hero-tagline reveal-up delay-1"></p>
         </div>
         
@@ -95,30 +88,42 @@
     </header>
  
     <!-- ==========================================
-         1. ABOUT SECTION
+         1. ABOUT SECTION (Split-Screen Blueprint)
     =========================================== -->
-    <section id="about" class="about-section padding-section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image-wrapper reveal-up">
-                    <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="about-image" loading="lazy">
+    <section id="about" class="about-split">
+        <div class="about-left reveal-up">
+            <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="about-photo" loading="lazy">
+        </div>
+        <div class="about-right reveal-up">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="4" data-suffix="+">0</span>
+                    <span class="stat-label">Projects</span>
                 </div>
-                <div class="about-text">
-                    <h2 class="section-title reveal-up delay-1">Design Philosophy</h2>
-                    <p class="bio-text reveal-up delay-2">
-                        As a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies, I am driven by the intersection of innovative design and rigorous technical execution. My expertise spans the entire project lifecycle, ensuring seamless delivery across complex residential and commercial developments.
-                    </p>
-                    <p class="bio-text reveal-up delay-3">
-                        I believe architecture must be both deeply human-centric and environmentally responsible. By integrating sustainable design principles, green building performance metrics, and ISO 19650-compliant digital workflows, I strive to craft spaces that elevate the human experience while honoring and protecting their ecological context.
-                    </p>
-                    <div class="contact-quick reveal-up delay-4" style="flex-wrap: wrap; gap: 10px;">
-                        <span>London, UK</span>
-                        <span class="dot-separator">•</span>
-                        <a href="mailto:ar.jafrin.suresh@gmail.com">ar.jafrin.suresh@gmail.com</a>
-                        <span class="dot-separator">•</span>
-                        <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="2">0</span>
+                    <span class="stat-label">Countries</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="7">0</span>
+                    <span class="stat-label">Years Learning</span>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Design Philosophy</h2>
+            <p class="bio-text">
+                As a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies, I am driven by the intersection of innovative design and rigorous technical execution.
+            </p>
+            <p class="bio-text">
+                My expertise spans the entire project lifecycle, integrating sustainable principles, ISO 19650 workflows, and digital construction to craft spaces that elevate the human experience.
+            </p>
+
+            <div class="location-contact-row">
+                <span>London, UK</span>
+                <span class="dot-separator">•</span>
+                <a href="mailto:ar.jafrin.suresh@gmail.com">ar.jafrin.suresh@gmail.com</a>
+                <span class="dot-separator">•</span>
+                <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </div>
     </section>
@@ -168,7 +173,7 @@
     </section>
  
     <!-- ==========================================
-         3. PROJECTS SECTION (PORTFOLIO)
+         3. PROJECTS SECTION
     =========================================== -->
     <section id="projects" class="projects-section padding-section">
         <div class="container">
@@ -178,7 +183,6 @@
             </div>
  
             <div class="projects-grid">
-                
                 <article class="project-card reveal-up zoom-in delay-1">
                     <a href="projects/project-1.html" class="project-link">
                         <div class="project-image" style="background-image: url('images/project1-thumb.jpg');"></div>
@@ -208,7 +212,6 @@
                         </div>
                     </a>
                 </article>
- 
             </div>
         </div>
     </section>
@@ -229,7 +232,7 @@
                     <div class="timeline-content">
                         <h3>Architectural Designer</h3>
                         <h4>A&N Architects, London, UK</h4>
-                        <p>Managing 4+ planning applications end-to-end; authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes.</p>
+                        <p>Managing 4+ planning applications end-to-end; authoring and coordinating 20+ drawing sheets per project.</p>
                     </div>
                 </div>
  
@@ -238,7 +241,7 @@
                     <div class="timeline-content">
                         <h3>Architectural Assistant</h3>
                         <h4>Ruby Builders, Chennai, India</h4>
-                        <p>Produced technical drawing sheets per project across residential schemes in AutoCAD and Revit. Delivered photorealistic renders and walkthrough animations using Lumion and V-Ray.</p>
+                        <p>Produced technical drawing sheets and delivered walkthrough animations using Lumion and V-Ray.</p>
                     </div>
                 </div>
  
@@ -247,22 +250,7 @@
                     <div class="timeline-content">
                         <h3>MSc Advanced Construction Technologies and BIM</h3>
                         <h4>University of Strathclyde, Glasgow, UK</h4>
-                        <ul class="timeline-list">
-                            <li><strong>Modules:</strong> BIM Project Execution, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design, Digital Construction.</li>
-                            <li><strong>Dissertation:</strong> Enhancing Green Roof Design through Advanced BIM Integration – systematic review of 134 papers and 4 case studies, developing a BIM framework for sustainable design addressing environmental performance and building lifecycle management.</li>
-                            <li><strong>Final project:</strong> residential extension designed end-to-end in Revit – coordinated floor plans, sections, building regulations compliance check, and 3D visualisations.</li>
-                        </ul>
-                    </div>
-                </div>
- 
-                <div class="timeline-item reveal-up delay-4">
-                    <div class="timeline-date">2018 – 2023</div>
-                    <div class="timeline-content">
-                        <h3>Bachelor of Architecture (BArch) – Distinction</h3>
-                        <h4>Sathyabama Institute of Science and Technology, Chennai, India</h4>
-                        <ul class="timeline-list">
-                            <li>RIBA Part 1 & Part 2 equivalent qualification; thesis focused on airport terminal expansion – passenger flow modelling, spatial planning, and phased technical documentation.</li>
-                        </ul>
+                        <p>ISO 19650 Information Management and Digital Construction.</p>
                     </div>
                 </div>
             </div>
@@ -270,35 +258,24 @@
     </section>
  
     <!-- ==========================================
-         5. FOOTER & CONTACT SECTION
+         5. FOOTER & CONTACT SECTION (Reverted to B&W)
     =========================================== -->
-    <footer id="contact" class="footer">
-        <div class="container reveal-up">
-            <h1 class="contact-huge-title">Let's Connect</h1>
+    <footer id="contact" class="footer padding-section">
+        <div class="container text-center">
+            <h2 class="section-title reveal-up">Let's Connect</h2>
+            <p class="section-subtitle reveal-up delay-1">Currently seeking new opportunities in architectural design and BIM coordination.</p>
             
-            <div class="contact-links">
-                <a href="mailto:ar.jafrin.suresh@gmail.com" class="contact-link-large">ar.jafrin.suresh@gmail.com</a>
-                <a href="tel:+447586392913" class="contact-link-large">+44 7586 392913</a>
+            <div class="contact-links reveal-up delay-2" style="display: flex; justify-content: center; gap: 40px; margin-top: 3rem;">
+                <a href="mailto:ar.jafrin.suresh@gmail.com" class="btn btn-outline">Email Me</a>
+                <a href="tel:+447586392913" class="btn btn-outline">Call Me</a>
             </div>
 
-            <div class="social-links">
-                <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" rel="noopener noreferrer" class="social-link-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/arjafrinsuresh-alt/Portfolio" target="_blank" rel="noopener noreferrer" class="social-link-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    GitHub
-                </a>
-            </div>
-
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
                 <p>&copy; 2025 Jafrin Suretha Suresh &middot; Designed with precision</p>
             </div>
         </div>
     </footer>
  
-    <!-- Scripts -->
     <script src="scripts/main.js"></script>
 </body>
 </html>

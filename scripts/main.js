@@ -131,6 +131,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------------------------------------
+    // 4.5 NUMBER COUNTER ANIMATION
+    // ----------------------------------------------------------------------
+    const counters = document.querySelectorAll('.counter');
+    
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 2000; // 2 seconds
+        const stepTime = 20;   // 20ms steps
+        const totalSteps = duration / stepTime;
+        const increment = target / totalSteps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                counter.textContent = target + suffix;
+                clearInterval(timer);
+            } else {
+                counter.textContent = Math.floor(current) + suffix;
+            }
+        }, stepTime);
+    };
+
+    const counterOptions = {
+        threshold: 1.0,
+        rootMargin: "0px"
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, counterOptions);
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
+    // ----------------------------------------------------------------------
     // 5. CUSTOM CURSOR (Task 9)
     // ----------------------------------------------------------------------
     const cursorDot = document.createElement('div');
