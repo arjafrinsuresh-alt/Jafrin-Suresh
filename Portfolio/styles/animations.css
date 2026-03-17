@@ -10,8 +10,9 @@
 .reveal-up {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
 }
 
 .reveal-up.active {
@@ -22,14 +23,24 @@
 .zoom-in {
     opacity: 0;
     transform: scale(0.95);
-    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
 }
 
 .zoom-in.active {
     opacity: 1;
     transform: scale(1);
 }
+
+/* Staggered Delays */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+.delay-6 { transition-delay: 0.6s !important; }
+
 
 /* --------------------------------------------------------------------------
    HERO SCROLL INDICATOR
@@ -90,5 +101,19 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal-up, .zoom-in, .parallax {
+        transform: none !important;
+        opacity: 1 !important;
     }
 }

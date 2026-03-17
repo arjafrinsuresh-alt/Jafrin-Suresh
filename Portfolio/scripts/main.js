@@ -7,12 +7,45 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ----------------------------------------------------------------------
+    // 0. LOADING SCREEN (Task 7)
+    // ----------------------------------------------------------------------
+    const loader = document.getElementById('loader');
+    if (loader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 2000); // 2 seconds loading
+        });
+    }
+
+    // ----------------------------------------------------------------------
     // 1. DARK MODE TOGGLE
     // ----------------------------------------------------------------------
     const themeToggleBtn = document.getElementById('theme-toggle');
     const moonIcon = document.getElementById('moon-icon');
     const sunIcon = document.getElementById('sun-icon');
     const body = document.body;
+
+    // ----------------------------------------------------------------------
+    // TYPEWRITER EFFECT
+    // ----------------------------------------------------------------------
+    const taglineElement = document.getElementById('typewriter-tagline');
+    const textToType = "Designing spaces that shape experiences.";
+    let charIndex = 0;
+
+    function typeText() {
+        if (charIndex < textToType.length) {
+            taglineElement.textContent += textToType.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, 70); // Speed of typing
+        }
+    }
+
+    // Start typewriter after a short delay (for hero entrance)
+    setTimeout(typeText, 800);
 
     // Check saved theme in localStorage
     const savedTheme = localStorage.getItem('theme');
@@ -45,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 60) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -60,40 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', () => {
-            // Simple toggle for mobile view
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.backgroundColor = 'var(--color-bg-primary)';
-                navLinks.style.padding = '20px';
-                navLinks.style.alignItems = 'center';
-            }
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
     }
 
     // ----------------------------------------------------------------------
     // 4. SCROLL ANIMATIONS (Intersection Observer)
-    // Reveals elements as they scroll into view
     // ----------------------------------------------------------------------
-    const revealElements = document.querySelectorAll('.reveal-up, .zoom-in');
+    const revealElements = document.querySelectorAll('.reveal-up, .zoom-in, .skill-category');
 
     const revealOptions = {
-        threshold: 0.1, // Trigger when 10% of element is visible
-        rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits bottom of viewport
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: Stop observing once revealed
-                // observer.unobserve(entry.target); 
             }
         });
     }, revealOptions);
@@ -103,7 +121,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------------------------------------
-    // 5. PARALLAX HERO BACKGROUND
+    // 5. CUSTOM CURSOR (Task 9)
+    // ----------------------------------------------------------------------
+    const cursorDot = document.createElement('div');
+    const cursorRing = document.createElement('div');
+    cursorDot.className = 'cursor-dot';
+    cursorRing.className = 'cursor-ring';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorRing);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+
+    function animateRing() {
+        // Lag effect
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+        requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Scale on interaction
+    const interactables = document.querySelectorAll('a, button, .project-card');
+    interactables.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+    });
+
+    // ----------------------------------------------------------------------
+    // 6. PARALLAX HERO BACKGROUND
     // ----------------------------------------------------------------------
     const parallaxBg = document.querySelector('.parallax');
     
