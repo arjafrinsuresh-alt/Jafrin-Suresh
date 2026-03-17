@@ -14,7 +14,7 @@
 </head>
 <body class="light-mode">
     
-    <!-- TASK 1: INTRO OVERLAY (Shiv-style) -->
+    <!-- TASK 1: INTRO OVERLAY -->
     <div id="intro-overlay">
         <div class="intro-text-container">
             <h1 class="intro-title">JAFRIN.</h1>
@@ -23,10 +23,10 @@
         <div class="intro-progress-bar"></div>
     </div>
 
-    <!-- TASK 4: WIPE PANEL (Cinematic Transition) -->
+    <!-- TASK 4: WIPE PANEL -->
     <div id="wipe-panel"></div>
 
-    <!-- TASK 3: ARCHITECTURAL CURSOR -->
+    <!-- ARCHITECTURAL CURSOR -->
     <div id="cursor-dot"></div>
     <div id="cursor-square"></div>
     
@@ -34,6 +34,7 @@
          NAVIGATION BAR
     =========================================== -->
     <nav class="navbar">
+        <div class="nav-container">
             <div class="nav-left">
                 <a href="#hero" class="nav-logo">Jafrin.</a>
             </div>
@@ -46,7 +47,7 @@
                 <ul class="nav-links">
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#projects" class="nav-link">Work</a></li>
                     <li><a href="#timeline" class="nav-link">Education</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -106,7 +107,7 @@
                         As a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies, I am driven by the intersection of innovative design and rigorous technical execution. My expertise spans the entire project lifecycle, ensuring seamless delivery across complex residential and commercial developments.
                     </p>
                     <p class="bio-paragraph">
-                        I believe architecture is more than just built form; it's a medium for shaping human experience and environmental stewardship. By leveraging advanced BIM workflows and performance-driven design, I aim to create spaces that are as technically sound as they are emotionally resonant.
+                        I believe architecture must be both deeply human-centric and environmentally responsible. By integrating sustainable design principles, green building performance metrics, and ISO 19650-compliant digital workflows, I strive to craft spaces that elevate the human experience while honoring and protecting their ecological context.
                     </p>
                     <div class="location-contact-line">
                         <span>London, UK</span> · 
@@ -164,20 +165,25 @@
     </section>
 
     <!-- ==========================================
-         SECTION 4: PROJECTS
+         SECTION 4: SELECTED WORKS
     =========================================== -->
     <section id="projects" class="projects-section bg-white">
         <div class="container">
+            <div class="section-header reveal-up" style="margin-bottom: 50px;">
+                <h2 style="font-size: 48px; font-weight: 700;">Selected Works.</h2>
+                <p style="color: var(--color-text-secondary); margin-top: 10px;">A curated selection of architectural and BIM projects.</p>
+            </div>
+            
             <div class="projects-grid-minimal">
                 <!-- Project 1 -->
                 <article class="project-card-dark reveal-up">
                     <div class="card-image-box">
-                        <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop" alt="Sustainable Green Roof">
+                        <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop" alt="Development & Visualization">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
-                            <h3 class="card-title">Sustainable Green Roof Integration</h3>
-                            <p class="card-year">2024</p>
+                            <h3 class="card-title">Architectural Design Development & Visualization</h3>
+                            <p class="card-year">2023</p>
                         </div>
                         <div class="card-links">
                             <a href="#" class="btn-text">Learn more ›</a>
@@ -198,7 +204,7 @@
                         </div>
                         <div class="card-links">
                             <a href="#" class="btn-text">Learn more ›</a>
-                            <a href="#" class="cta-link">View drawings ›</a>
+                            <a href="#" class="btn-text">View drawings ›</a>
                         </div>
                     </div>
                 </article>
@@ -224,44 +230,60 @@
     </section>
 
     <!-- ==========================================
-         SECTION 5: EDUCATION / TIMELINE
+         SECTION 5: EDUCATION & EXPERIENCE
     =========================================== -->
     <section id="timeline" class="timeline-section-vertical bg-gray">
         <div class="container">
+            <h2 class="reveal-up" style="font-size: 48px; font-weight: 700; margin-bottom: 60px; text-align: center;">Experience & Education.</h2>
+            
             <div class="timeline-vertical-wrapper reveal-up">
                 <div class="timeline-line"></div>
                 
-                <!-- Entry 1 -->
+                <!-- Experience 1 -->
                 <div class="timeline-item reveal-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="entry-date">Oct 2025 – Present</span>
                         <h3 class="entry-title">Architectural Designer</h3>
                         <p class="entry-org">A&N Architects, London, UK</p>
-                        <p class="entry-desc">Managing planning applications end-to-end for residential schemes.</p>
+                        <p class="entry-desc">Managing 4+ planning applications end-to-end; authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes.</p>
                         <a href="assets/Jafrin_Part II.pdf" class="btn-text underline-brass" download>Download CV ›</a>
                     </div>
                 </div>
 
-                <!-- Entry 2 -->
+                <!-- Experience 2 -->
+                <div class="timeline-item reveal-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="entry-date">Dec 2022 – Dec 2023</span>
+                        <h3 class="entry-title">Architectural Assistant</h3>
+                        <p class="entry-org">Ruby Builders, Chennai, India</p>
+                        <p class="entry-desc">Produced technical drawing sheets per project across residential schemes in AutoCAD and Revit. Delivered photorealistic renders and walkthrough animations using Lumion and V-Ray.</p>
+                    </div>
+                </div>
+
+                <!-- Education 1 -->
                 <div class="timeline-item reveal-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="entry-date">2024 – 2025</span>
                         <h3 class="entry-title">MSc Advanced Construction Technologies & BIM</h3>
                         <p class="entry-org">University of Strathclyde, Glasgow, UK</p>
-                        <p class="entry-desc">Research on enhancing green roof design through BIM integration.</p>
+                        <div class="entry-desc">
+                            <p style="margin-bottom: 8px;"><strong>Modules:</strong> BIM Project Execution, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design, Digital Construction.</p>
+                            <p><strong>Dissertation:</strong> Enhancing Green Roof Design through Advanced BIM Integration – systematic review of 134 papers and 4 case studies for building lifecycle management.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Entry 3 -->
+                <!-- Education 2 -->
                 <div class="timeline-item reveal-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="entry-date">2018 – 2023</span>
-                        <h3 class="entry-title">Bachelor of Architecture (BArch)</h3>
-                        <p class="entry-org">Sathyabama Institute, Chennai</p>
-                        <p class="entry-desc">Distinction. Focused on large-scale passenger flow modelling.</p>
+                        <h3 class="entry-title">Bachelor of Architecture (BArch) – Distinction</h3>
+                        <p class="entry-org">Sathyabama Institute of Science and Technology, Chennai, India</p>
+                        <p class="entry-desc">RIBA Part 1 & Part 2 equivalent. Thesis: Airport terminal expansion, passenger flow modelling, spatial planning, and phased technical documentation.</p>
                     </div>
                 </div>
             </div>
@@ -281,7 +303,10 @@
                 <a href="tel:+447586392913" class="contact-link-item animated-underline">+44 7586 392913</a>
             </div>
             
-            <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" class="contact-link-item animated-underline reveal-up">View LinkedIn ›</a>
+            <div class="reveal-up" style="display: flex; justify-content: center; gap: 30px; margin-top: 10px;">
+                <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" class="contact-link-item animated-underline">View LinkedIn ›</a>
+                <a href="https://github.com/arjafrinsuresh-alt/Portfolio" target="_blank" class="contact-link-item animated-underline">GitHub ›</a>
+            </div>
 
             <div class="footer-minimal">
                 <p>&copy; 2025 Jafrin Suretha Suresh · Architectural Designer · RIBA Part 2.</p>
