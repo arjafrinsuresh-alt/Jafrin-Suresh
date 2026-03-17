@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jafrin Suretha Suresh | Architectural Designer</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Portfolio of Jafrin Suretha Suresh, RIBA Part 2 Architectural Designer and BIM Technologist based in London, UK.">
+    <meta name="keywords" content="Architect, BIM Technologist, RIBA, London, Portfolio, Design">
+    
+    <!-- Link to Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to local CSS files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body class="light-mode">
+    
+    <!-- ==========================================
+         NAVIGATION BAR
+    =========================================== -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <!-- Update your logo or name here -->
+            <a href="#hero" class="nav-logo">Jafrin.</a>
+            
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         HERO SECTION
+    =========================================== -->
+    <header id="hero" class="hero-section">
+        <!-- HOW TO UPDATE HERO VIDEO: 
+             Generate or obtain your cinematic video, save it as an mp4, place it in the 'images' folder, and update the src attribute below -->
+        <video autoplay loop muted playsinline poster="images/hero-bg.jpg" class="hero-background-video parallax" data-speed="0.5">
+            <source src="images/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content reveal-up">
+            <!-- Update your name below -->
+            <h1 class="hero-title">Jafrin Suretha Suresh</h1>
+            <!-- Update your tagline below -->
+            <p class="hero-tagline">Designing spaces that shape experiences.</p>
+        </div>
+        
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <span></span>
+        </a>
+    </header>
+
+    <!-- ==========================================
+         1. ABOUT SECTION
+    =========================================== -->
+    <section id="about" class="about-section padding-section">
+        <div class="container reveal-up">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="about-image" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Design Philosophy</h2>
+                    <p class="bio-text">
+                        As a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies, I am driven by the intersection of innovative design and rigorous technical execution. My expertise spans the entire project lifecycle, ensuring seamless delivery across complex residential and commercial developments.
+                    </p>
+                    <p class="bio-text">
+                        I believe architecture must be both deeply human-centric and environmentally responsible. By integrating sustainable design principles, green building performance metrics, and ISO 19650-compliant digital workflows, I strive to craft spaces that elevate the human experience while honoring and protecting their ecological context.
+                    </p>
+                    <div class="contact-quick" style="flex-wrap: wrap; gap: 10px;">
+                        <span>London, UK</span>
+                        <span class="dot-separator">•</span>
+                        <a href="mailto:ar.jafrin.suresh@gmail.com">ar.jafrin.suresh@gmail.com</a>
+                        <span class="dot-separator">•</span>
+                        <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         2. SKILLS SECTION
+    =========================================== -->
+    <section id="skills" class="skills-section padding-section bg-alt">
+        <div class="container reveal-up">
+            <h2 class="section-title text-center">Technical Expertise</h2>
+            <div class="skills-wrapper">
+                
+                <div class="skill-category">
+                    <h3>BIM & CAD</h3>
+                    <ul class="skill-list">
+                        <li>Revit</li>
+                        <li>AutoCAD</li>
+                        <li>Navisworks</li>
+                        <li>BIM 360</li>
+                        <li>COBie</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Visualisation</h3>
+                    <ul class="skill-list">
+                        <li>Lumion</li>
+                        <li>TwinMotion</li>
+                        <li>Enscape</li>
+                        <li>V-Ray</li>
+                        <li>SketchUp</li>
+                        <li>Rhino</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Production</h3>
+                    <ul class="skill-list">
+                        <li>Photoshop</li>
+                        <li>InDesign</li>
+                        <li>Illustrator</li>
+                        <li>Technical Drawings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. PROJECTS SECTION (PORTFOLIO)
+    =========================================== -->
+    <section id="projects" class="projects-section padding-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Selected Works</h2>
+                <p class="section-subtitle">A curated selection of architectural and BIM projects.</p>
+            </div>
+
+            <div class="projects-grid">
+                
+                <article class="project-card reveal-up zoom-in">
+                    <a href="projects/project-1.html" class="project-link">
+                        <div class="project-image" style="background-image: url('images/project1-thumb.jpg');"></div>
+                        <div class="project-info">
+                            <h3 class="project-title">Sustainable Green Roof Integration</h3>
+                            <span class="project-year">2024</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card reveal-up zoom-in" style="transition-delay: 0.1s;">
+                    <a href="projects/project-2.html" class="project-link">
+                        <div class="project-image" style="background-image: url('images/project2-thumb.jpg');"></div>
+                        <div class="project-info">
+                            <h3 class="project-title">Residential Extension Planning</h3>
+                            <span class="project-year">2023</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card reveal-up zoom-in" style="transition-delay: 0.2s;">
+                    <a href="projects/project-3.html" class="project-link">
+                        <div class="project-image" style="background-image: url('images/project3-thumb.jpg');"></div>
+                        <div class="project-info">
+                            <h3 class="project-title">Airport Terminal Expansion Concept</h3>
+                            <span class="project-year">2022</span>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. RESUME SECTION
+    =========================================== -->
+    <section id="resume" class="resume-section padding-section bg-alt">
+        <div class="container reveal-up">
+            <div class="resume-header">
+                <h2 class="section-title">Experience & Education</h2>
+                <a href="assets/Jafrin_Part%20II.pdf" class="btn btn-primary" download>Download CV</a>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2025 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Architectural Designer</h3>
+                        <h4>A&N Architects, London, UK</h4>
+                        <p>Managing 4+ planning applications end-to-end; authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 2022 – Dec 2023</div>
+                    <div class="timeline-content">
+                        <h3>Architectural Assistant</h3>
+                        <h4>Ruby Builders, Chennai, India</h4>
+                        <p>Produced technical drawing sheets per project across residential schemes in AutoCAD and Revit. Delivered photorealistic renders and walkthrough animations using Lumion and V-Ray.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 – 2025</div>
+                    <div class="timeline-content">
+                        <h3>MSc Advanced Construction Technologies and BIM</h3>
+                        <h4>University of Strathclyde, Glasgow, UK</h4>
+                        <ul class="timeline-list">
+                            <li><strong>Modules:</strong> BIM Project Execution, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design, Digital Construction.</li>
+                            <li><strong>Dissertation:</strong> Enhancing Green Roof Design through Advanced BIM Integration – systematic review of 134 papers and 4 case studies, developing a BIM framework for sustainable design addressing environmental performance and building lifecycle management.</li>
+                            <li><strong>Final project:</strong> residential extension designed end-to-end in Revit – coordinated floor plans, sections, building regulations compliance check, and 3D visualisations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2018 – 2023</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Architecture (BArch) – Distinction</h3>
+                        <h4>Sathyabama Institute of Science and Technology, Chennai, India</h4>
+                        <ul class="timeline-list">
+                            <li>RIBA Part 1 & Part 2 equivalent qualification; thesis focused on airport terminal expansion – passenger flow modelling, spatial planning, and phased technical documentation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. FOOTER & CONTACT SECTION
+    =========================================== -->
+    <footer id="contact" class="footer padding-section">
+        <div class="container reveal-up">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle" style="margin: 0 auto 3rem auto;">Currently seeking new opportunities in architectural design and BIM coordination.</p>
+            
+            <div class="contact-links" style="flex-wrap: wrap;">
+                <a href="mailto:ar.jafrin.suresh@gmail.com" class="contact-link">ar.jafrin.suresh@gmail.com</a>
+                <a href="tel:+447586392913" class="contact-link">+44 7586 392913</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://github.com/arjafrinsuresh-alt/Portfolio" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jafrin Suretha Suresh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>

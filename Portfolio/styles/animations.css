@@ -1,0 +1,94 @@
+/* ==========================================================================
+   animations.css
+   Handles smooth Apple-style micro-interactions and scroll reveals
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL ANIMATIONS 
+   (Triggered by JavaScript adding the 'active' class)
+   -------------------------------------------------------------------------- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.zoom-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   HERO SCROLL INDICATOR
+   -------------------------------------------------------------------------- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: scrollMove 2s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+@keyframes scrollMove {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   PARALLAX EFFECT (Assisted by JS)
+   -------------------------------------------------------------------------- */
+.parallax {
+    will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   FADE IN ON LOAD
+   -------------------------------------------------------------------------- */
+.fade-in-load {
+    animation: fadeInLoad 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
