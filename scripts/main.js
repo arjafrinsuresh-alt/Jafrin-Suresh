@@ -128,4 +128,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ----------------------------------------------------------------------
+    // TASK 3: ARCHITECTURAL CUSTOM CURSOR
+    // ----------------------------------------------------------------------
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    const interactiveElements = document.querySelectorAll('a, button, .nav-chip, .explore-card, .feature-card, .btn-brass-pill, .btn-primary, .btn-outline');
+
+    if (cursorDot && cursorRing) {
+        window.addEventListener('mousemove', (e) => {
+            const { clientX: x, clientY: y } = e;
+            cursorDot.style.left = `${x}px`;
+            cursorDot.style.top = `${y}px`;
+            
+            cursorRing.style.left = `${x}px`;
+            cursorRing.style.top = `${y}px`;
+        });
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorRing.classList.add('active');
+                if (el.classList.contains('explore-card')) {
+                    cursorRing.classList.add('diamond');
+                }
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorRing.classList.remove('active');
+                cursorRing.classList.remove('diamond');
+            });
+        });
+    }
+
 });

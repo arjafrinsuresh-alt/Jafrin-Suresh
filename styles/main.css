@@ -54,6 +54,57 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    cursor: none; /* Hide default for custom cursor */
+}
+
+a, button, .nav-chip, .explore-card, .feature-card {
+    cursor: none; /* Hide for interactive elements too */
+}
+
+/* ARCHITECTURAL CURSOR */
+#cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-brass);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+#cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--color-brass);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease, top 0.1s ease, left 0.1s ease;
+    will-change: width, height, transform, border-radius;
+}
+
+/* Hover States for Cursor */
+#cursor-ring.active {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px; /* Architectural square crosshair */
+}
+
+#cursor-ring.diamond {
+    transform: translate(-50%, -50%) rotate(45deg); /* Diamond marker */
+}
+
+@media (max-width: 900px) {
+    #cursor-dot, #cursor-ring {
+        display: none;
+    }
+    body, a, button {
+        cursor: auto;
+    }
 }
 
 body {
