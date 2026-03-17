@@ -738,82 +738,103 @@ body.dark-mode .navbar.scrolled,
 /* --------------------------------------------------------------------------
    FOOTER (CONTACT)
    -------------------------------------------------------------------------- */
-/* Task 8: Enhanced Contact Section */
+/* Task 6: Full-Screen Contact Section Replacement */
 .footer {
     position: relative;
-    background: linear-gradient(-45deg, var(--color-bg-primary), var(--color-bg-secondary), var(--color-bg-primary));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    background-color: #1A1A18;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px; /* Isometric/Grid Dot density */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 100px 5%;
+    overflow: hidden;
 }
 
-body.dark-mode .footer {
-    background: linear-gradient(-45deg, #2C2420, #3D332F, #2C2420);
+.footer .container {
+    width: 100%;
+    z-index: 2;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.contact-huge-title {
+    font-size: 8vw;
+    font-weight: 200;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
 }
 
 .contact-links {
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
-.contact-link {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+.contact-link-large {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 300;
+    color: #F4F4F2;
     text-decoration: none;
     position: relative;
-    margin: 10px 20px;
-    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.contact-link::after {
+.contact-link-large::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
-    height: 3px;
+    height: 1px;
     background-color: var(--color-accent);
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.contact-link:hover::after {
+.contact-link-large:hover::after {
     width: 100%;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 60px;
+    gap: 40px;
+    margin-bottom: 80px;
 }
 
-.social-links a {
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid var(--color-border);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9A9A94;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-    background-color: var(--color-accent);
-    color: #1A1A18;
-    transform: scale(1.1);
-    border-color: var(--color-accent);
+.social-link-item:hover {
+    color: var(--color-accent);
 }
 
 .footer-bottom {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .contact-huge-title {
+        font-size: 15vw;
+    }
 }
 
 /* --------------------------------------------------------------------------
