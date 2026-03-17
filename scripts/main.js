@@ -1,127 +1,25 @@
 /**
  * main.js
- * Handles interactivity for the Jafrin Suretha Suresh Portfolio.
- * Written in Vanilla JavaScript for easy maintenance.
+ * Redesign: Apple-style Interactivity
+ * Handles scroll reveals, accordion transitions, and sticky navigations.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     
     // ----------------------------------------------------------------------
-    // 0. LOADING SCREEN (Task 7)
+    // 1. SCROLL REVEAL ANIMATIONS (Intersection Observer)
     // ----------------------------------------------------------------------
-    const loader = document.getElementById('loader');
-    if (loader) {
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    // Start typewriter after loader is gone
-                    setTimeout(typeText, 400);
-                }, 800);
-            }, 2000); // 2 seconds loading
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 1. DARK MODE TOGGLE
-    // ----------------------------------------------------------------------
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const moonIcon = document.getElementById('moon-icon');
-    const sunIcon = document.getElementById('sun-icon');
-    const body = document.body;
-
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.remove('light-mode');
-            body.classList.add('dark-mode');
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            body.classList.remove('dark-mode');
-            body.classList.add('light-mode');
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
-            localStorage.setItem('theme', 'light');
-        }
-    }
-
-    // Initial check (Priority: LocalStorage > System Preffered)
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else if (prefersDark) {
-        setTheme('dark');
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 1.5 TYPEWRITER EFFECT
-    // ----------------------------------------------------------------------
-    const taglineElement = document.getElementById('typewriter-tagline');
-    const textToType = "Designing spaces that shape experiences.";
-    let charIndex = 0;
-
-    function typeText() {
-        if (taglineElement && charIndex < textToType.length) {
-            taglineElement.textContent += textToType.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeText, 70); 
-        }
-    }
-
-    // ----------------------------------------------------------------------
-    // 2. STICKY NAVBAR ON SCROLL
-    // ----------------------------------------------------------------------
-    const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // ----------------------------------------------------------------------
-    // 3. MOBILE MENU TOGGLE
-    // ----------------------------------------------------------------------
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // 4. SCROLL ANIMATIONS (Intersection Observer)
-    // ----------------------------------------------------------------------
-    const revealElements = document.querySelectorAll('.reveal-up, .zoom-in, .skill-category');
+    const revealElements = document.querySelectorAll('.reveal-up, .timeline-entry');
 
     const revealOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    const revealOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                entry.target.classList.add('reveal', 'active');
             }
         });
     }, revealOptions);
@@ -131,96 +29,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------------------------------------
-    // 4.5 NUMBER COUNTER ANIMATION
+    // 2. SKILLS ACCORDION LOGIC
     // ----------------------------------------------------------------------
-    const counters = document.querySelectorAll('.counter');
-    
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const suffix = counter.getAttribute('data-suffix') || '';
-        const duration = 2000; // 2 seconds
-        const stepTime = 20;   // 20ms steps
-        const totalSteps = duration / stepTime;
-        const increment = target / totalSteps;
-        let current = 0;
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    const skillImg = document.getElementById('skill-display-img');
 
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                counter.textContent = target + suffix;
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current) + suffix;
-            }
-        }, stepTime);
-    };
-
-    const counterOptions = {
-        threshold: 1.0,
-        rootMargin: "0px"
-    };
-
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, counterOptions);
-
-    counters.forEach(counter => {
-        counterObserver.observe(counter);
-    });
-
-    // ----------------------------------------------------------------------
-    // 5. CUSTOM CURSOR (Task 9)
-    // ----------------------------------------------------------------------
-    const cursorDot = document.createElement('div');
-    const cursorRing = document.createElement('div');
-    cursorDot.className = 'cursor-dot';
-    cursorRing.className = 'cursor-ring';
-    document.body.appendChild(cursorDot);
-    document.body.appendChild(cursorRing);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-    });
-
-    function animateRing() {
-        // Lag effect
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
-        cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-        requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    // Scale on interaction
-    const interactables = document.querySelectorAll('a, button, .project-card');
-    interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
-    });
-
-    // ----------------------------------------------------------------------
-    // 6. PARALLAX HERO BACKGROUND
-    // ----------------------------------------------------------------------
-    const parallaxBg = document.querySelector('.parallax');
-    
-    if (parallaxBg) {
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const speed = parallaxBg.getAttribute('data-speed') || 0.5;
-            // Move background slower than foreground
-            parallaxBg.style.transform = `translateY(${scrollPosition * speed}px)`;
+    if (accordionItems.length > 0 && skillImg) {
+        accordionItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Deactivate all others
+                accordionItems.forEach(i => i.classList.remove('active'));
+                
+                // Activate clicked
+                item.classList.add('active');
+                
+                // Change image with smooth fade
+                const newImgSrc = item.getAttribute('data-img');
+                skillImg.style.opacity = '0';
+                
+                setTimeout(() => {
+                    skillImg.src = newImgSrc;
+                    skillImg.style.opacity = '1';
+                }, 400);
+            });
         });
     }
+
+    // ----------------------------------------------------------------------
+    // 3. SUB-NAV CHIP SCROLLING (Auto-scroll container when active)
+    // ----------------------------------------------------------------------
+    const subNav = document.querySelector('.sub-nav');
+    const sections = document.querySelectorAll('section, header');
+    const navChips = document.querySelectorAll('.nav-chip');
+
+    window.addEventListener('scroll', () => {
+        let current = "";
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navChips.forEach(chip => {
+            chip.classList.remove('active');
+            if (chip.getAttribute('href').includes(current)) {
+                chip.classList.add('active');
+            }
+        });
+    });
+
+    // Optional: Smooth scroll for nav chips
+    navChips.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = chip.getAttribute('href');
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                window.scrollTo({
+                    top: targetEl.offsetTop - 88, // Navbar + Sub-nav height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
 });
