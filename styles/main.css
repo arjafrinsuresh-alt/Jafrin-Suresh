@@ -493,54 +493,54 @@ ul {
    -------------------------------------------------------------------------- */
 .skills-section {
     padding: var(--section-padding-desktop);
+    background-color: var(--color-bg-gray);
     position: relative;
     overflow: hidden;
-}
-
-.watermark-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(100px, 15vw, 180px);
-    font-weight: 700;
-    color: rgba(0,0,0,0.02);
-    white-space: nowrap;
-    z-index: 0;
-    pointer-events: none;
-    text-transform: uppercase;
-    user-select: none;
 }
 
 .skills-grid-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 80px;
     position: relative;
     z-index: 1;
 }
 
 .skill-category-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-text-dark);
-    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .skill-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    list-style: none;
 }
 
 .skill-item {
-    font-size: 19px;
-    color: var(--color-text-secondary);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-dark);
     opacity: 0;
     transform: translateX(-15px);
-    transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Blue Bullet */
+.skill-item::before {
+    content: "•";
+    color: var(--color-blue);
+    position: absolute;
+    left: 0;
+    font-size: 18px;
 }
 
 .skill-item.active {
