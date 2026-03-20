@@ -493,7 +493,7 @@ ul {
     margin-top: 50px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-text-muted);
+    color: var(--color-muted);
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -623,7 +623,7 @@ ul {
 }
 
 .card-year {
-    color: var(--color-text-muted);
+    color: var(--color-muted);
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -713,7 +713,7 @@ ul {
 }
 
 .entry-desc {
-    color: var(--color-text-muted);
+    color: var(--color-muted);
     max-width: 650px;
     font-size: 16px;
 }
@@ -780,7 +780,7 @@ ul {
     margin-top: 120px;
     font-size: 13px;
     font-weight: 500;
-    color: var(--color-text-muted);
+    color: var(--color-muted);
 }
 
 /* --------------------------------------------------------------------------
