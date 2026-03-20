@@ -6,19 +6,20 @@
 */
 
 :root {
-    /* Core Palette */
-    --color-bg-white: #FFFFFF;
-    --color-bg-gray: #F5F5F5;
-    --color-bg-dark: #1A1A18;
+    /* 
+       Dynamic Color System: Terracotta & Sand 
+       Provided by User for Light/Dark interface
+    */
     
-    --color-text-dark: #1D1D1F;
-    --color-text-secondary: #555555;
-    --color-text-muted: #86868B;
-    --color-text-white: #F5F5F7;
-    
-    /* Architectural Accents */
-    --color-brass: #B8922A;
-    --color-blue: #0071E3; /* Apple Blue for Timeline Dots */
+    /* Light Mode (Base) */
+    --color-bg: #F5F0EE;
+    --color-surface: #EDE4E0;
+    --color-card: #FFFFFF; /* Clean white cards for light mode */
+    --color-border: #D4C4BE;
+    --color-muted: #9A8480;
+    --color-text: #1E1614;
+    --color-accent: #B85C40;
+    --color-hover: #D47055;
     
     /* Layout Constants */
     --navbar-height: 80px;
@@ -26,6 +27,18 @@
     --section-padding-mobile: 60px 20px;
     --border-radius-apple: 16px;
     --transition-apple: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Dark Mode - Terracotta Palette */
+body.dark-mode {
+    --color-bg: #0E0B0A;
+    --color-surface: #1A1410;
+    --color-card: #261C18;
+    --color-border: #3A2820;
+    --color-muted: #907068;
+    --color-text: #F2EAE5;
+    --color-accent: #B85C40;
+    --color-hover: #D47055;
 }
 
 /* --------------------------------------------------------------------------
@@ -46,8 +59,8 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--color-bg-white);
-    color: var(--color-text-dark);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -69,8 +82,8 @@ ul {
 }
 
 .text-center { text-align: center; }
-.bg-white { background-color: var(--color-bg-white); }
-.bg-gray { background-color: var(--color-bg-gray); }
+.bg-white { background-color: var(--color-bg); }
+.bg-gray { background-color: var(--color-surface); }
 
 /* --------------------------------------------------------------------------
    ARCHITECTURAL CUSTOM CURSOR
@@ -78,7 +91,7 @@ ul {
 #cursor-dot {
     width: 6px;
     height: 6px;
-    background: var(--color-brass);
+    background: var(--color-accent);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -89,7 +102,7 @@ ul {
 #cursor-square {
     width: 32px;
     height: 32px;
-    border: 1.5px solid var(--color-brass);
+    border: 1.5px solid var(--color-accent);
     border-radius: 4px;
     position: fixed;
     pointer-events: none;
@@ -158,7 +171,7 @@ ul {
     bottom: 0;
     left: 0;
     height: 4px;
-    background: var(--color-brass);
+    background: var(--color-accent);
     width: 0;
     animation: progressFill 2.5s ease-in-out forwards;
 }
@@ -209,10 +222,11 @@ ul {
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--color-bg);
+    opacity: 0.95;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .nav-container {
@@ -226,7 +240,7 @@ ul {
 .nav-logo {
     font-size: 24px;
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--color-text);
 }
 
 .nav-links {
@@ -237,12 +251,12 @@ ul {
 .nav-link {
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-text-dark);
+    color: var(--color-text);
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-brass);
+    color: var(--color-accent);
 }
 
 .nav-icon-btn {
@@ -268,7 +282,7 @@ ul {
 .hamburger-bar {
     width: 100%;
     height: 1.5px;
-    background: var(--color-text-dark);
+    background: var(--color-text);
     transition: 0.3s ease;
 }
 
@@ -463,14 +477,14 @@ ul {
 .section-heading {
     font-size: clamp(32px, 5vw, 48px);
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--color-text);
     margin-bottom: 30px;
     letter-spacing: -1px;
 }
 
 .bio-paragraph {
     font-size: 18px;
-    color: var(--color-text-secondary);
+    color: var(--color-muted);
     margin-bottom: 25px;
     max-width: 700px;
 }
@@ -485,7 +499,7 @@ ul {
 }
 
 .location-contact-line a:hover {
-    color: var(--color-brass);
+    color: var(--color-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -509,7 +523,7 @@ ul {
 .skill-category-label {
     font-size: 16px;
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: var(--color-muted);
     letter-spacing: 0.5px;
     margin-bottom: 20px;
     padding-bottom: 12px;
@@ -526,7 +540,7 @@ ul {
 .skill-item {
     font-size: 18px;
     font-weight: 500;
-    color: var(--color-text-dark);
+    color: var(--color-text);
     opacity: 0;
     transform: translateX(-15px);
     transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -537,7 +551,7 @@ ul {
 /* Blue Bullet */
 .skill-item::before {
     content: "•";
-    color: var(--color-blue);
+    color: var(--color-accent);
     position: absolute;
     left: 0;
     font-size: 18px;
@@ -562,10 +576,11 @@ ul {
 }
 
 .project-card-dark {
-    background: var(--color-bg-dark);
+    background: var(--color-card);
     border-radius: 20px;
     overflow: hidden;
-    color: #FFF;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -623,7 +638,7 @@ ul {
 .btn-text {
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-brass);
+    color: var(--color-accent);
     letter-spacing: 0.5px;
 }
 
@@ -669,15 +684,15 @@ ul {
     top: 6px;
     width: 12px;
     height: 12px;
-    background: var(--color-blue);
+    background: var(--color-accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.1);
+    box-shadow: 0 0 0 6px var(--color-border);
 }
 
 .entry-date {
     font-size: 11px;
     font-weight: 700;
-    color: var(--color-blue);
+    color: var(--color-accent);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     display: block;
@@ -687,13 +702,13 @@ ul {
 .entry-title {
     font-size: 24px;
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: var(--color-text);
 }
 
 .entry-org {
     font-size: 16px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--color-muted);
     margin-bottom: 12px;
 }
 
@@ -705,7 +720,7 @@ ul {
 
 .underline-brass {
     display: inline-block;
-    border-bottom: 1.5px solid var(--color-brass);
+    border-bottom: 1.5px solid var(--color-accent);
     padding-bottom: 1px;
     margin-top: 15px;
 }
@@ -726,7 +741,7 @@ ul {
 
 .contact-subtext {
     font-size: 20px;
-    color: var(--color-text-secondary);
+    color: var(--color-muted);
     margin-bottom: 60px;
 }
 
@@ -740,7 +755,7 @@ ul {
 .contact-link-item {
     font-size: clamp(20px, 4vw, 28px);
     font-weight: 600;
-    color: var(--color-text-dark);
+    color: var(--color-text);
     position: relative;
     padding-bottom: 4px;
 }
@@ -753,7 +768,7 @@ ul {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color-brass);
+    background: var(--color-accent);
     transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
