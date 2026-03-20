@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Unit Tests — Jafrin Suresh</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0F0F0D;
+            color: #F2EAE5;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        h1 { 
+            font-size: 22px; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            color: #B85C40;
+            margin-bottom: 8px;
+        }
+        .meta { 
+            font-size: 12px; 
+            color: #907068; 
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .suite { margin-bottom: 40px; }
+        .suite-name { 
+            font-size: 14px; 
+            letter-spacing: 2px; 
+            color: #907068;
+            text-transform: uppercase;
+            border-bottom: 1px solid #261C18;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+        }
+        .test { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 14px; 
+            padding: 8px 0;
+            border-bottom: 1px solid #1A1410;
+        }
+        .status { 
+            font-size: 13px; 
+            font-weight: bold; 
+            min-width: 60px; 
+            text-align: center;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .status.pass { background: #1a3a1a; color: #5bcd5b; }
+        .status.fail { background: #3a1a1a; color: #cd5b5b; }
+        .test-name { font-size: 13px; color: #F2EAE5; }
+        .test-detail { font-size: 11px; color: #907068; margin-top: 3px; }
+        .fail-reason { font-size: 11px; color: #cd7070; margin-top: 3px; font-style: italic; }
+        .summary { 
+            margin-top: 40px; 
+            padding: 24px; 
+            border-radius: 8px;
+            background: #1A1410;
+            border: 1px solid #3A2820;
+        }
+        .summary h2 { font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; text-transform: uppercase; }
+        .summary-row { display: flex; gap: 40px; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 36px; font-weight: bold; }
+        .stat-label { font-size: 11px; color: #907068; letter-spacing: 1px; }
+        .stat-num.green { color: #5bcd5b; }
+        .stat-num.red { color: #cd5b5b; }
+        .stat-num.yellow { color: #cdcd5b; }
+        .progress-bar { 
+            height: 6px; 
+            background: #261C18; 
+            border-radius: 3px; 
+            margin-top: 20px;
+        }
+        .progress-fill { 
+            height: 100%; 
+            background: #B85C40; 
+            border-radius: 3px; 
+            transition: width 0.8s ease;
+        }
+        #iframe-container { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Unit Tests</h1>
+    <p class="meta" id="meta-line">Loading DOM from index.html...</p>
+
+    <div id="test-output"></div>
+
+    <div class="summary" id="summary" style="display:none">
+        <h2>Results</h2>
+        <div class="summary-row">
+            <div class="stat">
+                <div class="stat-num green" id="total-pass">0</div>
+                <div class="stat-label">PASSED</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num red" id="total-fail">0</div>
+                <div class="stat-label">FAILED</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num yellow" id="total-skip">0</div>
+                <div class="stat-label">SKIPPED</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" id="total-all">0</div>
+                <div class="stat-label">TOTAL</div>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <p id="final-line" style="margin-top:14px; font-size:13px; color:#907068;"></p>
+    </div>
+
+    <!-- Hidden iframe loads the actual portfolio for DOM testing -->
+    <div id="iframe-container">
+        <iframe id="portfolio-frame" src="index.html" width="1440" height="900" style="position:absolute;left:-9999px"></iframe>
+    </div>
+
+    <script>
+        const output = document.getElementById('test-output');
+        let passCount = 0;
+        let failCount = 0;
+        let skipCount = 0;
+        const results = [];
+
+        // =====================================================================
+        // TEST HARNESS
+        // =====================================================================
+
+        function suite(name) {
+            const el = document.createElement('div');
+            el.className = 'suite';
+            el.innerHTML = `<div class="suite-name">${name}</div>`;
+            output.appendChild(el);
+            return el;
+        }
+
+        function test(suiteEl, name, fn, detail = '') {
+            let status = 'pass';
+            let reason = '';
+            try {
+                fn();
+                passCount++;
+            } catch (e) {
+                status = 'fail';
+                reason = e.message || String(e);
+                failCount++;
+            }
+
+            const el = document.createElement('div');
+            el.className = 'test';
+            el.innerHTML = `
+                <span class="status ${status}">${status.toUpperCase()}</span>
+                <div>
+                    <div class="test-name">${name}</div>
+                    ${detail ? `<div class="test-detail">${detail}</div>` : ''}
+                    ${reason ? `<div class="fail-reason">↳ ${reason}</div>` : ''}
+                </div>
+            `;
+            suiteEl.appendChild(el);
+            results.push({ name, status, reason });
+        }
+
+        function skipTest(suiteEl, name, reason = '') {
+            skipCount++;
+            const el = document.createElement('div');
+            el.className = 'test';
+            el.innerHTML = `
+                <span class="status" style="background:#2a2a1a;color:#cdcd5b">SKIP</span>
+                <div>
+                    <div class="test-name" style="opacity:0.5">${name}</div>
+                    ${reason ? `<div class="test-detail">[Skipped: ${reason}]</div>` : ''}
+                </div>
+            `;
+            suiteEl.appendChild(el);
+        }
+
+        function assert(condition, message) {
+            if (!condition) throw new Error(message || 'Assertion failed');
+        }
+
+        function assertEqual(a, b, message) {
+            if (a !== b) throw new Error((message || 'Expected equality') + ` — got "${a}", expected "${b}"`);
+        }
+
+        function assertContains(str, sub, message) {
+            if (!String(str).toLowerCase().includes(String(sub).toLowerCase())) {
+                throw new Error((message || 'String not found') + ` — "${sub}" not in "${str}"`);
+            }
+        }
+
+        function assertExists(el, label) {
+            if (!el) throw new Error(`Element not found: ${label}`);
+        }
+
+        // =====================================================================
+        // RUN TESTS AGAINST IFRAME DOM
+        // =====================================================================
+        document.getElementById('iframe-container').style.display = 'block';
+        const frame = document.getElementById('portfolio-frame');
+
+        frame.onload = function () {
+            const doc = frame.contentDocument;
+            const win = frame.contentWindow;
+
+            document.getElementById('meta-line').textContent =
+                `Running tests against: ${frame.contentWindow.location.href} — ${new Date().toISOString()}`;
+
+            // -----------------------------------------------------------------
+            // SUITE 1: HTML STRUCTURE
+            // -----------------------------------------------------------------
+            const s1 = suite('1 · HTML Structure & Sections');
+
+            test(s1, 'has valid DOCTYPE and lang attribute', () => {
+                assertEqual(doc.documentElement.lang, 'en', 'lang attribute');
+            }, 'document.documentElement.lang === "en"');
+
+            test(s1, 'has <title> tag with "Jafrin"', () => {
+                assertContains(doc.title, 'Jafrin', 'Title');
+            }, `title: "${doc.title}"`);
+
+            test(s1, 'has meta description tag', () => {
+                const m = doc.querySelector('meta[name="description"]');
+                assertExists(m, 'meta[name="description"]');
+                assert(m.getAttribute('content').length > 20, 'description too short');
+            });
+
+            test(s1, '#intro section exists', () => {
+                assertExists(doc.getElementById('intro'), '#intro');
+            });
+
+            test(s1, '#buffer section exists', () => {
+                assertExists(doc.getElementById('buffer'), '#buffer');
+            });
+
+            test(s1, '#hero section (video hero) exists', () => {
+                assertExists(doc.getElementById('hero'), '#hero');
+            });
+
+            test(s1, '#about section exists', () => {
+                assertExists(doc.getElementById('about'), '#about');
+            });
+
+            test(s1, '#skills section exists', () => {
+                assertExists(doc.getElementById('skills'), '#skills');
+            });
+
+            test(s1, '#projects section exists', () => {
+                assertExists(doc.getElementById('projects'), '#projects');
+            });
+
+            test(s1, '#timeline section exists', () => {
+                assertExists(doc.getElementById('timeline'), '#timeline');
+            });
+
+            test(s1, '#contact section exists', () => {
+                assertExists(doc.getElementById('contact'), '#contact');
+            });
+
+            test(s1, '#footer element exists', () => {
+                assertExists(doc.getElementById('footer'), '#footer');
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 2: TASK 1 — HERO VIDEO
+            // -----------------------------------------------------------------
+            const s2 = suite('2 · Task 1 — Hero Video Background');
+
+            test(s2, 'Hero video element exists inside #hero', () => {
+                const hero = doc.getElementById('hero');
+                const video = hero.querySelector('video.hero-video');
+                assertExists(video, 'video.hero-video');
+            });
+
+            test(s2, 'Video has autoplay attribute', () => {
+                const video = doc.querySelector('.hero-video');
+                assert(video.hasAttribute('autoplay'), 'missing autoplay');
+            });
+
+            test(s2, 'Video has muted attribute', () => {
+                const video = doc.querySelector('.hero-video');
+                assert(video.hasAttribute('muted'), 'missing muted');
+            });
+
+            test(s2, 'Video has loop attribute', () => {
+                const video = doc.querySelector('.hero-video');
+                assert(video.hasAttribute('loop'), 'missing loop');
+            });
+
+            test(s2, 'Video has playsinline attribute', () => {
+                const video = doc.querySelector('.hero-video');
+                assert(video.hasAttribute('playsinline'), 'missing playsinline');
+            });
+
+            test(s2, 'Video does NOT have controls attribute', () => {
+                const video = doc.querySelector('.hero-video');
+                assert(!video.hasAttribute('controls'), 'should NOT have controls');
+            });
+
+            test(s2, 'Video source points to videos/hero.mp4', () => {
+                const source = doc.querySelector('.hero-video source');
+                assertExists(source, 'video source tag');
+                assertContains(source.getAttribute('src'), 'hero.mp4', 'source src');
+            });
+
+            test(s2, 'Video has poster fallback for mobile', () => {
+                const video = doc.querySelector('.hero-video');
+                assertContains(video.getAttribute('poster') || '', 'hero-bg.jpg', 'poster attribute');
+            });
+
+            test(s2, 'Dark overlay exists inside #hero', () => {
+                const hero = doc.getElementById('hero');
+                assertExists(hero.querySelector('.hero-video-overlay'), '.hero-video-overlay');
+            });
+
+            test(s2, 'Scroll indicator exists in #hero', () => {
+                const si = doc.querySelector('#hero .scroll-indicator');
+                assertExists(si, '.scroll-indicator inside #hero');
+            });
+
+            test(s2, 'Hero name .word spans exist', () => {
+                const words = doc.querySelectorAll('.hero-name .word');
+                assert(words.length >= 3, `Expected 3+ .word spans, got ${words.length}`);
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 3: TASK 2 — BUFFER SECTION
+            // -----------------------------------------------------------------
+            const s3 = suite('3 · Task 2 — Buffer / Transition Page');
+
+            test(s3, 'Marquee container exists in #buffer', () => {
+                const mc = doc.querySelector('#buffer .marquee-container');
+                assertExists(mc, '.marquee-container');
+            });
+
+            test(s3, 'Marquee content has id=marquee-text', () => {
+                assertExists(doc.getElementById('marquee-text'), '#marquee-text');
+            });
+
+            test(s3, 'Marquee content is non-empty text', () => {
+                const text = (doc.getElementById('marquee-text') || {}).textContent || '';
+                assert(text.trim().length > 20, 'marquee text too short or empty');
+            });
+
+            test(s3, 'Marquee text includes ARCHITECTURE keyword', () => {
+                const text = (doc.getElementById('marquee-text') || {}).textContent || '';
+                assertContains(text, 'architecture', 'marquee text');
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 4: TASK 3 — INTRO SECTION
+            // -----------------------------------------------------------------
+            const s4 = suite('4 · Task 3 — Intro Section');
+
+            test(s4, 'Intro has .intro-left and .intro-right columns', () => {
+                const intro = doc.getElementById('intro');
+                assertExists(intro.querySelector('.intro-left'), '.intro-left');
+                assertExists(intro.querySelector('.intro-right'), '.intro-right');
+            });
+
+            test(s4, 'Intro image in .intro-left', () => {
+                const img = doc.querySelector('#intro .intro-left img');
+                assertExists(img, '.intro-left img');
+            });
+
+            test(s4, 'Intro heading contains "Jafrin"', () => {
+                const h = doc.querySelector('.intro-greeting');
+                assertExists(h, '.intro-greeting');
+                assertContains(h.textContent, 'jafrin', 'intro greeting');
+            });
+
+            test(s4, 'Intro tagline is present', () => {
+                const t = doc.querySelector('.intro-tagline-main');
+                assertExists(t, '.intro-tagline-main');
+                assert(t.textContent.trim().length > 10, 'tagline too short');
+            });
+
+            test(s4, 'Intro has two CTA pill buttons', () => {
+                const btns = doc.querySelectorAll('.intro-actions .pill-btn');
+                assert(btns.length >= 2, `Expected 2+ pill buttons, got ${btns.length}`);
+            });
+
+            test(s4, 'CTA "See my work" links to #projects', () => {
+                const btns = doc.querySelectorAll('.intro-actions .pill-btn');
+                const hrefs = Array.from(btns).map(b => b.getAttribute('href'));
+                assert(hrefs.includes('#projects'), `None of ${JSON.stringify(hrefs)} links to #projects`);
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 5: TASK 4 — PROJECTS SECTION & BLUR
+            // -----------------------------------------------------------------
+            const s5 = suite('5 · Task 4 — Projects Section & Blur Background');
+
+            test(s5, '#projects-blur element exists', () => {
+                assertExists(doc.getElementById('projects-blur'), '#projects-blur');
+            });
+
+            test(s5, 'Blur div has at least 2 images', () => {
+                const imgs = doc.querySelectorAll('#projects-blur img');
+                assert(imgs.length >= 2, `Expected 2+ blur images, got ${imgs.length}`);
+            });
+
+            test(s5, 'At least 3 project cards exist', () => {
+                const cards = doc.querySelectorAll('.project-card-dark');
+                assert(cards.length >= 3, `Expected 3+ project cards, got ${cards.length}`);
+            });
+
+            test(s5, 'Each project card has a .card-image-box', () => {
+                const cards = doc.querySelectorAll('.project-card-dark');
+                cards.forEach((card, i) => {
+                    assertExists(card.querySelector('.card-image-box'), `.card-image-box in card ${i+1}`);
+                });
+            });
+
+            test(s5, 'Each project card has a .card-title', () => {
+                const cards = doc.querySelectorAll('.project-card-dark');
+                cards.forEach((card, i) => {
+                    assertExists(card.querySelector('.card-title'), `.card-title in card ${i+1}`);
+                });
+            });
+
+            test(s5, 'Each project card has an onclick attribute', () => {
+                const cards = doc.querySelectorAll('.project-card-dark');
+                cards.forEach((card, i) => {
+                    assert(card.hasAttribute('onclick'), `Missing onclick on card ${i+1}`);
+                });
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 6: TASK 5 — PROJECT OVERLAY
+            // -----------------------------------------------------------------
+            const s6 = suite('6 · Task 5 — Project Detail Overlay');
+
+            test(s6, '#project-overlay exists', () => {
+                assertExists(doc.getElementById('project-overlay'), '#project-overlay');
+            });
+
+            test(s6, 'Overlay starts hidden (has overlay-hidden class)', () => {
+                const ov = doc.getElementById('project-overlay');
+                assert(ov.classList.contains('overlay-hidden'), 'should start with overlay-hidden class');
+            });
+
+            test(s6, 'Close button #close-overlay exists', () => {
+                assertExists(doc.getElementById('close-overlay'), '#close-overlay');
+            });
+
+            test(s6, 'Overlay video element exists', () => {
+                assertExists(doc.getElementById('overlay-video'), '#overlay-video');
+            });
+
+            test(s6, 'Overlay img element exists', () => {
+                assertExists(doc.getElementById('overlay-img'), '#overlay-img');
+            });
+
+            test(s6, '#overlay-title element exists', () => {
+                assertExists(doc.getElementById('overlay-title'), '#overlay-title');
+            });
+
+            test(s6, '#overlay-thumbnails container exists', () => {
+                assertExists(doc.getElementById('overlay-thumbnails'), '#overlay-thumbnails');
+            });
+
+            test(s6, 'window.openProject function is defined', () => {
+                assert(typeof win.openProject === 'function', 'openProject not defined on window');
+            });
+
+            test(s6, 'window.closeProject function is defined', () => {
+                assert(typeof win.closeProject === 'function', 'closeProject not defined on window');
+            });
+
+            test(s6, 'openProject(1) removes overlay-hidden class', () => {
+                win.openProject(1);
+                const ov = doc.getElementById('project-overlay');
+                assert(!ov.classList.contains('overlay-hidden'), 'overlay still hidden after openProject(1)');
+                // Reset
+                win.closeProject();
+            });
+
+            test(s6, 'closeProject() restores overlay-hidden class', () => {
+                win.openProject(1);
+                win.closeProject();
+                const ov = doc.getElementById('project-overlay');
+                assert(ov.classList.contains('overlay-hidden'), 'overlay-hidden not restored after closeProject()');
+            });
+
+            test(s6, 'openProject(1) sets overlay title correctly', () => {
+                win.openProject(1);
+                const title = doc.getElementById('overlay-title').textContent;
+                assertContains(title, 'architectural', 'overlay title after openProject(1)');
+                win.closeProject();
+            });
+
+            test(s6, 'openProject() populates software pills', () => {
+                win.openProject(1);
+                const pills = doc.querySelectorAll('#overlay-software .software-pill');
+                assert(pills.length >= 3, `Expected 3+ software pills, got ${pills.length}`);
+                win.closeProject();
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 7: TASK 6 — FOOTER
+            // -----------------------------------------------------------------
+            const s7 = suite('7 · Task 6 — Companies Footer');
+
+            test(s7, 'Footer exists with id="footer"', () => {
+                assertExists(doc.getElementById('footer'), '#footer');
+            });
+
+            test(s7, 'Footer has .footer-label with company copy', () => {
+                const label = doc.querySelector('.footer-label');
+                assertExists(label, '.footer-label');
+                assertContains(label.textContent, 'compan', '.footer-label text');
+            });
+
+            test(s7, 'Footer has .company-name entries', () => {
+                const names = doc.querySelectorAll('.company-name');
+                assert(names.length >= 2, `Expected 2+ company names, got ${names.length}`);
+            });
+
+            test(s7, '"A&N Architects" appears in footer', () => {
+                const footer = doc.getElementById('footer');
+                assertContains(footer.textContent, 'A&N', 'A&N Architects in footer');
+            });
+
+            test(s7, 'Footer has copyright line', () => {
+                const mini = doc.querySelector('.footer-bottom-mini');
+                assertExists(mini, '.footer-bottom-mini');
+                assertContains(mini.textContent, 'Jafrin', 'name in footer copyright');
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 8: TASK 7 — SIDEBAR NAVIGATION
+            // -----------------------------------------------------------------
+            const s8 = suite('8 · Task 7 — Sidebar Navigation');
+
+            test(s8, '#sidebar-nav aside exists', () => {
+                assertExists(doc.getElementById('sidebar-nav'), '#sidebar-nav');
+            });
+
+            test(s8, 'Sidebar has .sidebar-track wrapper', () => {
+                assertExists(doc.querySelector('#sidebar-nav .sidebar-track'), '.sidebar-track');
+            });
+
+            test(s8, 'Sidebar has 4 navigation links', () => {
+                const links = doc.querySelectorAll('.sidebar-link');
+                assert(links.length >= 4, `Expected 4+ sidebar links, got ${links.length}`);
+            });
+
+            test(s8, 'Sidebar links have data-section attributes', () => {
+                const links = doc.querySelectorAll('.sidebar-link');
+                links.forEach((link, i) => {
+                    assert(link.hasAttribute('data-section'), `sidebar-link ${i+1} missing data-section`);
+                });
+            });
+
+            test(s8, '"HOME" sidebar link points to #intro', () => {
+                const homeLink = doc.querySelector('.sidebar-link[data-section="intro"]');
+                assertExists(homeLink, 'sidebar-link[data-section="intro"]');
+                assertEqual(homeLink.getAttribute('href'), '#intro', 'href should be #intro');
+            });
+
+            test(s8, 'First sidebar link has "active" class by default', () => {
+                const firstLink = doc.querySelector('.sidebar-link');
+                assert(firstLink.classList.contains('active'), 'first sidebar link should be active');
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 9: COLOR VARIABLES & DARK MODE
+            // -----------------------------------------------------------------
+            const s9 = suite('9 · Color Palette & Dark Mode');
+
+            test(s9, 'body starts in light-mode', () => {
+                const body = doc.body;
+                assert(body.classList.contains('light-mode'), 'body should have light-mode class');
+            });
+
+            test(s9, '#dark-mode-toggle button exists', () => {
+                assertExists(doc.getElementById('dark-mode-toggle'), '#dark-mode-toggle');
+            });
+
+            test(s9, 'Toggling dark-mode adds dark-mode class to body', () => {
+                const btn = doc.getElementById('dark-mode-toggle');
+                const wasLight = doc.body.classList.contains('light-mode');
+                btn.click();
+                const isDark = doc.body.classList.contains('dark-mode');
+                assert(isDark, 'body should have dark-mode after toggle');
+                btn.click(); // restore
+            });
+
+            test(s9, 'Toggling dark mode twice restores original state', () => {
+                const btn = doc.getElementById('dark-mode-toggle');
+                btn.click();
+                btn.click();
+                assert(!doc.body.classList.contains('dark-mode'), 'should not be in dark-mode after double toggle');
+            });
+
+            // -----------------------------------------------------------------
+            // SUITE 10: NAVBAR
+            // -----------------------------------------------------------------
+            const s10 = suite('10 · Navbar');
+
+            test(s10, '.navbar element exists', () => {
+                assertExists(doc.querySelector('.navbar'), '.navbar');
+            });
+
+            test(s10, 'Navbar logo "Jafrin." links to #hero', () => {
+                const logo = doc.querySelector('.nav-logo');
+                assertExists(logo, '.nav-logo');
+                assertContains(logo.getAttribute('href'), 'hero', 'logo href');
+            });
+
+            test(s10, 'Navbar has at least 4 nav links', () => {
+                const links = doc.querySelectorAll('.nav-link');
+                assert(links.length >= 4, `Expected 4+ nav links, got ${links.length}`);
+            });
+
+            // -----------------------------------------------------------------
+            // SUMMARY
+            // -----------------------------------------------------------------
+            const total = passCount + failCount + skipCount;
+            document.getElementById('summary').style.display = 'block';
+            document.getElementById('total-pass').textContent = passCount;
+            document.getElementById('total-fail').textContent = failCount;
+            document.getElementById('total-skip').textContent = skipCount;
+            document.getElementById('total-all').textContent = total;
+            document.getElementById('progress-fill').style.width = `${(passCount / total) * 100}%`;
+            document.getElementById('final-line').textContent =
+                failCount === 0
+                    ? `✓ All ${total} tests passed. Site structure is valid.`
+                    : `✗ ${failCount} test(s) failed out of ${total}. Review issues above.`;
+
+            document.getElementById('meta-line').textContent =
+                `Tested: ${frame.contentWindow.location.href} — ${new Date().toISOString()}`;
+        };
+    </script>
+</body>
+</html>
