@@ -254,6 +254,80 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: "images/gallery-2.jpg", title: "Passenger Flow Diagram", desc: "Analysis of intuitive pathfinding." },
                 { src: "images/project3-thumb.jpg", title: "Terminal Section", desc: "Glazed facade and modular roof detail." }
             ]
+        },
+        4: {
+            title: "Academic Projects",
+            year: "2018 – 2021",
+            role: "Student Architect",
+            location: "University of Architecture",
+            desc: `<div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Revit</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Rhino</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Photoshop</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">V-Ray</span>
+</div>
+
+<p style="margin-bottom: 25px; opacity: 0.85; line-height: 1.8;">A comprehensive collection of design studio projects from undergraduate study, ranging from small-scale residential interventions to large-scale civic developments. The portfolio demonstrates a strong grounding in architectural theory, technical resolution, and representational clarity.</p>
+
+<div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
+        <img src="images/project1-img2.jpg" alt="Technical Sheet 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Technical Composite Sheet</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
+        <img src="images/project1-img3.jpg" alt="Technical Sheet 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Site & Floor Plan Analysis</div>
+    </div>
+</div>
+
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Selected highlights from BSc (Hons) Architecture design modules.</p>`,
+            software: ["Revit", "Rhino", "Photoshop", "V-Ray"],
+            mainMedia: { src: "images/project1-img2.jpg", type: "image" },
+            thumbs: [
+                { src: "images/project1-img2.jpg", type: "image", title: "Composite Sheet" },
+                { src: "images/project1-img3.jpg", type: "image", title: "Analysis" }
+            ],
+            drawings: [
+                { src: "images/project1-img2.jpg", title: "Loft & Elevation Study", desc: "Coordinated architectural drawing set." },
+                { src: "images/project1-img3.jpg", title: "Floor Plan Arrangement", desc: "Detailed spatial planning and internal layout." }
+            ]
+        },
+        5: {
+            title: "Visualizations",
+            year: "2020 – 2025",
+            role: "3D Artist",
+            location: "Freelance / Studio",
+            desc: `<div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Lumion</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Twinmotion</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">3DS Max</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Enscape</span>
+</div>
+
+<p style="margin-bottom: 25px; opacity: 0.85; line-height: 1.8;">A gallery of high-end architectural renderings and visualizations. This collection showcases a mastery of lighting, materiality, and atmosphere to breathe life into architectural concepts, effectively communicating design intent to clients and stakeholders.</p>
+
+<div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/gallery-3.jpg" alt="Commercial Render" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Commercial Facade Study</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/project-hero-placeholder.jpg" alt="Night Render" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Atmospheric Lighting Study</div>
+    </div>
+</div>
+
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Visualisations produced for various commercial and residential projects.</p>`,
+            software: ["Lumion", "Twinmotion", "3DS Max", "Enscape"],
+            mainMedia: { src: "images/gallery-3.jpg", type: "image" },
+            thumbs: [
+                { src: "images/gallery-3.jpg", type: "image", title: "Commercial Exterior" },
+                { src: "images/project-hero-placeholder.jpg", type: "image", title: "Atmospheric Render" }
+            ],
+            drawings: [
+                { src: "images/gallery-3.jpg", title: "CGI Facade Detail", desc: "Materiality and texture study." },
+                { src: "images/project-hero-placeholder.jpg", title: "Interior Lighting", desc: "Study of natural and artificial lighting interaction." }
+            ]
         }
     };
 
