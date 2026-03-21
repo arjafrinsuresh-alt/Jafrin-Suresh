@@ -145,12 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">First Floor Plan</div>
     </div>
     <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
-        <img src="images/1.3.jpg" alt="Second Floor Plan" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Second Floor Plan</div>
+        <img src="images/1.3.jpg" alt="Loft Plan" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Loft Plan</div>
     </div>
     <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
-        <img src="images/1.4.jpg" alt="North Elevation" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">North Elevation</div>
+        <img src="images/1.4.jpg" alt="Rear Elevation" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Rear Elevation</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/1.5.jpg" alt="Front Elevation" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Front Elevation</div>
     </div>
 </div>
 
@@ -170,11 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
             mainMedia: { src: "images/Project 1.0.jpeg", type: "image" },
             thumbs: [],
             drawings: [
-                { src: "images/1.1.jpg", title: "Detailed Ground Floor Plan", desc: "RIBA Stage 3 proposed ground level layout." },
+                { src: "images/1.1.jpg", title: "Ground Floor Plan", desc: "RIBA Stage 3 proposed ground level layout." },
                 { src: "images/1.2.jpg", title: "First Floor Plan", desc: "Internal spatial planning for primary residential zones." },
-                { src: "images/1.3.jpg", title: "Second Floor / Attic Plan", desc: "Leisure and entertainment level including Cinema and Snooker rooms." },
-                { src: "images/1.4.jpg", title: "North Site Elevation", desc: "External facade treatment and material specification." },
-                { src: "images/1.5.jpg", title: "Side Sectional Elevation", desc: "Technical section showing standard building heights and proportions." }
+                { src: "images/1.3.jpg", title: "Loft Plan", desc: "Leisure and entertainment level including Cinema and Snooker rooms." },
+                { src: "images/1.4.jpg", title: "Rear Elevation", desc: "External facade treatment and material specification." },
+                { src: "images/1.5.jpg", title: "Front Elevation", desc: "Technical section showing standard building heights and proportions." }
             ]
         },
         2: {
