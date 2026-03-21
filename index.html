@@ -18,6 +18,13 @@
 </head>
 <body class="light-mode">
 
+    <!-- Global Translucent Background Layer -->
+    <div class="projects-bg-blur" id="projects-blur" style="display: flex !important; opacity: 0.12; position: fixed; inset: 0; z-index: -1;">
+        <img src="images/project1-thumb.jpg" alt="Blur 1">
+        <img src="images/project2-thumb.jpg" alt="Blur 2">
+        <img src="images/project3-thumb.jpg" alt="Blur 3">
+    </div>
+
     <!-- TASK 7: SIDEBAR NAVIGATION -->
     <aside id="sidebar-nav">
         <div class="sidebar-track">
@@ -146,15 +153,8 @@
         </div>
     </section>
 
-    <!-- TASK 4 & 5: PROJECTS SECTION WITH BLUR BACKGROUND -->
-    <section id="projects" class="projects-section bg-white">
-        <!-- Parallax blur layer -->
-        <div class="projects-bg-blur" id="projects-blur">
-            <img src="images/project1-thumb.jpg" alt="Blur 1">
-            <img src="images/project2-thumb.jpg" alt="Blur 2">
-            <img src="images/project3-thumb.jpg" alt="Blur 3">
-        </div>
-
+    <!-- SECTION: PROJECTS -->
+    <section id="projects" class="projects-section bg-white" style="position: relative;">
         <div class="container projects-fg-container">
             <div class="section-header reveal-up" style="margin-bottom: 50px;">
                 <h2 style="font-size: 48px; font-weight: 700;">Selected Works.</h2>
@@ -383,8 +383,15 @@
             </div>
             
             <!-- Drawing Gallery -->
-            <div id="overlay-drawings-gallery" style="margin-top: 80px; display: flex; flex-direction: column; gap: 40px; width: 100%;">
-                <!-- Dynamic full width drawings -->
+            <div style="margin-top: 50px;">
+                <h4 style="margin-bottom: 20px; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Project Gallery</h4>
+                <div id="overlay-gallery-stack">
+                    <!-- All project images will be listed here vertically -->
+                </div>
+            </div>
+
+            <div id="overlay-drawings" style="margin-top: 50px; display: flex; flex-direction: column; gap: 40px;">
+                <!-- Technical drawings -->
             </div>
         </div>
     </div>
