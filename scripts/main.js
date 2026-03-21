@@ -65,27 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allSections.forEach(section => sidebarObserver.observe(section));
 
 
-    // ----------------------------------------------------------------------
-    // TASK 2: BUFFER MARQUEE SPEED-UP & FADE
-    // ----------------------------------------------------------------------
-    const bufferSection = document.getElementById('buffer');
-    const marquee = document.getElementById('marquee-text');
 
-    const bufferObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                marquee.classList.add('fast');
-                bufferSection.style.opacity = '1';
-            } else {
-                marquee.classList.remove('fast');
-                if (entry.boundingClientRect.top < 0) {
-                    bufferSection.style.opacity = '0';
-                }
-            }
-        });
-    }, { threshold: 0.2 });
-
-    if (bufferSection) bufferObserver.observe(bufferSection);
 
 
     // ----------------------------------------------------------------------
