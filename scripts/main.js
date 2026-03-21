@@ -233,26 +233,26 @@ document.addEventListener('DOMContentLoaded', () => {
 <p style="margin-bottom: 25px; opacity: 0.85; line-height: 1.8;">Focused on passenger flow modelling and spatial planning. This concept utilizes modular construction techniques and high-performance glazed facades to create an intuitive gateway experience, optimizing efficiency in high-traffic aviation hubs.</p>
 
 <div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
-        <img src="images/gallery-2.jpg" alt="Terminal Interior" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Interior Flow Study</div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
+        <img src="images/3.1.png" alt="Terminal Concept 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Structural Interior Study</div>
     </div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
-        <img src="images/project3-thumb.jpg" alt="Terminal Facade" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Structural Elevation</div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
+        <img src="images/3.2.png" alt="Terminal Concept 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Main Concourse Visualization</div>
     </div>
 </div>
 
 <p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Research and design concept focusing on modular expansion workflows.</p>`,
             software: ["Rhino", "Navisworks", "Lumion", "Grasshopper"],
-            mainMedia: { src: "images/gallery-2.jpg", type: "image" },
+            mainMedia: { src: "images/3.1.png", type: "image" },
             thumbs: [
-                { src: "images/gallery-2.jpg", type: "image", title: "Terminal Flow" },
-                { src: "images/project3-thumb.jpg", type: "image", title: "Main Concept" }
+                { src: "images/3.1.png", type: "image", title: "Internal Flow" },
+                { src: "images/3.2.png", type: "image", title: "Aesthetic Study" }
             ],
             drawings: [
-                { src: "images/gallery-2.jpg", title: "Passenger Flow Diagram", desc: "Analysis of intuitive pathfinding." },
-                { src: "images/project3-thumb.jpg", title: "Terminal Section", desc: "Glazed facade and modular roof detail." }
+                { src: "images/3.1.png", title: "Passenger Flow Diagram", desc: "Analysis of intuitive pathfinding." },
+                { src: "images/3.2.png", title: "Terminal Section", desc: "Glazed facade and modular roof detail." }
             ]
         },
         4: {
