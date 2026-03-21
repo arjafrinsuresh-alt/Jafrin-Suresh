@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scope: [],
             contributions: [],
             software: [],
-            mainMedia: { src: "images/1.0.jpg", type: "image" },
+            mainMedia: { src: "images/Project 1.0.jpeg", type: "image" },
             thumbs: [],
             drawings: []
         },
