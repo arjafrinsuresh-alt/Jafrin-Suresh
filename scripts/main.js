@@ -255,7 +255,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: "images/3.5.png", type: "image", title: "Technical Sheet" },
                 { src: "images/3.6.png", type: "image", title: "Section Study" }
             ],
-            drawings: []
+            drawings: [
+                { src: "images/3.0.png", title: "Airport Vision 2030", desc: "Long-term masterplan visualization." },
+                { src: "images/3.1.png", title: "Terminal Concourse", desc: "Modeling of internal passenger circulation." },
+                { src: "images/3.2.jpg", title: "Lighting Interaction", desc: "Study of natural light penetration in transition spaces." },
+                { src: "images/3.3.jpg", title: "Structural Logic", desc: "Diagrammatic representation of modular framing." },
+                { src: "images/3.4.jpg", title: "Material Palette", desc: "High-performance glazing and sustainable finishes." },
+                { src: "images/3.5.png", title: "Technical Section", desc: "Detailed building envelope resolution." },
+                { src: "images/3.6.png", title: "Site Plan Context", desc: "Expansion strategy within existing infrastructure." }
+            ]
         },
         4: {
             title: "Academic Projects",
@@ -387,55 +395,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         overlayThumbs.innerHTML = "";
-        const galleryStack = document.getElementById('overlay-gallery-stack');
-        if (galleryStack) galleryStack.innerHTML = "";
-
         if (data.thumbs && data.thumbs.length > 0) {
-            data.thumbs.forEach((thumb, index) => {
-                // Thumbnail
+            data.thumbs.forEach(thumb => {
                 const div = document.createElement('div');
                 div.className = 'thumb-item';
                 div.title = thumb.title;
                 const thumbImg = thumb.type === 'video' ? 'images/project1-thumb.jpg' : thumb.src;
                 div.innerHTML = `<img src="${thumbImg}" alt="thumbnail" onerror="this.src='images/project1-thumb.jpg';">`;
-                
-                // Clicking thumb scrolls to the image in the stack
-                div.addEventListener('click', () => {
-                    const targetItem = document.getElementById(`gallery-item-${index}`);
-                    if (targetItem) {
-                        targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        swapOverlayMedia(thumb.src, thumb.type);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                });
+                div.addEventListener('click', () => swapOverlayMedia(thumb.src, thumb.type));
                 overlayThumbs.appendChild(div);
-
-                // Gallery Stack Item
-                if (galleryStack) {
-                    const stackItem = document.createElement('div');
-                    stackItem.className = 'gallery-stack-item';
-                    stackItem.id = `gallery-item-${index}`;
-                    
-                    if (thumb.type === 'video') {
-                        stackItem.innerHTML = `
-                            <video src="${thumb.src}" controls playsinline style="width:100%; height:auto;"></video>
-                            <div class="gallery-item-caption">
-                                <h4>${thumb.title || 'Video Study'}</h4>
-                                <p>${thumb.desc || ''}</p>
-                            </div>
-                        `;
-                    } else {
-                        stackItem.innerHTML = `
-                            <img src="${thumb.src}" alt="${thumb.title}">
-                            <div class="gallery-item-caption">
-                                <h4>${thumb.title || 'Perspective Study'}</h4>
-                                <p>${thumb.desc || ''}</p>
-                            </div>
-                        `;
-                    }
-                    galleryStack.appendChild(stackItem);
-                }
             });
             overlayThumbs.style.display = 'flex';
         } else {
