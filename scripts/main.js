@@ -139,29 +139,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
         1: {
-            title: "Architectural Design Development & Visualization",
-            year: "2025",
-            role: "Architectural Designer",
-            location: "Leicester, United Kingdom",
-            desc: "As part of my master’s program, I developed this extension proposal to showcase my expertise in architectural design and Building Information Modeling (BIM) techniques. This project features a comprehensive 2D floor plan, 3D visualizations, and sectional drawings, highlighting efficient space planning, structural integration, and thoughtful material selection. The design process emphasized functionality and aesthetic cohesion, while leveraging BIM tools to streamline workflows and ensure precision. This project not only demonstrates my technical skills but also reflects my ability to represent architectural concepts effectively and adapt them to practical applications.",
-            scope: [
-                "Assisted in translating design intent into clear, construction-oriented drawings",
-                "Contributed to iterative design revisions based on internal reviews and client feedback",
-                "Prepared architectural plans and elevations in coordination with senior architects",
-                "Developed 3D architectural models to support design development and spatial studies"
-            ],
-            contributions: [
-                "Improved clarity of proposals using integrated 2D documentation and 3D models",
-                "Enabled smoother client communication through consistent visual representation",
-                "Supported the design development stage through accurate and well-coordinated drawings"
-            ],
-            software: ["AutoCAD", "V-Ray", "Sketchup"],
+            title: "Professional Experience — A&N Architects",
+            year: "October 2025 – Present",
+            role: "",
+            location: "",
+            desc: `
+<div style="font-size: 14px; font-weight: 600; color: #1A1814; margin-bottom: 16px;">A&N Architects, London, UK</div>
+<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment — including floor plans, sections, elevations, and proposed drawings across RIBA Stages 0–4.</p>
+<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Carried out on-site surveys and translated findings into accurate existing and proposed drawing packages for planning application submissions.</p>
+<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Prepared planning application packages including design and access statements, location plans, and proposed drawings in line with local planning authority requirements.</p>
+<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Delivered client-facing visualization.</p>
+
+<div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">AutoCAD</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Revit</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">SketchUp</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">V-Ray</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Lumion</span>
+</div>
+
+<div class="proj-img-grid">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Project image — replace with your own" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+</div>
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 8px; font-style: italic;">Images shown are placeholders — replace src with your project photos.</p>`,
+            scope: [],
+            contributions: [],
+            software: [],
             mainMedia: { src: "images/project1-thumb.jpg", type: "image" },
             thumbs: [],
-            drawings: [
-                { src: "images/project1-img2.jpg", title: "Floor Plans" },
-                { src: "images/project1-img3.jpg", title: "Elevations" }
-            ]
+            drawings: []
         },
         2: {
             title: "Residential Extension Planning",
@@ -197,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (overlayRole) overlayRole.textContent = data.role ? `· ${data.role}` : "";
         if (overlayLocation) overlayLocation.textContent = data.location ? `· ${data.location}` : "";
         
-        overlayDesc.textContent = data.desc;
+        overlayDesc.innerHTML = data.desc;
         
         if (overlayScope) {
             overlayScope.innerHTML = "";
@@ -227,13 +238,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        overlaySoftware.innerHTML = "<strong>Software used:</strong>";
-        data.software.forEach(sw => {
-            const span = document.createElement('span');
-            span.className = 'software-pill';
-            span.textContent = sw;
-            overlaySoftware.appendChild(span);
-        });
+        if (data.software && data.software.length > 0) {
+            overlaySoftware.style.display = 'block';
+            overlaySoftware.innerHTML = "<strong>Software used:</strong>";
+            data.software.forEach(sw => {
+                const span = document.createElement('span');
+                span.className = 'software-pill';
+                span.textContent = sw;
+                overlaySoftware.appendChild(span);
+            });
+        } else {
+            overlaySoftware.style.display = 'none';
+        }
 
         overlayThumbs.innerHTML = "";
         if (data.thumbs && data.thumbs.length > 0) {

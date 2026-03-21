@@ -679,3 +679,18 @@ a, button { cursor: pointer; color: inherit; text-decoration: none; }
     overflow: hidden;
     flex-shrink: 0;
 }
+
+/* --------------------------------------------------------------------------
+   PROJECT OVERLAY IMAGE GRID
+   -------------------------------------------------------------------------- */
+.proj-img-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+@media (max-width: 768px) {
+    .proj-img-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
