@@ -648,3 +648,34 @@ a, button { cursor: pointer; color: inherit; text-decoration: none; }
     border: 1px solid rgba(0,0,0,0.05);
     margin: 20px auto 40px auto !important;
 }
+
+/* --------------------------------------------------------------------------
+   PROFESSIONAL EXPERIENCE CARD
+   -------------------------------------------------------------------------- */
+.prof-exp-card {
+    height: auto !important;
+    min-height: auto !important;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease !important;
+}
+.prof-exp-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.prof-exp-card .project-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+.prof-exp-card:hover .project-description {
+    max-height: 400px;
+}
+.exp-gallery::-webkit-scrollbar {
+    display: none;
+}
+.exp-img-slot {
+    min-width: 155px;
+    height: 105px;
+    border-radius: 6px;
+    background: #E8E4DD;
+    overflow: hidden;
+    flex-shrink: 0;
+}
