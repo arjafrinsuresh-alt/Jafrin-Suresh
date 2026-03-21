@@ -139,11 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <div class="proj-img-grid">
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.1.jpg" alt="Project design plan 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.2.jpg" alt="Project design 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.3.jpg" alt="Project design 3" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.4.jpg" alt="Project design 4" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.5.jpg" alt="Project design 5" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.1.jpg" alt="Project design plan 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.2.jpg" alt="Project design 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.3.jpg" alt="Project design 3" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.4.jpg" alt="Project design 4" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.5.jpg" alt="Project design 5" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
 </div>
 <p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 8px; font-style: italic;">Images shown are actual project process and floor plan documents.</p>`,
             scope: [],
@@ -478,3 +478,74 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var imgs = [];
+  var current = 0;
+
+  function openLightbox(index) {
+    imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img'));
+    current = index;
+    lbImg.src = imgs[current].src;
+    lb.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    lb.style.display = 'none';
+    lbImg.src = '';
+  }
+
+  function showPrev() {
+    current = (current - 1 + imgs.length) % imgs.length;
+    lbImg.src = imgs[current].src;
+  }
+
+  function showNext() {
+    current = (current + 1) % imgs.length;
+    lbImg.src = imgs[current].src;
+  }
+
+  document.addEventListener('click', function(e) {
+    var imgEl = e.target.closest('.exp-img-slot img, .exp-gallery img, .proj-img-slot img');
+    if (imgEl) {
+      imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img'));
+      current = imgs.indexOf(imgEl);
+      openLightbox(current);
+    }
+  });
+
+  var btnPrev = document.getElementById('lb-prev');
+  var btnNext = document.getElementById('lb-next');
+  var btnClose = document.getElementById('lb-close');
+
+  if(btnPrev) btnPrev.addEventListener('click', showPrev);
+  if(btnNext) btnNext.addEventListener('click', showNext);
+  if(btnClose) btnClose.addEventListener('click', closeLightbox);
+
+  if(lb) lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (lb && lb.style.display === 'flex') {
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  if(btnPrev) {
+      btnPrev.addEventListener('mouseover', function() { this.style.opacity = '1'; });
+      btnPrev.addEventListener('mouseout', function() { this.style.opacity = '0.7'; });
+  }
+  if(btnNext) {
+      btnNext.addEventListener('mouseover', function() { this.style.opacity = '1'; });
+      btnNext.addEventListener('mouseout', function() { this.style.opacity = '0.7'; });
+  }
+  if(btnClose) {
+      btnClose.addEventListener('mouseover', function() { this.style.opacity = '1'; });
+      btnClose.addEventListener('mouseout', function() { this.style.opacity = '0.7'; });
+  }
+})();
