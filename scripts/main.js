@@ -234,25 +234,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
     <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
-        <img src="images/3.1.png" alt="Terminal Concept 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Structural Interior Study</div>
+        <img src="images/3.0.png" alt="Terminal Concept 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Main Terminal Hero</div>
     </div>
     <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 16/9;">
-        <img src="images/3.2.png" alt="Terminal Concept 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Main Concourse Visualization</div>
+        <img src="images/3.5.png" alt="Terminal Concept 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Structural Detail Analysis</div>
     </div>
 </div>
 
-<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Research and design concept focusing on modular expansion workflows.</p>`,
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Research and design concept focusing on modular expansion workflows and passenger experience.</p>`,
             software: ["Rhino", "Navisworks", "Lumion", "Grasshopper"],
-            mainMedia: { src: "images/3.1.png", type: "image" },
+            mainMedia: { src: "images/3.0.png", type: "image" },
             thumbs: [
+                { src: "images/3.0.png", type: "image", title: "Main Concept" },
                 { src: "images/3.1.png", type: "image", title: "Internal Flow" },
-                { src: "images/3.2.png", type: "image", title: "Aesthetic Study" }
+                { src: "images/3.2.jpg", type: "image", title: "Aesthetic Study" },
+                { src: "images/3.3.jpg", type: "image", title: "Facade Detail" },
+                { src: "images/3.4.jpg", type: "image", title: "Materiality" },
+                { src: "images/3.5.png", type: "image", title: "Technical Sheet" },
+                { src: "images/3.6.png", type: "image", title: "Section Study" }
             ],
             drawings: [
-                { src: "images/3.1.png", title: "Passenger Flow Diagram", desc: "Analysis of intuitive pathfinding." },
-                { src: "images/3.2.png", title: "Terminal Section", desc: "Glazed facade and modular roof detail." }
+                { src: "images/3.0.png", title: "Airport Vision 2030", desc: "Long-term masterplan visualization." },
+                { src: "images/3.1.png", title: "Terminal Concourse", desc: "Modeling of internal passenger circulation." },
+                { src: "images/3.2.jpg", title: "Lighting Interaction", desc: "Study of natural light penetration in transition spaces." },
+                { src: "images/3.3.jpg", title: "Structural Logic", desc: "Diagrammatic representation of modular framing." },
+                { src: "images/3.4.jpg", title: "Material Palette", desc: "High-performance glazing and sustainable finishes." },
+                { src: "images/3.5.png", title: "Technical Section", desc: "Detailed building envelope resolution." },
+                { src: "images/3.6.png", title: "Site Plan Context", desc: "Expansion strategy within existing infrastructure." }
             ]
         },
         4: {
