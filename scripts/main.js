@@ -650,8 +650,9 @@ document.addEventListener('DOMContentLoaded', () => {
   var current = 0;
 
   function openLightbox(index) {
-    imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img'));
+    imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img, .gallery-item img'));
     current = index;
+    if (!lbImg) return;
     lbImg.src = imgs[current].src;
     lb.style.display = 'flex';
   }
@@ -672,9 +673,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('click', function(e) {
-    var imgEl = e.target.closest('.exp-img-slot img, .exp-gallery img, .proj-img-slot img');
+    var imgEl = e.target.closest('.exp-img-slot img, .exp-gallery img, .proj-img-slot img, .gallery-item img');
     if (imgEl) {
-      imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img'));
+      imgs = Array.from(document.querySelectorAll('.exp-img-slot img, .exp-gallery img, .proj-img-slot img, .gallery-item img'));
       current = imgs.indexOf(imgEl);
       openLightbox(current);
     }
