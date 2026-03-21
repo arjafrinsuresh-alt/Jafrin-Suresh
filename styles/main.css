@@ -180,99 +180,10 @@ a, button { cursor: pointer; color: inherit; text-decoration: none; }
     .sidebar-link { font-size: 8px; letter-spacing: 1px; }
 }
 
-/* --------------------------------------------------------------------------
-   TASK 3: INTRO SECTION
-   -------------------------------------------------------------------------- */
-#intro {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    background: var(--color-bg);
-    color: var(--color-text);
-    overflow: hidden;
-    position: relative;
-    z-index: 9005;
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
 
-.intro-left {
-    width: 45%;
-    height: 100%;
-}
 
-.intro-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-}
 
-.intro-right {
-    width: 55%;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-}
 
-.intro-content-wrapper {
-    max-width: 500px;
-}
-
-.intro-meta {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--color-muted);
-    margin-bottom: 20px;
-}
-
-.intro-greeting {
-    font-family: 'Outfit', serif;
-    font-size: 56px;
-    font-weight: 200;
-    margin-bottom: 15px;
-    line-height: 1.1;
-}
-
-.intro-tagline-main {
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 30px;
-}
-
-.intro-bio-brief {
-    font-size: 14px;
-    color: var(--color-muted);
-    margin-bottom: 40px;
-    line-height: 1.8;
-}
-
-.intro-actions {
-    display: flex;
-    gap: 20px;
-}
-
-.pill-btn {
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.pill-btn.dark { background: var(--color-text); color: var(--color-bg); }
-.pill-btn.dark:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-.pill-btn.outline { border: 1.5px solid var(--color-text); color: var(--color-text); }
-.pill-btn.outline:hover { background: var(--color-text); color: var(--color-bg); }
-
-@media (max-width: 900px) {
-    #intro { flex-direction: column; height: auto; min-height: 100vh; }
-    .intro-left { width: 100%; height: 40vh; }
-    .intro-right { width: 100%; padding: 40px 8%; justify-content: center; text-align: center; }
-    .intro-content-wrapper { display: flex; flex-direction: column; align-items: center; margin: 0 auto; }
-    .intro-actions { justify-content: center; flex-wrap: wrap; }
-    .intro-greeting { font-size: clamp(40px, 10vw, 56px); }
-}
 
 /* --------------------------------------------------------------------------
    TASK 2: BUFFER / TRANSITION PAGE
