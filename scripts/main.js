@@ -184,23 +184,75 @@ document.addEventListener('DOMContentLoaded', () => {
         2: {
             title: "Residential Extension Planning",
             year: "2023",
-            desc: "Focusing on urban adaptation, this project involved 5 planning applications for residential extension and refurbishment in London. Each design balanced heritage constraints with modern living requirements.",
+            role: "Lead Technician",
+            location: "London, UK",
+            desc: `<div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">AutoCAD</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Enscape</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Rhino</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">SketchUp</span>
+</div>
+
+<p style="margin-bottom: 25px; opacity: 0.85; line-height: 1.8;">Focusing on urban adaptation, this project involved 5 planning applications for residential extension and refurbishment across London. Each design balanced heritage constraints with modern living requirements, ensuring seamless integration with existing fabric while maximising spatial efficiency.</p>
+
+<div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 4/3;">
+        <img src="images/gallery-1.jpg" alt="Proposed Extension" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Proposed Exterior</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative; aspect-ratio: 4/3;">
+        <img src="images/project2-thumb.jpg" alt="Interior Visualization" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Conceptual Internal View</div>
+    </div>
+</div>
+
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Visualisations produced for client review and local planning authority submissions.</p>`,
             software: ["AutoCAD", "Enscape", "Rhino", "SketchUp"],
-            video: "videos/project-1.mp4",
+            mainMedia: { src: "images/gallery-1.jpg", type: "image" },
             thumbs: [
-                { src: "videos/project-1.mp4", type: "video", title: "Site Animation" },
-                { src: "images/project2-thumb.jpg", type: "image", title: "Proposed Elevation" }
+                { src: "images/gallery-1.jpg", type: "image", title: "Proposed Exterior" },
+                { src: "images/project2-thumb.jpg", type: "image", title: "Conceptual View" }
+            ],
+            drawings: [
+                { src: "images/project2-thumb.jpg", title: "Proposed Side Elevation", desc: "Detailed elevation for planning approval." },
+                { src: "images/gallery-1.jpg", title: "Rendered Perspective", desc: "Final visualization of the extension in context." }
             ]
         },
         3: {
             title: "Airport Terminal Expansion Concept",
             year: "2022",
-            desc: "Focused on passenger flow modelling and spatial planning. This concept utilizes modular construction techniques and high-performance glazed facades to create an intuitive gateway experience.",
+            role: "Design Researcher",
+            location: "International Competition",
+            desc: `<div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Rhino</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Navisworks</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Lumion</span>
+    <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Grasshopper</span>
+</div>
+
+<p style="margin-bottom: 25px; opacity: 0.85; line-height: 1.8;">Focused on passenger flow modelling and spatial planning. This concept utilizes modular construction techniques and high-performance glazed facades to create an intuitive gateway experience, optimizing efficiency in high-traffic aviation hubs.</p>
+
+<div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/gallery-2.jpg" alt="Terminal Interior" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Interior Flow Study</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/project3-thumb.jpg" alt="Terminal Facade" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Structural Elevation</div>
+    </div>
+</div>
+
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Research and design concept focusing on modular expansion workflows.</p>`,
             software: ["Rhino", "Navisworks", "Lumion", "Grasshopper"],
-            video: "videos/project-1.mp4",
+            mainMedia: { src: "images/gallery-2.jpg", type: "image" },
             thumbs: [
-                { src: "videos/project-1.mp4", type: "video", title: "Terminal flow simulation" },
-                { src: "images/project3-thumb.jpg", type: "image", title: "Interior Perspective" }
+                { src: "images/gallery-2.jpg", type: "image", title: "Terminal Flow" },
+                { src: "images/project3-thumb.jpg", type: "image", title: "Main Concept" }
+            ],
+            drawings: [
+                { src: "images/gallery-2.jpg", title: "Passenger Flow Diagram", desc: "Analysis of intuitive pathfinding." },
+                { src: "images/project3-thumb.jpg", title: "Terminal Section", desc: "Glazed facade and modular roof detail." }
             ]
         }
     };
