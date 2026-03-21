@@ -368,38 +368,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ----------------------------------------------------------------------
-    // ARCHITECTURAL CUSTOM CURSOR
-    // ----------------------------------------------------------------------
-    const cursorDot = document.getElementById('cursor-dot');
-    const cursorSquare = document.getElementById('cursor-square');
-
-    window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        cursorDot.style.left = `${clientX}px`;
-        cursorDot.style.top = `${clientY}px`;
-        cursorSquare.style.left = `${clientX}px`;
-        cursorSquare.style.top = `${clientY}px`;
-    });
-
-    function updateCursorHovers() {
-        const hoverTargets = 'a, button, .project-card-dark, .photo-container, .thumb-item, .sidebar-link';
-        document.querySelectorAll(hoverTargets).forEach(el => {
-            el.addEventListener('mouseenter', () => cursorSquare.classList.add('hover-diamond'));
-            el.addEventListener('mouseleave', () => cursorSquare.classList.remove('hover-diamond'));
-        });
-    }
-    updateCursorHovers();
-
-
-    // ----------------------------------------------------------------------
     // DARK MODE TOGGLE (Moon icon functionality)
     // ----------------------------------------------------------------------
     const darkToggle = document.getElementById('dark-mode-toggle');
     if (darkToggle) {
+        const moonSvg = darkToggle.querySelector('.moon-svg');
+        const sunSvg = darkToggle.querySelector('.sun-svg');
+        
+        function updateThemeIcon(isDark) {
+            if (isDark) {
+                if (moonSvg) moonSvg.style.display = 'none';
+                if (sunSvg) sunSvg.style.display = 'block';
+            } else {
+                if (sunSvg) sunSvg.style.display = 'none';
+                if (moonSvg) moonSvg.style.display = 'block';
+            }
+        }
+
+        // Load theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            updateThemeIcon(true);
+        } else {
+            updateThemeIcon(false);
+        }
+
         darkToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
-            darkToggle.querySelector('.icon-moon').textContent = isDark ? '☀️' : '🌙';
+            
+            if (isDark) {
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcon(true);
+            } else {
+                localStorage.setItem('theme', 'light');
+                updateThemeIcon(false);
+            }
         });
     }
 
