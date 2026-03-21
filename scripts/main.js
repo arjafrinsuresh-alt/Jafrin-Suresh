@@ -125,10 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             location: "",
             desc: `
 <div style="font-size: 14px; font-weight: 600; color: #1A1814; margin-bottom: 16px;">A&N Architects, London, UK</div>
-<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment — including floor plans, sections, elevations, and proposed drawings across RIBA Stages 0–4.</p>
-<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Carried out on-site surveys and translated findings into accurate existing and proposed drawing packages for planning application submissions.</p>
-<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Prepared planning application packages including design and access statements, location plans, and proposed drawings in line with local planning authority requirements.</p>
-<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">• Delivered client-facing visualization.</p>
+<p style="font-size: 14px; line-height: 1.9; color: #555; margin-bottom: 10px;">Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment — including floor plans, sections, elevations and proposed drawings across RIBA Stages 0–4. Carried out on-site surveys and translated findings into accurate existing and proposed drawing packages for planning application submissions, preparing full packages including design and access statements, location plans and proposed drawings in line with local planning authority requirements, alongside client-facing visualisation.</p>
 
 <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0;">
     <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">AutoCAD</span>
