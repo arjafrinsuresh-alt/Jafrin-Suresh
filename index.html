@@ -25,6 +25,9 @@
             <a href="#about" class="sidebar-link" data-section="about">ABOUT</a>
             <a href="#timeline" class="sidebar-link" data-section="timeline">RESUME</a>
             <a href="#contact" class="sidebar-link" data-section="contact">CONTACT</a>
+            <button id="dark-mode-toggle" class="sidebar-link" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: inherit; margin-top: 20px; padding: 0;">
+                <span class="icon-moon" style="display: block;">🌙</span>
+            </button>
         </div>
     </aside>
 
@@ -89,32 +92,7 @@
         </div>
     </header>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="#hero" class="nav-logo">Jafrin.</a>
-            </div>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Work</a></li>
-                    <li><a href="#timeline" class="nav-link">Education</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <button id="dark-mode-toggle" class="nav-icon-btn">
-                    <span class="icon-moon">🌙</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- NAVIGATION BAR REMOVED -->
 
     <!-- SECTION 2: ABOUT -->
     <section id="about" class="about-section bg-white">
@@ -147,37 +125,39 @@
     <!-- TECHNICAL EXPERTISE -->
     <section id="skills" class="skills-section bg-gray">
         <div class="container">
-            <h2 class="section-title text-center reveal-up" style="margin-bottom: 80px; font-size: clamp(48px, 8vw, 72px); letter-spacing: -3px; font-weight: 700;">Technical Expertise</h2>
+            <h2 class="section-title text-center reveal-up" style="margin-bottom: 80px; font-size: clamp(48px, 8vw, 72px); letter-spacing: -3px; font-weight: 700;">TECHNICAL SKILLS</h2>
             <div class="skills-grid-columns">
                 <div class="skill-column reveal-stagger">
                     <h4 class="skill-category-label">BIM & CAD</h4>
-                    <ul class="skill-list">
-                        <li class="skill-item">Revit</li>
-                        <li class="skill-item">AutoCAD</li>
-                        <li class="skill-item">Navisworks</li>
-                        <li class="skill-item">BIM 360</li>
-                        <li class="skill-item">COBie</li>
-                    </ul>
+                    <div class="skill-chips-container">
+                        <span class="skill-chip">Revit</span>
+                        <span class="skill-chip">AutoCAD</span>
+                        <span class="skill-chip">Navisworks</span>
+                        <span class="skill-chip">BIM 360</span>
+                        <span class="skill-chip">COBie</span>
+                    </div>
                 </div>
                 <div class="skill-column reveal-stagger">
                     <h4 class="skill-category-label">Visualisation</h4>
-                    <ul class="skill-list">
-                        <li class="skill-item">Lumion</li>
-                        <li class="skill-item">TwinMotion</li>
-                        <li class="skill-item">Enscape</li>
-                        <li class="skill-item">V-Ray</li>
-                        <li class="skill-item">SketchUp</li>
-                        <li class="skill-item">Rhino</li>
-                    </ul>
+                    <div class="skill-chips-container">
+                        <span class="skill-chip">Lumion</span>
+                        <span class="skill-chip">TwinMotion</span>
+                        <span class="skill-chip">Enscape</span>
+                        <span class="skill-chip">V-Ray</span>
+                        <span class="skill-chip">SketchUp</span>
+                        <span class="skill-chip">Rhino</span>
+                        <span class="skill-chip">Photorealistic Rendering</span>
+                        <span class="skill-chip">Walkthrough Animation</span>
+                    </div>
                 </div>
                 <div class="skill-column reveal-stagger">
                     <h4 class="skill-category-label">Production</h4>
-                    <ul class="skill-list">
-                        <li class="skill-item">Photoshop</li>
-                        <li class="skill-item">InDesign</li>
-                        <li class="skill-item">Illustrator</li>
-                        <li class="skill-item">Technical Drawings</li>
-                    </ul>
+                    <div class="skill-chips-container">
+                        <span class="skill-chip">Photoshop</span>
+                        <span class="skill-chip">InDesign</span>
+                        <span class="skill-chip">Illustrator</span>
+                        <span class="skill-chip">Technical Drawing Production</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -264,15 +244,40 @@
                 </div>
                 <div class="overlay-info-col">
                     <h2 id="overlay-title">Project Title</h2>
-                    <p id="overlay-year">2023</p>
-                    <div id="overlay-description">
-                        This architectural design focuses on sustainable urban living, integrating smart materials and biomimetic principles to minimize environmental footprint...
+                    <div class="overlay-meta-info" style="margin-bottom: 25px;">
+                        <span id="overlay-year" style="font-weight: 700; color: var(--color-accent); margin-right: 15px;">2023</span>
+                        <span id="overlay-role" style="color: var(--color-muted); margin-right: 15px;"></span>
+                        <span id="overlay-location" style="color: var(--color-muted);"></span>
                     </div>
+                    
+                    <div id="overlay-description" style="margin-bottom: 30px; font-size: 16px; line-height: 1.8;">
+                        <!-- desc -->
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="margin-bottom: 10px; font-size: 18px;">Scope of Work</h4>
+                        <ul id="overlay-scope" style="list-style-position: inside; color: rgba(255,255,255,0.8); line-height: 1.6; font-size: 15px; margin-left: 10px;">
+                            <!-- scope list -->
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-bottom: 40px;">
+                        <h4 style="margin-bottom: 10px; font-size: 18px;">Key Contributions</h4>
+                        <ul id="overlay-contributions" style="list-style-position: inside; color: rgba(255,255,255,0.8); line-height: 1.6; font-size: 15px; margin-left: 10px;">
+                            <!-- contrib list -->
+                        </ul>
+                    </div>
+
                     <div class="software-tags" id="overlay-software">
                         <!-- Dynamic Tags -->
                     </div>
                     <a href="Portfolio_JafrinSuresh_compressed.pdf" class="btn-text" target="_blank">View full drawings ›</a>
                 </div>
+            </div>
+            
+            <!-- Drawing Gallery -->
+            <div id="overlay-drawings-gallery" style="margin-top: 80px; display: flex; flex-direction: column; gap: 40px; width: 100%;">
+                <!-- Dynamic full width drawings -->
             </div>
         </div>
     </div>
@@ -283,17 +288,79 @@
             <h2 class="reveal-up" style="font-size: 48px; font-weight: 700; margin-bottom: 60px; text-align: center;">Experience & Education.</h2>
             <div class="timeline-vertical-wrapper reveal-up">
                 <div class="timeline-line"></div>
+                
                 <div class="timeline-item reveal-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="entry-date">Oct 2025 – Present</span>
                         <h3 class="entry-title">Architectural Designer</h3>
                         <p class="entry-org">A&N Architects, London, UK</p>
-                        <p class="entry-desc">Managing planning applications end-to-end; authoring and coordinating drawing sheets per project across residential extension and refurbishment schemes.</p>
-                        <a href="assets/Jafrin_Part II.pdf" class="btn-text underline-brass" download>Download CV ›</a>
+                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
+                            <li style="margin-bottom: 8px;">Authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes, producing RIBA Stage 0-4 design development packages, planning application drawings, and construction information.</li>
+                            <li style="margin-bottom: 8px;">Managed 4+ planning applications end-to-end; prepared design and access statements, location plans, and proposed drawings compliant with local planning authority requirements and UK Building Regulations Approved Documents.</li>
+                            <li style="margin-bottom: 8px;">Maintaining ISO 19650-compliant federated BIM models in Revit; coordinating with structural engineers to identify and resolve cross-discipline clashes prior to technical design sign-off on each project.</li>
+                            <li>Producing client visualisations, rendered design proposals, and outline specification notes to support stakeholder approvals and planning submissions at RIBA Stages 2 and 3.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- ... other items ... -->
+
+                <div class="timeline-item reveal-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="entry-date">2023 – 2024</span>
+                        <h3 class="entry-title">MSc Advanced Construction Technologies and BIM</h3>
+                        <p class="entry-org">University of Strathclyde, Glasgow, UK</p>
+                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
+                            <li style="margin-bottom: 8px;"><strong>Core modules:</strong> BIM Project Execution Planning, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design & Green Building Performance, Digital Construction Methods.</li>
+                            <li style="margin-bottom: 8px;"><strong>Dissertation:</strong> Enhancing Green Roof Design in Modern Architecture through Advanced BIM Integration – systematic literature review of 134 peer-reviewed papers and 4 international case studies (Bloomberg London BREEAM 98.5%, The Edge Amsterdam, Lagg Distillery, Foresterhill Health Campus) to produce a 15-step BIM integration framework for sustainable green roof design.</li>
+                            <li style="margin-bottom: 8px;"><strong>Industry engagement:</strong> site visit to a live arts studio fit-out with Clark Contracts × WASPS Studios (Apr 2024), observing construction-phase coordination and building regulations compliance on site.</li>
+                            <li><strong>Capstone project:</strong> residential extension delivered through a full ISO 19650-compliant BIM workflow in Revit, including coordinated architectural and structural models, building regulations drawings, and 3D visualisations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="entry-date">Dec 2022 – Dec 2023</span>
+                        <h3 class="entry-title">Architectural Assistant</h3>
+                        <p class="entry-org">Ruby Builders, Chennai, India</p>
+                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
+                            <li style="margin-bottom: 8px;">Produced 20+ technical drawing sheets per project across 3–5 residential schemes, including site plans, floor plans, sections, elevations, construction details, and material schedules in AutoCAD and Revit.</li>
+                            <li style="margin-bottom: 8px;">Prepared planning application drawing packages and design & access documentation for all projects, supporting successful submissions to local planning authorities.</li>
+                            <li>Delivered 6+ photorealistic renders and walkthrough animations per project using Lumion and V-Ray; authored construction specification packages that reduced on-site contractor queries at handover.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="entry-date">Jun 2022 – Aug 2022</span>
+                        <h3 class="entry-title">Architectural Research Intern</h3>
+                        <p class="entry-org">Airports Authority of India (AAI), Chennai, India</p>
+                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
+                            <li style="margin-bottom: 8px;">Conducted a 3-month research placement analysing passenger flow, wayfinding, security screening, and terminal capacity at a major international hub to inform a large-scale airport expansion thesis.</li>
+                            <li>Produced 2 conceptual masterplan layout packages and spatial planning diagrams; compiled technical documentation benchmarked against AAI design standards and IATA terminal planning guidelines.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="entry-date">2017 – 2022</span>
+                        <h3 class="entry-title">Bachelor of Architecture (BArch) – Distinction</h3>
+                        <p class="entry-org">Sathyabama Institute of Science and Technology, Chennai, India</p>
+                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
+                            <li>RIBA Part 1 & Part 2 equivalent; graduated with Distinction. Thesis: airport terminal expansion – passenger flow modelling, spatial planning, phased infrastructure delivery, and full technical documentation package.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; width: 100%;">
+                    <a href="assets/Jafrin_Part II.pdf" class="btn-text underline-brass" download>Download CV ›</a>
+                </div>
             </div>
         </div>
     </section>

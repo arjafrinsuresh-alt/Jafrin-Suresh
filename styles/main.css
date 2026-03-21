@@ -119,7 +119,41 @@ a, button { cursor: none; color: inherit; text-decoration: none; }
     color: rgba(255,255,255,0.3) !important;
 }
 
-@media (max-width: 1200px) { #sidebar-nav { display: none; } }
+@media (max-width: 1200px) { 
+    #sidebar-nav { 
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        flex-direction: row;
+        background: var(--color-surface);
+        border-top: 1px solid var(--color-border);
+        z-index: 10000;
+        transition: transform 0.3s ease;
+    }
+    .sidebar-track {
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        gap: 0;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .sidebar-link {
+        transform: rotate(0deg);
+        padding: 10px;
+        font-size: 9px;
+    }
+    .sidebar-link::after {
+        bottom: 0px;
+    }
+    body { padding-bottom: 70px; }
+}
+
+@media (max-width: 600px) {
+    .sidebar-link { font-size: 8px; letter-spacing: 1px; }
+}
 
 /* --------------------------------------------------------------------------
    TASK 3: INTRO SECTION
@@ -206,9 +240,12 @@ a, button { cursor: none; color: inherit; text-decoration: none; }
 .pill-btn.outline:hover { background: #1E1614; color: #FFF; }
 
 @media (max-width: 900px) {
-    #intro { flex-direction: column; height: auto; }
-    .intro-left { width: 100%; height: 50vh; }
-    .intro-right { width: 100%; padding: 60px 10%; }
+    #intro { flex-direction: column; height: auto; min-height: 100vh; }
+    .intro-left { width: 100%; height: 40vh; }
+    .intro-right { width: 100%; padding: 40px 8%; justify-content: center; text-align: center; }
+    .intro-content-wrapper { display: flex; flex-direction: column; align-items: center; margin: 0 auto; }
+    .intro-actions { justify-content: center; flex-wrap: wrap; }
+    .intro-greeting { font-size: clamp(40px, 10vw, 56px); }
 }
 
 /* --------------------------------------------------------------------------
