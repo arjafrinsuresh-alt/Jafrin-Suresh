@@ -135,20 +135,47 @@ document.addEventListener('DOMContentLoaded', () => {
     <span style="background: #1A1814; color: #F0ECE4; font-size: 11px; letter-spacing: 1.5px; padding: 5px 14px; border-radius: 20px;">Lumion</span>
 </div>
 
-<div class="proj-img-grid">
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.1.jpg" alt="Project design plan 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.2.jpg" alt="Project design 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.3.jpg" alt="Project design 3" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.4.jpg" alt="Project design 4" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
-    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; background: #E8E4DD;"><img src="images/1.5.jpg" alt="Project design 5" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+<div class="proj-img-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/1.1.jpg" alt="Ground Floor Plan" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Ground Floor Plan</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/1.2.jpg" alt="First Floor Plan" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">First Floor Plan</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/1.3.jpg" alt="Second Floor Plan" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">Second Floor Plan</div>
+    </div>
+    <div class="proj-img-slot" style="border-radius: 8px; overflow: hidden; background: #E8E4DD; position: relative;">
+        <img src="images/1.4.jpg" alt="North Elevation" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #666;">North Elevation</div>
+    </div>
 </div>
-<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 8px; font-style: italic;">Images shown are actual project process and floor plan documents.</p>`,
+
+<div style="margin-top: 30px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;">
+    <h4 style="font-size: 18px; color: #C5A16F; margin-bottom: 12px; font-weight: 300; letter-spacing: 1px;">Upper Level Space Allocation:</h4>
+    <ul style="list-style: none; padding: 0; line-height: 1.8; font-size: 14px; opacity: 0.8;">
+        <li><span style="color: #C5A16F; margin-right: 10px;">1.</span> Open to Below</li>
+        <li><span style="color: #C5A16F; margin-right: 10px;">2.</span> Reading Nook</li>
+        <li><span style="color: #C5A16F; margin-right: 10px;">3.</span> Bathroom</li>
+        <li><span style="color: #C5A16F; margin-right: 10px;">4.</span> Bedroom</li>
+    </ul>
+</div>
+<p class="replace-note" style="font-size: 10px; color: #aaa; margin-top: 15px; font-style: italic;">Images shown are actual project process and floor plan documents for planning submission.</p>`,
             scope: [],
             contributions: [],
             software: [],
             mainMedia: { src: "images/Project 1.0.jpeg", type: "image" },
             thumbs: [],
-            drawings: []
+            drawings: [
+                { src: "images/1.1.jpg", title: "Detailed Ground Floor Plan", desc: "RIBA Stage 3 proposed ground level layout." },
+                { src: "images/1.2.jpg", title: "First Floor Plan", desc: "Internal spatial planning for primary residential zones." },
+                { src: "images/1.3.jpg", title: "Second Floor / Attic Plan", desc: "Leisure and entertainment level including Cinema and Snooker rooms." },
+                { src: "images/1.4.jpg", title: "North Site Elevation", desc: "External facade treatment and material specification." },
+                { src: "images/1.5.jpg", title: "Side Sectional Elevation", desc: "Technical section showing standard building heights and proportions." }
+            ]
         },
         2: {
             title: "Residential Extension Planning",
