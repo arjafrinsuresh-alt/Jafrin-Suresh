@@ -374,7 +374,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; width: 100%;">
-                    <a href="assets/Jafrin_Part II.pdf" class="btn-text underline-brass" download>Download CV ›</a>
+                    <button onclick="openResumePreview()" class="btn-text underline-brass" style="background:none; border:none; padding:0; cursor:pointer;" aria-label="Preview and Download CV">Download CV ›</button>
                 </div>
             </div>
         </div>
@@ -406,6 +406,31 @@
         </div>
     </footer>
 
+    <!-- TASK 8: RESUME PREVIEW MODAL -->
+    <div id="resume-preview-modal" class="overlay-hidden">
+        <div class="resume-preview-backdrop" onclick="closeResumePreview()"></div>
+        <button id="close-resume-preview" onclick="closeResumePreview()" aria-label="Close Resume Preview">✕</button>
+        <div class="resume-preview-content" id="resume-preview-content">
+            <!-- Luminous glowing element -->
+            <div id="resume-glow" class="resume-glow"></div>
+            
+            <div class="resume-preview-header">
+                <h2>Resume Preview</h2>
+                <a href="assets/Jafrin_Part II.pdf" class="pill-btn outline dark glow-btn" style="color:white; border-color:white; z-index: 10; position: relative;" download>Download Resume ↓</a>
+            </div>
+            <div class="resume-iframe-wrapper" id="resume-canvas-wrapper" style="overflow-y: auto; text-align: center; position: relative; z-index: 10; padding: 20px;">
+                <!-- PDF.js will inject canvas elements here -->
+                <div style="color: white; padding: 40px;">Loading Preview...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF.js library for rendering the resume -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <script src="scripts/pdfBase64.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

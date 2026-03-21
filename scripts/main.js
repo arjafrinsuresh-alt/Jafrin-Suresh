@@ -407,4 +407,79 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ----------------------------------------------------------------------
+    // TASK 8: RESUME PREVIEW MODAL
+    // ----------------------------------------------------------------------
+    const resumePreviewModal = document.getElementById('resume-preview-modal');
+    const resumePreviewContent = document.getElementById('resume-preview-content');
+    const resumeGlow = document.getElementById('resume-glow');
+    const resumeCanvasWrapper = document.getElementById('resume-canvas-wrapper');
+    let pdfRendered = false;
+
+    window.openResumePreview = function() {
+        if (!resumePreviewModal) return;
+        resumePreviewModal.classList.remove('overlay-hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Render PDF if not rendered yet
+        if (!pdfRendered && typeof pdfjsLib !== 'undefined' && typeof resumePdfBase64 !== 'undefined') {
+            const pdfData = atob(resumePdfBase64);
+            const loadingTask = pdfjsLib.getDocument({data: pdfData});
+            loadingTask.promise.then(pdf => {
+                resumeCanvasWrapper.innerHTML = ''; // Clear loading text
+                
+                // Fetch pages sequentially to maintain order
+                let promise = Promise.resolve();
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    promise = promise.then(() => pdf.getPage(pageNum).then(page => {
+                        const scale = 1.5; // High resolution
+                        const viewport = page.getViewport({ scale });
+                        
+                        const canvas = document.createElement('canvas');
+                        canvas.style.maxWidth = '100%';
+                        canvas.style.height = 'auto';
+                        canvas.style.display = 'block';
+                        canvas.style.margin = '0 auto 20px auto';
+                        canvas.style.borderRadius = '4px';
+                        canvas.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+                        
+                        const context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        page.render(renderContext);
+                        resumeCanvasWrapper.appendChild(canvas);
+                    }));
+                }
+                pdfRendered = true;
+            }).catch(err => {
+                console.error("Error rendering PDF:", err);
+                resumeCanvasWrapper.innerHTML = '<p style="color:white; padding: 20px;">Could not load preview. Please download the resume using the button above.</p>';
+            });
+        }
+    };
+
+    window.closeResumePreview = function() {
+        if (!resumePreviewModal) return;
+        resumePreviewModal.classList.add('overlay-hidden');
+        document.body.style.overflow = 'auto';
+    };
+
+    // Luminous Effect Tracking over the entire modal
+    if (resumePreviewModal && resumeGlow) {
+        resumePreviewModal.addEventListener('mousemove', (e) => {
+            const rect = resumePreviewContent.getBoundingClientRect();
+            // Calculate mouse position relative to the modal content box
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            resumeGlow.style.left = `${x}px`;
+            resumeGlow.style.top = `${y}px`;
+        });
+    }
+
 });
