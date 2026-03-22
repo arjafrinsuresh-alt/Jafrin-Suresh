@@ -1,11 +1,11 @@
 :root {
-    --color-bg: #111110;
+    --color-bg: #232516; /* Lando Norris Dark Olive */
     --color-text: #FFFFFF;
-    --color-accent: #D4AF37;
+    --color-accent: #D2FF00; /* Lando Norris Neon Yellow */
     --color-muted: rgba(255, 255, 255, 0.6);
     --color-border: rgba(255, 255, 255, 0.1);
-    --color-card: rgba(26, 26, 24, 0.4);
-    --color-nav: rgba(0, 0, 0, 0.3);
+    --color-card: rgba(35, 37, 22, 0.6); /* Slightly lighter olive for cards */
+    --color-nav: rgba(35, 37, 22, 0.8);
     --transition-smooth: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -13,8 +13,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { 
     scroll-behavior: smooth; 
-    background: url('../images/project2-thumb.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-color: var(--color-bg);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 20, 50 10 T 100 10' fill='none' stroke='%23D2FF00' stroke-width='1' stroke-opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 100px 30px;
 }
 body {
     font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
@@ -30,8 +31,8 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(17, 17, 16, 0.4); /* Lighter dark tint for better glassmorphism */
-    backdrop-filter: blur(25px); /* Adjusted blur for translucency */
+    background: radial-gradient(circle at 50% 50%, rgba(35, 37, 22, 0.1) 0%, rgba(35, 37, 22, 0.6) 100%);
+    backdrop-filter: blur(5px); /* Soft blur to keep waves visible */
     z-index: -1;
 }
 
