@@ -23,6 +23,14 @@
 </head>
 
 <body class="dark-mode-enforced">
+    <!-- TASK 5: LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-text">JA</div>
+        </div>
+    </div>
+
 
     <nav class="top-nav">
         <div class="container nav-container">
@@ -180,7 +188,11 @@
                     projects.</p>
             </div>
 
-            <div class="project-grid-dark">
+            <div class="project-slider-wrapper reveal-up">
+                <button class="slider-arrow prev" id="slider-prev" aria-label="Previous Project">←</button>
+                <div class="project-slider-container">
+                    <div class="project-slider-track" id="project-track">
+
                 <!-- Project 1 -->
                 <article class="project-card-dark reveal-up"
                     onclick="window.location.href='projects/professional-experience.html'">
@@ -250,6 +262,9 @@
                         </div>
                     </div>
                 </article>
+                    </div>
+                </div>
+                <button class="slider-arrow next" id="slider-next" aria-label="Next Project">→</button>
             </div>
         </div>
     </section>
@@ -257,102 +272,108 @@
     <!-- SECTION 4: RESUME TIMELINE -->
     <section id="timeline" class="timeline-section bg-white">
         <div class="container">
-            <div class="timeline-header-flex">
-                <h2 class="section-heading">Professional Experience.</h2>
-                <div class="resume-cta">
-                    <button class="pill-btn icon-right" onclick="openResumePreview()">
-                        View Resume <span class="btn-icon">→</span>
-                    </button>
-                    <a href="assets/Portfolio_JafrinSuresh_.pdf" class="text-link-underline" download>Download Portfolio</a>
-                </div>
-            </div>
+            <div class="resume-grid">
+                <!-- EXPERIENCE COLUMN -->
+                <div class="resume-col">
+                    <div class="timeline-header-flex">
+                        <h2 class="section-heading">Professional Experience.</h2>
+                        <div class="resume-cta">
+                            <button class="pill-btn icon-right" onclick="openResumePreview()">
+                                View Resume <span class="btn-icon">→</span>
+                            </button>
+                            <a href="assets/Portfolio_JafrinSuresh_.pdf" class="text-link-underline" download>Download Portfolio</a>
+                        </div>
+                    </div>
 
-            <div class="timeline-container">
-                <!-- Entry 1 -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">Oct 2025 – Present</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Architectural Designer</h3>
-                        <p class="timeline-org">A&N Architects, London, UK</p>
-                        <ul class="timeline-list">
-                            <li>Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment — including floor plans, sections, elevations, and proposed drawings across RIBA Stages 0–4.</li>
-                            <li>Carried out on-site surveys and translated findings into accurate existing and proposed drawing packages for planning application submissions.</li>
-                            <li>Prepared planning application packages including design and access statements, location plans, and proposed drawings in line with local planning authority requirements.</li>
-                            <li>Delivered client-facing visualizations and rendered design proposals to support stakeholder approvals and planning submissions at RIBA Stages 2 and 3.</li>
-                        </ul>
+                    <div class="timeline-container">
+                        <!-- Entry 1 -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">Oct 2025 – Present</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Architectural Designer</h3>
+                                <p class="timeline-org">A&N Architects, London, UK</p>
+                                <ul class="timeline-list">
+                                    <li>Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment.</li>
+                                    <li>Carried out on-site surveys and translated findings into accurate drawing packages.</li>
+                                    <li>Prepared planning application packages including design and access statements.</li>
+                                    <li>Delivered client-facing visualizations and rendered design proposals.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Entry 2 -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">Dec 2022 – Dec 2023</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Architectural Assistant</h3>
+                                <p class="timeline-org">Ruby Builders, Chennai, India</p>
+                                <ul class="timeline-list">
+                                    <li>Produced 20+ technical drawing sheets per project across 6–7 residential schemes.</li>
+                                    <li>Delivered 6+ photorealistic renders and walkthrough animations per project.</li>
+                                    <li>Prepared planning application drawing packages and documentation.</li>
+                                    <li>Recognised for quickly understanding client briefs and accurate technical deliverables.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Entry 3 -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">Apr 2024</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Intern – Site Coordination</h3>
+                                <p class="timeline-org">Clark Contracts × WASPS Studios, Glasgow, UK</p>
+                                <ul class="timeline-list">
+                                    <li>Attended live arts studio fit-out, observing construction-phase coordination.</li>
+                                    <li>Gained exposure to contractor workflow and architectural documentation translation.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Entry 4 -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">Jun 2022 – Aug 2022</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Thesis Intern</h3>
+                                <p class="timeline-org">Airports Authority of India (AAI), Chennai, India</p>
+                                <ul class="timeline-list">
+                                    <li>Designed a full-scale hypothetical airport masterplan across a 5,000-acre site.</li>
+                                    <li>Planned a terminal complex housing 70 airline offices and 100 retail outlets.</li>
+                                    <li>Integrated sustainable systems including solar panels and green roofs.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Entry 2 -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">Dec 2022 – Dec 2023</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Architectural Assistant</h3>
-                        <p class="timeline-org">Ruby Builders, Chennai, India</p>
-                        <ul class="timeline-list">
-                            <li>Produced 20+ technical drawing sheets per project across 6–7 residential schemes, including site plans, floor plans, sections, elevations, and construction details in AutoCAD and Revit.</li>
-                            <li>Delivered 6+ photorealistic renders and walkthrough animations per project using Lumion and V-Ray, directly supporting client sign-off and accelerating design approvals.</li>
-                            <li>Prepared planning application drawing packages and design & access documentation across all projects, supporting successful submissions to local planning authorities.</li>
-                            <li>Recognised by seniors for quickly understanding client briefs and translating design intent into accurate technical deliverables with minimal revisions.</li>
-                        </ul>
+                <!-- EDUCATION COLUMN -->
+                <div class="resume-col">
+                    <div class="timeline-header-flex">
+                        <h2 class="section-heading">Education.</h2>
                     </div>
-                </div>
 
-                <!-- Entry 3 -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">Apr 2024</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Intern – Site & Digital Coordination</h3>
-                        <p class="timeline-org">Clark Contracts × WASPS Studios, Glasgow, UK</p>
-                        <ul class="timeline-list">
-                            <li>Attended a university-organised site visit to a live arts studio fit-out, observing construction-phase coordination and building regulations compliance in practice.</li>
-                            <li>Gained first-hand exposure to contractor workflow and the translation of architectural documentation into on-site execution.</li>
-                        </ul>
-                    </div>
-                </div>
+                    <div class="timeline-container">
+                        <!-- Entry 5: Education -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">2024 – 2025</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">MSc Advanced Construction Tech & BIM</h3>
+                                <p class="timeline-org">University of Strathclyde, Glasgow, UK</p>
+                                <ul class="timeline-list">
+                                    <li>Modules: BIM Project Execution, Clash Detection, Sustainable Design.</li>
+                                    <li>Dissertation: Enhancing Green Roof Design through Advanced BIM Integration.</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                <!-- Entry 4 -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">Jun 2022 – Aug 2022</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Thesis Intern</h3>
-                        <p class="timeline-org">Airports Authority of India (AAI), Chennai, India</p>
-                        <ul class="timeline-list">
-                            <li>Designed a full-scale hypothetical airport masterplan across a 5,000-acre site, accommodating 30 million passengers annually, 500 daily flight operations, and peak-hour capacity of 12,000 passengers.</li>
-                            <li>Planned a terminal complex housing 70 airline offices, 100 retail outlets, and 30 dining spaces, alongside cargo facilities capable of processing 600,000 tons annually and parking for 10,000 vehicles.</li>
-                            <li>Integrated sustainable systems including solar panels, green roofs, and rainwater harvesting across the masterplan to minimise environmental impact.</li>
-                            <li>Produced full technical documentation, spatial planning diagrams, and photorealistic visualisations using AutoCAD, Rhino, and Lumion; awarded Distinction for the completed thesis.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-header-flex" style="margin-top: 80px;">
-                <h2 class="section-heading">Education.</h2>
-            </div>
-
-            <div class="timeline-container">
-                <!-- Entry 5: Education -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">2024 – 2025</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">MSc Advanced Construction Technologies and BIM</h3>
-                        <p class="timeline-org">University of Strathclyde, Glasgow, UK</p>
-                        <ul class="timeline-list">
-                            <li>Modules: BIM Project Execution, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design, Digital Construction.</li>
-                            <li>Dissertation: Enhancing Green Roof Design through Advanced BIM Integration – systematic review of 134 papers and 4 case studies, developing a BIM framework for sustainable design addressing environmental performance and building lifecycle management.</li>
-                            <li>Final project: residential extension designed end-to-end in Revit – coordinated floor plans, sections, building regulations compliance check, and 3D visualisations.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Entry 6: Education -->
-                <div class="timeline-item reveal-up">
-                    <div class="timeline-date">2018 – 2023</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Bachelor of Architecture (BArch) – Distinction</h3>
-                        <p class="timeline-org">Sathyabama Institute of Science and Technology, Chennai, India</p>
-                        <p class="timeline-desc">RIBA Part 1 & Part 2 equivalent qualification; thesis focused on airport terminal expansion – passenger flow modelling, spatial planning, and phased technical documentation.</p>
+                        <!-- Entry 6: Education -->
+                        <div class="timeline-item reveal-up">
+                            <div class="timeline-date">2018 – 2023</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Bachelor of Architecture (BArch)</h3>
+                                <p class="timeline-org">Sathyabama Institute, Chennai, India</p>
+                                <p class="timeline-desc">Distinction; RIBA Part 1 & 2 equivalent; thesis on airport expansion.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,6 +389,7 @@
                 <a href="mailto:ar.jafrin.suresh@gmail.com"
                     class="contact-link-item animated-underline">ar.jafrin.suresh@gmail.com</a>
                 <a href="tel:+447586392913" class="contact-link-item animated-underline">+44 7586 392913</a>
+                <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" class="contact-link-item animated-underline">LinkedIn</a>
             </div>
         </div>
     </section>

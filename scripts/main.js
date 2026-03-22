@@ -6,6 +6,72 @@ const sections = document.querySelectorAll('section');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navMenu = document.getElementById('nav-menu');
 
+/**
+ * TASK 5: LOADING SCREEN
+ */
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loading-screen');
+    if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 800);
+    }
+});
+
+/**
+ * TASK 2: PROJECT SLIDER
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('project-track');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    
+    if (!track || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    const cards = track.querySelectorAll('.project-card-dark');
+    const totalCards = cards.length;
+
+    function getCardsPerView() {
+        if (window.innerWidth <= 1100) return 1;
+        return 2;
+    }
+
+    function updateSlider() {
+        const cardsPerView = getCardsPerView();
+        const maxIndex = totalCards - cardsPerView;
+        
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 30; // Matches CSS gap
+        const offset = currentIndex * (cardWidth + gap);
+        
+        track.style.transform = `translateX(-${offset}px)`;
+        
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex--;
+        updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex++;
+        updateSlider();
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider(); // Initial call
+});
+
+/**
+ * ORIGINAL SCROLL LOGIC & MOBILE MENU
+ */
 // Hamburger Toggle
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
