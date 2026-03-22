@@ -486,13 +486,14 @@ body::before {
 @media (max-width: 768px) {
  .project-grid-dark { grid-template-columns: 1fr; }
  
- .top-nav { padding: 12px 0; }
+ .top-nav { padding: 10px 0; }
  .nav-track {
-     gap: 10px;
-     padding: 0 10px;
+     gap: 5px;
+     padding: 0 5px;
      justify-content: center;
-     flex-wrap: wrap;
+     flex-wrap: nowrap;
+     width: 100%;
  }
- .nav-link { font-size: 11px; padding: 6px 12px; }
+ .nav-link { font-size: 9.5px; padding: 6px 8px; letter-spacing: 1.5px; }
  .container { padding: 0 5%; }
 }
