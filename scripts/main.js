@@ -242,3 +242,37 @@ async function renderResume() {
         container.innerHTML = '<div style="color: white; padding: 40px;">Failed to load resume preview. Please download the file instead.</div>';
     }
 }
+
+/**
+ * TASK 2: METRIC COUNT-UP ANIMATION
+ */
+const countUpElements = document.querySelectorAll('.metric-number');
+
+const countUpObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            animateCount(entry.target, target);
+            countUpObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+function animateCount(el, target) {
+    let current = 0;
+    const duration = 2000;
+    const stepTime = Math.abs(Math.floor(duration / target));
+    
+    const timer = setInterval(() => {
+        current += 1;
+        el.innerText = current + (target === 35 || target === 10 || target === 6 || target === 2 ? '+' : '');
+        
+        if (current >= target) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    countUpElements.forEach(el => countUpObserver.observe(el));
+});
