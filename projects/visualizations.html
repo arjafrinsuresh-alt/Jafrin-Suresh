@@ -71,7 +71,13 @@
                     <!-- Gallery Integrated into Right Column -->
                     <div class="gallery-grid">
                         <div class="gallery-item reveal-up" onclick="openLightbox(0)">
-                            <img src="../images/project-hero-placeholder.jpg" alt="Architectural Render 1">
+                            <img src="../images/5.1.png" alt="Architectural Visualization 5.1">
+                        </div>
+                        <div class="gallery-item reveal-up" onclick="openLightbox(1)">
+                            <img src="../images/5.2.png" alt="Architectural Visualization 5.2">
+                        </div>
+                        <div class="gallery-item reveal-up" onclick="openLightbox(2)">
+                            <img src="../images/5.3.png" alt="Architectural Visualization 5.3">
                         </div>
                     </div>
                 </div>
@@ -101,7 +107,11 @@
 
     <script src="../scripts/main.js"></script>
     <script>
-        const galleryImages = ['../images/project-hero-placeholder.jpg'];
+        const galleryImages = [
+            '../images/5.1.png', 
+            '../images/5.2.png',
+            '../images/5.3.png'
+        ];
         let currentIdx = 0;
         function openLightbox(idx) { currentIdx = idx; const lb = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); img.src = galleryImages[idx]; lb.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
         function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow = ''; }
