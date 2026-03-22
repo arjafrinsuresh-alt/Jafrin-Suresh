@@ -3,6 +3,24 @@
  */
 const navLinks = document.querySelectorAll('.nav-link[data-section]');
 const sections = document.querySelectorAll('section');
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navMenu = document.getElementById('nav-menu');
+
+// Hamburger Toggle
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking links
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenuBtn?.classList.remove('active');
+        navMenu?.classList.remove('active');
+    });
+});
 
 window.addEventListener('scroll', () => {
     let current = '';

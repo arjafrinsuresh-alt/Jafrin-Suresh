@@ -25,25 +25,37 @@
 <body class="dark-mode-enforced">
 
     <nav class="top-nav">
-        <div class="container nav-track">
-            <a href="#about" class="nav-link active" data-section="about">HOME</a>
-            <a href="#skills" class="nav-link" data-section="skills">SKILLS</a>
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">JA</a>
             
-            <div class="projects-dropdown">
-                <a href="#projects" class="nav-link" data-section="projects">PROJECTS</a>
-                <div class="dropdown-content">
-                    <a href="projects/professional-experience.html" class="sub-link">Professional Experience</a>
-                    <a href="projects/residential-extension.html" class="sub-link">Residential Extension</a>
-                    <a href="projects/airport-terminal.html" class="sub-link">Airport Expansion</a>
-                    <a href="projects/academic-projects.html" class="sub-link">Academic Projects</a>
-                    <a href="projects/visualizations.html" class="sub-link">Visualisations</a>
-                </div>
-            </div>
+            <button class="hamburger-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-            <a href="#timeline" class="nav-link" data-section="timeline">RESUME</a>
-            <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
+            <div class="nav-track" id="nav-menu">
+                <a href="#about" class="nav-link active" data-section="about">Home</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                
+                <div class="projects-dropdown">
+                    <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="projects/professional-experience.html" class="sub-link">Professional Experience</a>
+                        <a href="projects/residential-extension.html" class="sub-link">Residential Extension</a>
+                        <a href="projects/airport-terminal.html" class="sub-link">Airport Expansion</a>
+                        <a href="projects/academic-projects.html" class="sub-link">Academic Projects</a>
+                        <a href="projects/visualizations.html" class="sub-link">Visualisations</a>
+                    </div>
+                </div>
+
+                <a href="#timeline" class="nav-link" data-section="timeline">Experience</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
         </div>
     </nav>
+
+
 
 
     <!-- SECTION 2: ABOUT -->
@@ -82,6 +94,30 @@
                             onmouseover="this.style.borderBottom='1px solid var(--color-muted)'"
                             onmouseout="this.style.borderBottom='1px solid transparent'">linkedin</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEY HIGHLIGHTS / STATS -->
+    <section id="highlights" class="highlights-section">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="metric-card reveal-up">
+                    <div class="metric-number">35+</div>
+                    <div class="metric-label">Technical Drawings</div>
+                </div>
+                <div class="metric-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="metric-number">10+</div>
+                    <div class="metric-label">Live Projects</div>
+                </div>
+                <div class="metric-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="metric-number">6+</div>
+                    <div class="metric-label">High-End Renders</div>
+                </div>
+                <div class="metric-card reveal-up" style="transition-delay: 0.3s;">
+                    <div class="metric-number">2+</div>
+                    <div class="metric-label">Regional Hubs</div>
                 </div>
             </div>
         </div>
