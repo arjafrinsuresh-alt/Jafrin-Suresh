@@ -4,47 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Title | Jafrin Suretha Suresh</title>
-    
-    <!-- SF Pro Display Font -->
-    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
-    
-    <!-- Stylesheets -->
+    <!-- Template Styles -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/animations.css">
-    
-    <link rel="canonical" href="https://jafrinsuresh.com/projects/project-template.html" />
-    <meta property="og:title" content="Project Title | Jafrin Suretha Suresh" />
-    <meta property="og:description" content="Architectural project showcase by Jafrin Suretha Suresh." />
-    <meta property="og:type" content="website" />
-
+    <link rel="canonical" href="https://jafrinsuresh.com/projects/project-1.html">
     <style>
+        /* TEMPLATE SPECIFIC STYLES */
         :root {
-            --project-padding: clamp(40px, 8vw, 100px);
-            --content-width: 1440px;
+            --color-text-vlong: #555;
+            --color-separator: #E8E4DD;
         }
 
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #ffffff;
-            color: #1A1814;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            overflow-x: hidden;
         }
 
-        /* SECTION 1: HERO */
+        /* Hero Section */
         .project-hero {
             position: relative;
+            height: 100vh;
             min-height: 100vh;
             width: 100%;
-            background-image: url('../images/projects/hero.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: flex-end;
-            padding: 60px 6%;
-            overflow: hidden;
+            padding: 0 6% 60px 6%;
         }
 
-        .project-hero::before {
-            content: '';
+        .hero-overlay {
             position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.40);
@@ -54,60 +44,41 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            width: 100%;
+            color: #ffffff;
         }
 
         .project-category {
             font-size: 10px;
             letter-spacing: 4px;
-            color: rgba(255,255,255,0.6);
             text-transform: uppercase;
-            margin-bottom: 20px;
+            color: rgba(255,255,255,0.6);
             display: block;
+            margin-bottom: 20px;
         }
 
         .project-hero-title {
             font-size: clamp(42px, 6vw, 80px);
             font-weight: 300;
-            color: #ffffff;
             line-height: 1.1;
-            margin-bottom: 12px;
+            margin-bottom: 24px;
         }
 
         .project-hero-sub {
-            font-size: 16px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .back-link {
-            position: absolute;
-            top: 32px;
-            left: 6%;
-            color: #ffffff;
-            font-size: 13px;
-            text-decoration: none;
-            z-index: 10;
+            font-size: 14px;
             opacity: 0.8;
-            transition: opacity 0.3s ease;
+            font-weight: 300;
         }
 
-        .back-link:hover {
-            opacity: 1;
-        }
-
-        /* SECTION 2: DESCRIPTION */
-        .project-details {
-            padding: 100px 6%;
+        /* Description Section */
+        .project-description-section {
             background: #ffffff;
+            padding: 100px 6%;
         }
 
-        .details-grid {
+        .description-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            max-width: var(--content-width);
-            margin: 0 auto;
         }
 
         .project-section-heading {
@@ -115,42 +86,41 @@
             font-weight: 300;
             color: #1A1814;
             line-height: 1.2;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
-        .project-description {
+        .project-text {
             font-size: 15px;
             line-height: 1.9;
-            color: #555;
+            color: var(--color-text-vlong);
             max-width: 540px;
         }
 
-        .project-description p {
+        .project-text p {
             margin-bottom: 24px;
         }
 
+        /* Metadata Column */
         .project-meta-list {
             list-style: none;
             padding: 0;
         }
 
-        .meta-item {
-            padding: 20px 0;
-            border-bottom: 1px solid #E8E4DD;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .meta-pair {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--color-separator);
         }
 
-        .meta-item:first-child {
-            border-top: 1px solid #E8E4DD;
-        }
+        .meta-pair:first-child { padding-top: 0; }
+        .meta-pair:last-child { border-bottom: none; }
 
         .meta-label {
             font-size: 10px;
             letter-spacing: 3px;
             color: #aaa;
             text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .meta-value {
@@ -159,14 +129,12 @@
             font-weight: 400;
         }
 
-        /* SECTION 3: SOFTWARE */
+        /* Software Section */
         .software-row {
             margin-top: 40px;
             padding-top: 32px;
-            border-top: 1px solid #E8E4DD;
-            max-width: var(--content-width);
-            margin-left: auto;
-            margin-right: auto;
+            border-top: 1px solid var(--color-separator);
+            grid-column: span 2;
         }
 
         .software-label {
@@ -181,7 +149,7 @@
         .software-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .software-pill {
@@ -192,20 +160,16 @@
             padding: 5px 14px;
             border-radius: 20px;
             display: inline-block;
+            text-transform: uppercase;
         }
 
-        /* SECTION 4: GALLERY */
-        .project-gallery {
-            background-color: #F5F2EC;
+        /* Gallery Section */
+        .gallery-section {
+            background: #F5F2EC;
             padding: 80px 6%;
         }
 
-        .gallery-container {
-            max-width: var(--content-width);
-            margin: 0 auto;
-        }
-
-        .gallery-heading {
+        .gallery-header {
             font-size: 13px;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -220,15 +184,15 @@
         }
 
         .gallery-item {
-            position: relative;
             overflow: hidden;
             border-radius: 4px;
             cursor: pointer;
-            aspect-ratio: 16/10;
+            aspect-ratio: 4/3;
         }
 
-        .gallery-grid > .gallery-item:nth-child(3n+1) {
+        .gallery-item:nth-child(3n+1) {
             grid-column: span 2;
+            aspect-ratio: auto;
         }
 
         .gallery-item img {
@@ -243,36 +207,35 @@
             transform: scale(1.04);
         }
 
-        /* SECTION 5: NEXT PROJECT */
+        /* Next Project Section */
         .next-project-section {
             background: #1A1814;
             padding: 80px 6%;
-            display: block;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .next-project-content {
-            max-width: var(--content-width);
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .next-project-section:hover {
+            opacity: 0.95;
         }
 
         .next-label {
+            display: block;
             font-size: 10px;
             letter-spacing: 3px;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
             text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
         }
 
         .next-title {
             font-size: clamp(28px, 4vw, 52px);
             font-weight: 300;
             color: #ffffff;
+            margin: 0;
         }
 
         .next-arrow {
@@ -285,161 +248,135 @@
             transform: translateX(6px);
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .details-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-grid > .gallery-item:nth-child(3n+1) {
-                grid-column: span 1;
-            }
+        /* Back to Main Scroll Reveal */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        @media (max-width: 600px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item:nth-child(3n+1) { grid-column: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            .description-grid { grid-template-columns: 1fr; gap: 40px; }
+            .software-row { grid-column: auto; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item:nth-child(3n+1) { grid-column: auto; }
+            .project-hero { height: 80vh; min-height: auto; }
         }
     </style>
 </head>
-<body class="light-mode">
-
-    <!-- Lightbox Structure (Must match existing index.html/main.js logic) -->
-    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;">
-        <span id="lb-close" style="position:absolute; top:30px; right:40px; color:white; font-size:40px; cursor:pointer;">&times;</span>
-        <button id="lb-prev" style="position:absolute; left:30px; color:white; background:none; border:none; font-size:80px; cursor:pointer;">&#8249;</button>
-        <img id="lightbox-img" src="" style="max-width:90%; max-height:85vh; object-fit:contain;">
-        <button id="lb-next" style="position:absolute; right:30px; color:white; background:none; border:none; font-size:80px; cursor:pointer;">&#8250;</button>
-    </div>
+<body>
 
     <!-- SECTION 1: HERO -->
-    <header class="project-hero reveal-up">
-        <a href="../index.html" class="back-link">← Back</a>
-        <div class="hero-content">
+    <header class="project-hero" style="background-image: url('../images/Project 1.0.jpeg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal-up">
             <span class="project-category">RESIDENTIAL · LONDON · 2025</span>
-            <h1 class="project-hero-title">Project Title</h1>
-            <p class="project-hero-sub">A descriptive one-line tagline for the project.</p>
+            <h1 class="project-hero-title">Professional Experience</h1>
+            <p class="project-hero-sub">RIBA Stages 0–4 Documentation & Visualisation.</p>
         </div>
     </header>
 
-    <!-- SECTION 2 & 3: DETAILS & SOFTWARE -->
-    <section class="project-details">
-        <div class="details-grid">
-            <div class="details-left reveal-up">
-                <h2 class="project-section-heading">Where existing walls meet new possibilities.</h2>
-                <div class="project-description">
-                    <p>
-                        This is a summary of the architectural intervention. Describe the core concept, the design language, and the impact of the final space. Focus on materiality, light, and form.
-                    </p>
-                    <p>
-                        Provide additional context about the technical implementation or the client's vision that shaped the final outcome.
-                    </p>
-                </div>
-
-                <!-- SECTION 3: SOFTWARE (Nested inside details section 2) -->
-                <div class="software-row reveal-up">
-                    <span class="software-label">Software used</span>
-                    <div class="software-pills">
-                        <span class="software-pill">AutoCAD</span>
-                        <span class="software-pill">Revit</span>
-                        <span class="software-pill">SketchUp</span>
-                        <span class="software-pill">V-Ray</span>
-                        <span class="software-pill">Lumion</span>
-                    </div>
+    <!-- SECTION 2 & 3: DESCRIPTION & SOFTWARE -->
+    <section class="project-description-section">
+        <div class="description-grid">
+            <div class="description-left reveal-up">
+                <h2 class="project-section-heading">Character preserved. Function reimagined.</h2>
+                <div class="project-text">
+                    <p>Produced 15+ drawing sheets per project across 2 live schemes — a residential unit and a pub refurbishment — including floor plans, sections, elevations and proposed drawings across RIBA Stages 0–4.</p>
+                    <p>Carried out on-site surveys and translated findings into accurate existing and proposed drawing packages for planning application submissions.</p>
                 </div>
             </div>
-
-            <div class="details-right reveal-up delay-1">
+            <div class="description-right reveal-up">
                 <ul class="project-meta-list">
-                    <li class="meta-item">
+                    <li class="meta-pair">
                         <span class="meta-label">Year</span>
-                        <span class="meta-value">2025</span>
+                        <span class="meta-value">2025 (Present)</span>
                     </li>
-                    <li class="meta-item">
+                    <li class="meta-pair">
                         <span class="meta-label">Location</span>
                         <span class="meta-value">London, UK</span>
                     </li>
-                    <li class="meta-item">
+                    <li class="meta-pair">
                         <span class="meta-label">Client</span>
-                        <span class="meta-value">Private Client</span>
+                        <span class="meta-value">A&N Architects</span>
                     </li>
-                    <li class="meta-item">
+                    <li class="meta-pair">
                         <span class="meta-label">RIBA Stage</span>
-                        <span class="meta-value">Stage 4 (Technical Design)</span>
+                        <span class="meta-value">Stages 0–4</span>
                     </li>
-                    <li class="meta-item">
+                    <li class="meta-pair">
                         <span class="meta-label">Project Type</span>
-                        <span class="meta-value">Residential Extension</span>
+                        <span class="meta-value">Residential & Commercial</span>
                     </li>
                 </ul>
+            </div>
+
+            <div class="software-row reveal-up">
+                <span class="software-label">Software used</span>
+                <div class="software-pills">
+                    <span class="software-pill">AutoCAD</span>
+                    <span class="software-pill">Revit</span>
+                    <span class="software-pill">SketchUp</span>
+                    <span class="software-pill">V-Ray</span>
+                    <span class="software-pill">Lumion</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: PHOTO GALLERY -->
-    <section class="project-gallery">
-        <div class="gallery-container">
-            <h2 class="gallery-heading reveal-up">Project images</h2>
-            
-            <div class="gallery-grid">
-                <!-- Image 1 -->
-                <div class="gallery-item reveal-up" onclick="openLightbox(0)">
-                    <img src="../images/projects/project-name/image-1.jpg" alt="Gallery Image 1" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+1'">
-                </div>
-                <!-- Image 2 -->
-                <div class="gallery-item reveal-up delay-1" onclick="openLightbox(1)">
-                    <img src="../images/projects/project-name/image-2.jpg" alt="Gallery Image 2" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+2'">
-                </div>
-                <!-- Image 3 -->
-                <div class="gallery-item reveal-up" onclick="openLightbox(2)">
-                    <img src="../images/projects/project-name/image-3.jpg" alt="Gallery Image 3" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+3'">
-                </div>
-                <!-- Image 4 -->
-                <div class="gallery-item reveal-up delay-1" onclick="openLightbox(3)">
-                    <img src="../images/projects/project-name/image-4.jpg" alt="Gallery Image 4" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+4'">
-                </div>
-                <!-- Image 5 -->
-                <div class="gallery-item reveal-up" onclick="openLightbox(4)">
-                    <img src="../images/projects/project-name/image-5.jpg" alt="Gallery Image 5" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+5'">
-                </div>
-                <!-- Image 6 -->
-                <div class="gallery-item reveal-up delay-1" onclick="openLightbox(5)">
-                    <img src="../images/projects/project-name/image-6.jpg" alt="Gallery Image 6" onerror="this.src='https://placehold.co/1200x800/261C18/907068?text=Project+Image+6'">
-                </div>
+    <!-- SECTION 4: GALLERY -->
+    <section class="gallery-section">
+        <h2 class="gallery-header reveal-up">Project images</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal-up" onclick="openLightbox(0)">
+                <img src="../images/1.1.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item reveal-up" onclick="openLightbox(1)">
+                <img src="../images/1.2.jpg" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item reveal-up" onclick="openLightbox(2)">
+                <img src="../images/1.3.jpg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item reveal-up" onclick="openLightbox(3)">
+                <img src="../images/1.4.jpg" alt="Gallery Image 4">
+            </div>
+            <div class="gallery-item reveal-up" onclick="openLightbox(4)">
+                <img src="../images/1.5.jpg" alt="Gallery Image 5">
+            </div>
+            <div class="gallery-item reveal-up" onclick="openLightbox(5)">
+                <img src="../images/Project 1.0.jpeg" alt="Gallery Image 6">
             </div>
         </div>
     </section>
 
     <!-- SECTION 5: NEXT PROJECT -->
-    <a href="project-2.html" class="next-project-section">
-        <div class="next-project-content reveal-up">
-            <div class="next-info">
-                <span class="next-label">Next project</span>
-                <h3 class="next-title">Project Name</h3>
-            </div>
-            <div class="next-arrow">→</div>
+    <a href="residential-extension.html" class="next-project-section">
+        <div class="next-content">
+            <span class="next-label">Next project</span>
+            <h3 class="next-title">Residential Extension</h3>
         </div>
+        <div class="next-arrow">→</div>
     </a>
 
-    <!-- Scripts -->
+    <!-- SCRIPTS -->
     <script src="../scripts/main.js"></script>
     <script>
-        // Observe reveals for the new page
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
-        });
+        // Specific Lightbox integration for standalone pages if not in main.js
+        function openLightbox(index) {
+            // Lightbox logic here or call existing lightbox from main.js
+            console.log("Opening lightbox for index:", index);
+        }
     </script>
 </body>
 </html>

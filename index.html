@@ -1,104 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jafrin Suretha Suresh | Architectural Designer</title>
-    
+    <title>Jafrin Suretha Suresh | Architectural Designer & BIM Technologist</title>
+
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Portfolio of Jafrin Suretha Suresh, RIBA Part 2 Architectural Designer and BIM Technologist based in London, UK.">
-    <meta name="keywords" content="Architect, BIM Technologist, RIBA, London, Portfolio, Design">
-    
+    <meta name="description"
+        content="Portfolio of Jafrin Suretha Suresh, RIBA Part 2 Architectural Designer and BIM Technologist. Specializing in Revit, ISO 19650, and sustainable architectural design.">
+    <meta name="keywords"
+        content="Architectural Designer, BIM Technologist, Revit, ISO 19650, BREEAM, Lumion, Architecture Portfolio">
+
     <!-- Google Fonts: Outift/Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Link to local CSS files -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
 </head>
-<body class="light-mode">
 
-    <!-- TASK 7: SIDEBAR NAVIGATION -->
-    <aside id="sidebar-nav">
-        <div class="sidebar-track">
-            <a href="#hero" class="sidebar-link active" data-section="hero">HOME</a>
-            <a href="#about" class="sidebar-link" data-section="about">ABOUT</a>
-            <a href="#timeline" class="sidebar-link" data-section="timeline">RESUME</a>
-            <a href="#contact" class="sidebar-link" data-section="contact">CONTACT</a>
-            <button id="dark-mode-toggle" class="sidebar-link dark-mode-btn" aria-label="Toggle Theme">
-                <span class="theme-icon">
-                    <svg class="moon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="sun-svg" style="display: none;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </aside>
+<body class="dark-mode-enforced">
 
-    <!-- TASK 1: HERO VIDEO SECTION -->
-    <header id="hero" class="hero-section">
-        <video autoplay muted loop playsinline class="hero-video" poster="images/hero-bg.jpg">
-            <source src="videos/hero.mp4" type="video/mp4">
-        </video>
-        <div class="hero-video-overlay"></div>
-        
-        <div class="container text-center">
-            <div class="hero-content">
-                <h1 class="hero-name">
-                    <span class="word">Jafrin</span> 
-                    <span class="word">Suretha</span> 
-                    <span class="word">Suresh</span>
-                </h1>
-                <p class="hero-tagline">
-                    <span class="tag-word">Designing</span> 
-                    <span class="tag-word">spaces</span> 
-                    <span class="tag-word">that</span> 
-                    <span class="tag-word">shape</span> 
-                    <span class="tag-word">experiences.</span>
-                </p>
+    <nav class="top-nav">
+        <div class="container nav-track">
+            <a href="#about" class="nav-link active" data-section="about">HOME</a>
+            <a href="#skills" class="nav-link" data-section="skills">SKILLS</a>
+            
+            <div class="projects-dropdown">
+                <a href="#projects" class="nav-link" data-section="projects">PROJECTS</a>
+                <div class="dropdown-content">
+                    <a href="projects/professional-experience.html" class="sub-link">Professional Experience</a>
+                    <a href="projects/residential-extension.html" class="sub-link">Residential Extension</a>
+                    <a href="projects/airport-terminal.html" class="sub-link">Airport Expansion</a>
+                    <a href="projects/academic-projects.html" class="sub-link">Academic Projects</a>
+                    <a href="projects/visualizations.html" class="sub-link">Visualisations</a>
+                </div>
             </div>
-        </div>
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-pill">
-                <div class="scroll-dot"></div>
-            </div>
-        </div>
-    </header>
 
-    <!-- NAVIGATION BAR REMOVED -->
+            <a href="#timeline" class="nav-link" data-section="timeline">RESUME</a>
+            <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
+        </div>
+    </nav>
+
 
     <!-- SECTION 2: ABOUT -->
-    <section id="about" class="about-section bg-white">
+    <section id="about" class="about-section bg-white" style="padding-top: 160px;">
         <div class="container">
             <div class="about-grid-brief">
                 <div class="about-photo-col">
                     <div class="photo-container reveal-photo">
                         <div class="photo-reveal-overlay"></div>
-                        <img src="images/profile.jpg" alt="Jafrin Suretha Suresh" class="profile-photo-img">
+                        <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="profile-photo-img">
                     </div>
                 </div>
                 <div class="about-text-col reveal-up">
-                    <h2 class="section-heading" style="font-weight: 300; line-height: 1.2; text-transform: none; margin-bottom: 8px; font-style: normal;">Hi, I'm Jafrin Suresh</h2>
-                    <p style="font-weight: 400; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; color: var(--color-muted); margin-bottom: 24px;">ARCHITECTURAL DESIGNER · RIBA PART 2 · BIM TECHNOLOGIST</p>
-                    <p class="bio-paragraph" style="font-weight: 400; font-style: normal; margin-bottom: 32px; color: var(--color-text);">
-                        I make architecture work — spatially, technically, and for the people in it.
+                    <h2 class="section-heading"
+                        style="font-weight: 300; line-height: 1.2; text-transform: none; margin-bottom: 8px; font-style: normal;">
+                        Hi, I'm Jafrin Suretha Suresh</h2>
+                    <p
+                        style="font-weight: 400; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; color: var(--color-muted); margin-bottom: 24px;">
+                        Architectural Designer & BIM Technologist · London, UK</p>
+                    <p class="bio-paragraph"
+                        style="font-weight: 400; font-style: normal; margin-bottom: 32px; color: var(--color-text);">
+                        I'm a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies and BIM from the <strong>University of Strathclyde</strong>. 
+                        I offer end-to-end project delivery experience across RIBA Work Stages 0-4 on residential and commercial schemes. 
+                        Technically proficient in <strong>Revit, AutoCAD, and ISO 19650-compliant</strong> information management, I focus on sustainable design and BREEAM frameworks, with expertise in federated model coordination and clash detection.
                     </p>
-                    <div class="location-contact-line" style="font-weight: 400; font-size: 13px; color: var(--color-muted); font-style: normal; opacity: 0.8;">
-                        london, uk · 
-                        <a href="mailto:ar.jafrin.suresh@gmail.com" style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;" onmouseover="this.style.borderBottom='1px solid var(--color-muted)'" onmouseout="this.style.borderBottom='1px solid transparent'">ar.jafrin.suresh@gmail.com</a> · 
-                        <a href="https://linkedin.com/in/jafrinsuresh" target="_blank" style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;" onmouseover="this.style.borderBottom='1px solid var(--color-muted)'" onmouseout="this.style.borderBottom='1px solid transparent'">linkedin</a>
+                    <div class="location-contact-line"
+                        style="font-weight: 400; font-size: 13px; color: var(--color-muted); font-style: normal; opacity: 0.8;">
+                        London, UK · +44 7586 392913 · 
+                        <a href="mailto:ar.jafrin.suresh@gmail.com"
+                            style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;"
+                            onmouseover="this.style.borderBottom='1px solid var(--color-muted)'"
+                            onmouseout="this.style.borderBottom='1px solid transparent'">ar.jafrin.suresh@gmail.com</a>
+                        ·
+                        <a href="https://linkedin.com/in/jafrinsuresh" target="_blank"
+                            style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;"
+                            onmouseover="this.style.borderBottom='1px solid var(--color-muted)'"
+                            onmouseout="this.style.borderBottom='1px solid transparent'">linkedin</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +90,9 @@
     <!-- TECHNICAL EXPERTISE -->
     <section id="skills" class="skills-section bg-gray">
         <div class="container">
-            <h2 class="section-title text-center reveal-up" style="margin-bottom: 80px; font-size: clamp(48px, 8vw, 72px); letter-spacing: -3px; font-weight: 700;">TECHNICAL SKILLS</h2>
+            <h2 class="section-title text-center reveal-up"
+                style="margin-bottom: 80px; font-size: clamp(48px, 8vw, 72px); letter-spacing: -3px; font-weight: 700;">
+                TECHNICAL SKILLS</h2>
             <div class="skills-grid-columns">
                 <div class="skill-column reveal-stagger">
                     <h4 class="skill-category-label">BIM & CAD</h4>
@@ -158,12 +142,14 @@
         <div class="container projects-fg-container">
             <div class="section-header reveal-up" style="margin-bottom: 50px;">
                 <h2 style="font-size: 48px; font-weight: 700;">Selected Works.</h2>
-                <p style="color: var(--color-muted); margin-top: 10px;">A curated selection of architectural and BIM projects.</p>
+                <p style="color: var(--color-muted); margin-top: 10px;">A curated selection of architectural and BIM
+                    projects.</p>
             </div>
-            
+
             <div class="projects-grid-minimal">
                 <!-- Project 1 -->
-                <article class="project-card-dark reveal-up" onclick="window.location.href='projects/professional-experience.html'">
+                <article class="project-card-dark reveal-up"
+                    onclick="window.location.href='projects/professional-experience.html'">
                     <div class="card-image-box">
                         <img src="images/Project 1.0.jpeg" alt="A&N Architects - Professional Experience">
                     </div>
@@ -171,165 +157,62 @@
                         <div class="card-info">
                             <h3 class="card-title">Professional Experience</h3>
                             <p class="card-year">2024 – 2025</p>
-                            <p style="font-size: 13px; font-weight: 500; color: #1A1814; margin-bottom: 12px; margin-top: 4px;">RIBA Stages 0–4 Documentation & Visualisation</p>
-                            
-                            <div class="project-description" style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                                Produced 15+ technical drawing sheets per project across live schemes, including floor plans, sections, and elevations for planning application submissions and client review.
-                            </div>
-
-                            <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">AutoCAD</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Revit</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">SketchUp</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">V-Ray</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Lumion</span>
-                            </div>
-
-                            <div class="exp-gallery" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-top: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-                                <div class="exp-img-slot"><img src="images/1.1.jpg" alt="Client project design 1" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/1.2.jpg" alt="Client project design 2" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/1.3.jpg" alt="Client project design 3" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/1.4.jpg" alt="Client project design 4" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/1.5.jpg" alt="Client project design 5" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                            </div>
-                            <p class="gallery-note" style="font-size: 10px; color: #aaa; margin-top: 4px;">← scroll · architectural documentation</p>
-                        </div>
-                        <div class="card-links">
-                            <span class="btn-text">View Project ›</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article class="project-card-dark reveal-up" onclick="window.location.href='projects/residential-extension.html'">
+                <article class="project-card-dark reveal-up"
+                    onclick="window.location.href='projects/residential-extension.html'">
                     <div class="card-image-box">
-                        <img src="images/gallery-1.jpg" alt="Residential Extension">
+                        <img src="images/1.1.jpg" alt="Residential Extension Planning">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
                             <h3 class="card-title">Residential Extension Planning</h3>
-                            <p class="card-year">2023</p>
-                            <p style="font-size: 13px; font-weight: 500; color: #1A1814; margin-bottom: 12px; margin-top: 4px;">London Planning & Permitted Development</p>
-                            
-                            <div class="project-description" style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                                Focus on urban adaptation, completing 5 planning applications for residential extension and refurbishment across London. Each design balanced heritage constraints with modern living requirements.
-                            </div>
-
-                            <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">AutoCAD</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Enscape</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">SketchUp</span>
-                            </div>
-
-                            <div class="exp-gallery" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-top: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-                                <div class="exp-img-slot"><img src="images/gallery-1.jpg" alt="Extension Design" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/project2-thumb.jpg" alt="Floor Plan" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                            </div>
-                            <p class="gallery-note" style="font-size: 10px; color: #aaa; margin-top: 4px;">← scroll · project process</p>
-                        </div>
-                        <div class="card-links">
-                            <span class="btn-text">View Project ›</span>
+                            <p class="card-year">2024</p>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 3 -->
-                <article class="project-card-dark reveal-up" onclick="window.location.href='projects/airport-terminal.html'">
+                <article class="project-card-dark reveal-up"
+                    onclick="window.location.href='projects/airport-terminal.html'">
                     <div class="card-image-box">
-                        <img src="images/3.0.png" alt="Airport Terminal">
+                        <img src="images/3.0.png" alt="Airport Terminal Expansion Concept">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
                             <h3 class="card-title">Airport Terminal Expansion Concept</h3>
-                            <p class="card-year">2022</p>
-                            <p style="font-size: 13px; font-weight: 500; color: #1A1814; margin-bottom: 12px; margin-top: 4px;">Aviation Infrastructure & Flow Modelling</p>
-                            
-                            <div class="project-description" style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                                Computational design concept utilizing modular construction and high-performance facades to optimize passenger flow and spatial efficiency in peak aviation environments.
-                            </div>
-
-                            <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Rhino</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Lumion</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Navisworks</span>
-                            </div>
-
-                            <div class="exp-gallery" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-top: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-                                <div class="exp-img-slot"><img src="images/3.0.png" alt="Terminal Vision" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/3.1.png" alt="Flow Study" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/3.2.jpg" alt="Aesthetic" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/3.5.png" alt="Technical Sheet" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/3.6.png" alt="Section" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                            </div>
-                            <p class="gallery-note" style="font-size: 10px; color: #aaa; margin-top: 4px;">← scroll · aviation masterplan</p>
-                        </div>
-                        <div class="card-links">
-                            <span class="btn-text">View Project ›</span>
+                            <p class="card-year">2023</p>
                         </div>
                     </div>
                 </article>
+
                 <!-- Project 4 -->
-                <article class="project-card-dark reveal-up" onclick="window.location.href='projects/academic-projects.html'">
+                <article class="project-card-dark reveal-up"
+                    onclick="window.location.href='projects/academic-projects.html'">
                     <div class="card-image-box">
                         <img src="images/project1-img2.jpg" alt="Academic Projects">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
                             <h3 class="card-title">Academic Projects</h3>
-                            <p class="card-year">2018 – 2021</p>
-                            <p style="font-size: 13px; font-weight: 500; color: #1A1814; margin-bottom: 12px; margin-top: 4px;">BSc (Hons) Architecture Portfolio</p>
-                            
-                            <div class="project-description" style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                                Comprehensive design studio work ranging from residential interventions to civic developments, grounded in architectural theory and technical resolution.
-                            </div>
-
-                            <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Revit</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Rhino</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Photoshop</span>
-                            </div>
-
-                            <div class="exp-gallery" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-top: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-                                <div class="exp-img-slot"><img src="images/project1-img2.jpg" alt="Portfolio sheet 1" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/project1-img3.jpg" alt="Portfolio sheet 2" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                            </div>
-                            <p class="gallery-note" style="font-size: 10px; color: #aaa; margin-top: 4px;">← scroll · academic works</p>
-                        </div>
-                        <div class="card-links">
-                            <span class="btn-text">View Project ›</span>
+                            <p class="card-year">2018 – 2023</p>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 5 -->
-                <article class="project-card-dark reveal-up" onclick="window.location.href='projects/visualizations.html'">
+                <article class="project-card-dark reveal-up"
+                    onclick="window.location.href='projects/visualizations.html'">
                     <div class="card-image-box">
-                        <img src="images/gallery-3.jpg" alt="Visualizations">
+                        <img src="images/project-hero-placeholder.jpg" alt="Visualizations">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
                             <h3 class="card-title">Visualizations</h3>
-                            <p class="card-year">2020 – 2025</p>
-                            <p style="font-size: 13px; font-weight: 500; color: #1A1814; margin-bottom: 12px; margin-top: 4px;">CGI & Architectural Representation</p>
-                            
-                            <div class="project-description" style="font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 16px;">
-                                Mastery of lighting and materiality to create high-end architectural renderings that effectively communicate design intent and atmospheric qualities.
-                            </div>
-
-                            <div class="software-row" style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;">
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Lumion</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">3DS Max</span>
-                                <span style="background: #1A1814; color: #F0ECE4; font-size: 10px; font-weight: 400; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 20px;">Twinmotion</span>
-                            </div>
-
-                            <div class="exp-gallery" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-top: 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
-                                <div class="exp-img-slot"><img src="images/gallery-3.jpg" alt="CGI Render" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                                <div class="exp-img-slot"><img src="images/project-hero-placeholder.jpg" alt="Atmospheric Render" width="100%" height="100%" style="object-fit:cover; display:block; cursor: pointer;"></div>
-                            </div>
-                            <p class="gallery-note" style="font-size: 10px; color: #aaa; margin-top: 4px;">← scroll · CGI gallery</p>
-                        </div>
-                        <div class="card-links">
-                            <span class="btn-text">View Project ›</span>
+                            <p class="card-year">Gallery</p>
                         </div>
                     </div>
                 </article>
@@ -337,136 +220,78 @@
         </div>
     </section>
 
-    <!-- TASK 5: PROJECT OVERLAY -->
-    <div id="project-overlay" class="overlay-hidden">
-        <button id="close-overlay" onclick="closeProject()" aria-label="Close Project Detail">✕</button>
-        <div class="overlay-content">
-            <div class="overlay-main-media" id="overlay-media-container">
-                <video id="overlay-video" autoplay muted loop playsinline class="overlay-media-el"></video>
-                <img id="overlay-img" src="" alt="Main Image" class="overlay-media-el hidden">
-            </div>
-            <div class="overlay-details-grid">
-                <div class="overlay-thumbnails-col" id="overlay-thumbnails">
-                    <!-- Dynamic thumbs -->
-                </div>
-                <div class="overlay-info-col">
-                    <h2 id="overlay-title">Project Title</h2>
-                    <div class="overlay-meta-info" style="margin-bottom: 25px;">
-                        <span id="overlay-year" style="font-weight: 700; color: var(--color-accent); margin-right: 15px;">2023</span>
-                        <span id="overlay-role" style="color: var(--color-muted); margin-right: 15px;"></span>
-                        <span id="overlay-location" style="color: var(--color-muted);"></span>
-                    </div>
-                    
-                    <div id="overlay-description" style="margin-bottom: 30px; font-size: 16px; line-height: 1.8;">
-                        <!-- desc -->
-                    </div>
-
-                    <div style="margin-bottom: 30px;">
-                        <h4 style="margin-bottom: 10px; font-size: 18px;">Scope of Work</h4>
-                        <ul id="overlay-scope" style="list-style-position: inside; color: rgba(255,255,255,0.8); line-height: 1.6; font-size: 15px; margin-left: 10px;">
-                            <!-- scope list -->
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-bottom: 40px;">
-                        <h4 style="margin-bottom: 10px; font-size: 18px;">Key Contributions</h4>
-                        <ul id="overlay-contributions" style="list-style-position: inside; color: rgba(255,255,255,0.8); line-height: 1.6; font-size: 15px; margin-left: 10px;">
-                            <!-- contrib list -->
-                        </ul>
-                    </div>
-
-                    <div class="software-tags" id="overlay-software">
-                        <!-- Dynamic Tags -->
-                    </div>
-                    <a href="Portfolio_JafrinSuresh_compressed.pdf" class="btn-text" target="_blank">View full drawings ›</a>
-                </div>
-            </div>
-            
-            <!-- Drawing Gallery -->
-            <div id="overlay-drawings-gallery" style="margin-top: 80px; display: flex; flex-direction: column; gap: 40px; width: 100%;">
-                <!-- Dynamic full width drawings -->
-            </div>
-        </div>
-    </div>
-
-    <!-- EXPERIENCE & EDUCATION -->
-    <section id="timeline" class="timeline-section-vertical bg-gray">
+    <!-- SECTION 4: RESUME TIMELINE -->
+    <section id="timeline" class="timeline-section bg-white">
         <div class="container">
-            <h2 class="reveal-up" style="font-size: 48px; font-weight: 700; margin-bottom: 60px; text-align: center;">Experience & Education.</h2>
-            <div class="timeline-vertical-wrapper reveal-up">
-                <div class="timeline-line"></div>
-                
-                <div class="timeline-item reveal-item">
-                    <div class="timeline-dot"></div>
+            <div class="timeline-header-flex">
+                <h2 class="section-heading">Experience & Education.</h2>
+                <div class="resume-cta">
+                    <button class="pill-btn icon-right" onclick="openResumePreview()">
+                        View Resume <span class="btn-icon">→</span>
+                    </button>
+                    <a href="assets/Jafrin_Part II.pdf" class="text-link-underline" download>Download Portfolio</a>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Entry 1 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">Oct 2025 – Present</div>
                     <div class="timeline-content">
-                        <span class="entry-date">Oct 2025 – Present</span>
-                        <h3 class="entry-title">Architectural Designer</h3>
-                        <p class="entry-org">A&N Architects, London, UK</p>
-                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
-                            <li style="margin-bottom: 8px;">Authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes, producing RIBA Stage 0-4 design development packages, planning application drawings, and construction information.</li>
-                            <li style="margin-bottom: 8px;">Managed 4+ planning applications end-to-end; prepared design and access statements, location plans, and proposed drawings compliant with local planning authority requirements and UK Building Regulations Approved Documents.</li>
-                            <li style="margin-bottom: 8px;">Maintaining ISO 19650-compliant federated BIM models in Revit; coordinating with structural engineers to identify and resolve cross-discipline clashes prior to technical design sign-off on each project.</li>
-                            <li>Producing client visualisations, rendered design proposals, and outline specification notes to support stakeholder approvals and planning submissions at RIBA Stages 2 and 3.</li>
+                        <h3 class="timeline-title">Architectural Designer</h3>
+                        <p class="timeline-org">A&N Architects, London, UK</p>
+                        <ul class="timeline-list">
+                            <li>Authoring and coordinating 20+ drawing sheets per project across 3–5 live residential extension and refurbishment schemes.</li>
+                            <li>Managed 4+ planning applications end-to-end; prepared Design and Access Statements compliant with local planning requirements.</li>
+                            <li>Maintaining ISO 19650-compliant federated BIM models in Revit; coordinating with structural engineers to resolve cross-discipline clashes.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item reveal-item">
-                    <div class="timeline-dot"></div>
+                <!-- Entry 2 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">2023 – 2024</div>
                     <div class="timeline-content">
-                        <span class="entry-date">2023 – 2024</span>
-                        <h3 class="entry-title">MSc Advanced Construction Technologies and BIM</h3>
-                        <p class="entry-org">University of Strathclyde, Glasgow, UK</p>
-                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
-                            <li style="margin-bottom: 8px;"><strong>Core modules:</strong> BIM Project Execution Planning, Clash Detection & Federated Modelling, ISO 19650 Information Management, Sustainable Design & Green Building Performance, Digital Construction Methods.</li>
-                            <li style="margin-bottom: 8px;"><strong>Dissertation:</strong> Enhancing Green Roof Design in Modern Architecture through Advanced BIM Integration – systematic literature review of 134 peer-reviewed papers and 4 international case studies (Bloomberg London BREEAM 98.5%, The Edge Amsterdam, Lagg Distillery, Foresterhill Health Campus) to produce a 15-step BIM integration framework for sustainable green roof design.</li>
-                            <li style="margin-bottom: 8px;"><strong>Industry engagement:</strong> site visit to a live arts studio fit-out with Clark Contracts × WASPS Studios (Apr 2024), observing construction-phase coordination and building regulations compliance on site.</li>
-                            <li><strong>Capstone project:</strong> residential extension delivered through a full ISO 19650-compliant BIM workflow in Revit, including coordinated architectural and structural models, building regulations drawings, and 3D visualisations.</li>
+                        <h3 class="timeline-title">MSc Advanced Construction Technologies and BIM</h3>
+                        <p class="timeline-org">University of Strathclyde, Glasgow, UK</p>
+                        <ul class="timeline-list">
+                            <li>Core modules: BIM Project Execution Planning, Clash Detection, ISO 19650 Information Management.</li>
+                            <li>Dissertation: 15-step BIM integration framework for sustainable green roof design (Bloomberg London BREEAM 98.5% benchmark).</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item reveal-item">
-                    <div class="timeline-dot"></div>
+                <!-- Entry 3 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">Dec 2022 – Dec 2023</div>
                     <div class="timeline-content">
-                        <span class="entry-date">Dec 2022 – Dec 2023</span>
-                        <h3 class="entry-title">Architectural Assistant</h3>
-                        <p class="entry-org">Ruby Builders, Chennai, India</p>
-                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
-                            <li style="margin-bottom: 8px;">Produced 20+ technical drawing sheets per project across 3–5 residential schemes, including site plans, floor plans, sections, elevations, construction details, and material schedules in AutoCAD and Revit.</li>
-                            <li style="margin-bottom: 8px;">Prepared planning application drawing packages and design & access documentation for all projects, supporting successful submissions to local planning authorities.</li>
-                            <li>Delivered 6+ photorealistic renders and walkthrough animations per project using Lumion and V-Ray; authored construction specification packages that reduced on-site contractor queries at handover.</li>
+                        <h3 class="timeline-title">Architectural Assistant</h3>
+                        <p class="timeline-org">Ruby Builders, Chennai, India</p>
+                        <ul class="timeline-list">
+                            <li>Produced 20+ technical drawing sheets per project across 3–5 residential schemes.</li>
+                            <li>Delivered 6+ photorealistic renders and walkthrough animations per project using Lumion and V-Ray.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item reveal-item">
-                    <div class="timeline-dot"></div>
+                <!-- Entry 4 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">Jun 2022 – Aug 2022</div>
                     <div class="timeline-content">
-                        <span class="entry-date">Jun 2022 – Aug 2022</span>
-                        <h3 class="entry-title">Architectural Research Intern</h3>
-                        <p class="entry-org">Airports Authority of India (AAI), Chennai, India</p>
-                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
-                            <li style="margin-bottom: 8px;">Conducted a 3-month research placement analysing passenger flow, wayfinding, security screening, and terminal capacity at a major international hub to inform a large-scale airport expansion thesis.</li>
-                            <li>Produced 2 conceptual masterplan layout packages and spatial planning diagrams; compiled technical documentation benchmarked against AAI design standards and IATA terminal planning guidelines.</li>
-                        </ul>
+                        <h3 class="timeline-title">Architectural Research Intern</h3>
+                        <p class="timeline-org">Airports Authority of India (AAI), Chennai, India</p>
+                        <p class="timeline-desc">Conducted research on passenger flow and wayfinding; produced 2 conceptual masterplan layout packages for airport expansion.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item reveal-item">
-                    <div class="timeline-dot"></div>
+                <!-- Entry 5 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-date">2017 – 2022</div>
                     <div class="timeline-content">
-                        <span class="entry-date">2017 – 2022</span>
-                        <h3 class="entry-title">Bachelor of Architecture (BArch) – Distinction</h3>
-                        <p class="entry-org">Sathyabama Institute of Science and Technology, Chennai, India</p>
-                        <ul class="entry-desc" style="list-style-type: disc; padding-left: 20px; text-align: left; margin-top: 10px;">
-                            <li>RIBA Part 1 & Part 2 equivalent; graduated with Distinction. Thesis: airport terminal expansion – passenger flow modelling, spatial planning, phased infrastructure delivery, and full technical documentation package.</li>
-                        </ul>
+                        <h3 class="timeline-title">Bachelor of Architecture (BArch) – Distinction</h3>
+                        <p class="timeline-org">Sathyabama Institute of Science and Technology, Chennai, India</p>
+                        <p class="timeline-desc">Graduated with Distinction. Thesis: Airport terminal expansion focused on passenger flow modelling and spatial planning.</p>
                     </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; width: 100%;">
-                    <button onclick="openResumePreview()" class="btn-text underline-brass" style="background:none; border:none; padding:0; cursor:pointer;" aria-label="Preview and Download CV">Download CV ›</button>
                 </div>
             </div>
         </div>
@@ -476,9 +301,10 @@
     <section id="contact" class="contact-section bg-white text-center">
         <div class="container">
             <h2 class="contact-title reveal-up">Let's Connect</h2>
-            <p class="contact-subtext reveal-up">Currently seeking new opportunities in architectural design and BIM coordination.</p>
+            <p class="contact-subtext reveal-up">Currently seeking new opportunities in architectural design, BIM management, and sustainable construction.</p>
             <div class="contact-links-row reveal-up">
-                <a href="mailto:ar.jafrin.suresh@gmail.com" class="contact-link-item animated-underline">ar.jafrin.suresh@gmail.com</a>
+                <a href="mailto:ar.jafrin.suresh@gmail.com"
+                    class="contact-link-item animated-underline">ar.jafrin.suresh@gmail.com</a>
                 <a href="tel:+447586392913" class="contact-link-item animated-underline">+44 7586 392913</a>
             </div>
         </div>
@@ -492,6 +318,8 @@
             <span class="company-name">A&N Architects</span>
             <span class="company-divider">·</span>
             <span class="company-name">Ruby Builders</span>
+            <span class="company-divider">·</span>
+            <span class="company-name">AAI</span>
         </div>
         <div class="footer-bottom-mini">
             &copy; 2026 Jafrin Suretha Suresh · Architectural Designer · RIBA Part 2 · London
@@ -505,9 +333,12 @@
         <div class="resume-preview-content" id="resume-preview-content">
             <div class="resume-preview-header">
                 <h2>Resume Preview</h2>
-                <a href="assets/Jafrin_Part II.pdf" class="pill-btn outline dark glow-btn" style="color:white; border-color:white; z-index: 10; position: relative;" download>Download Resume ↓</a>
+                <a href="assets/Jafrin_Part II.pdf" class="pill-btn outline dark glow-btn"
+                    style="color:white; border-color:white; z-index: 10; position: relative;" download>Download Resume
+                    ↓</a>
             </div>
-            <div class="resume-iframe-wrapper" id="resume-canvas-wrapper" style="overflow-y: auto; text-align: center; position: relative; z-index: 10; padding: 20px;">
+            <div class="resume-iframe-wrapper" id="resume-canvas-wrapper"
+                style="overflow-y: auto; text-align: center; position: relative; z-index: 10; padding: 20px;">
                 <!-- PDF.js will inject canvas elements here -->
                 <div style="color: white; padding: 40px;">Loading Preview...</div>
             </div>
@@ -520,13 +351,20 @@
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
     </script>
     <script src="scripts/pdfBase64.js"></script>
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:99999; align-items:center; justify-content:center;">
-  <img id="lightbox-img" style="max-width:85vw; max-height:88vh; object-fit:contain; border-radius:4px; display:block;">
-  <button id="lb-prev" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8592;</button>
-  <button id="lb-next" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8594;</button>
-  <button id="lb-close" style="position:absolute; top:20px; right:24px; background:none; border:none; color:white; font-size:32px; cursor:pointer; opacity:0.7; line-height:1;">&#10005;</button>
-</div>
+
+    <div id="lightbox"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:99999; align-items:center; justify-content:center;">
+        <img id="lightbox-img"
+            style="max-width:85vw; max-height:88vh; object-fit:contain; border-radius:4px; display:block;">
+        <button id="lb-prev"
+            style="position:absolute; left:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8592;</button>
+        <button id="lb-next"
+            style="position:absolute; right:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8594;</button>
+        <button id="lb-close"
+            style="position:absolute; top:20px; right:24px; background:none; border:none; color:white; font-size:32px; cursor:pointer; opacity:0.7; line-height:1;">&#10005;</button>
+    </div>
 
     <script src="scripts/main.js"></script>
 </body>
+
 </html>
