@@ -13,12 +13,12 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { 
     scroll-behavior: smooth; 
-    background: url('../images/Project 1.0.jpeg') no-repeat center center fixed;
+    background: url('../images/project2-thumb.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 body {
     font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
-    background-color: #000; /* Deep black base */
+    background-color: transparent; /* Allow html background to show through */
     color: var(--color-text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -30,8 +30,8 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.4) 0%, rgba(10, 10, 10, 0.9) 100%);
-    backdrop-filter: blur(40px);
+    background: rgba(17, 17, 16, 0.4); /* Lighter dark tint for better glassmorphism */
+    backdrop-filter: blur(25px); /* Adjusted blur for translucency */
     z-index: -1;
 }
 
@@ -450,4 +450,16 @@ body::before {
 
 @media (max-width: 768px) {
  .project-grid-dark { grid-template-columns: 1fr; }
+ 
+ .top-nav { padding: 12px 0; }
+ .nav-track {
+     gap: 15px;
+     overflow-x: auto;
+     padding: 0 20px;
+     justify-content: flex-start;
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+ }
+ .nav-track::-webkit-scrollbar { display: none; }
+ .nav-link { font-size: 10px; padding: 6px 8px; white-space: nowrap; }
 }
