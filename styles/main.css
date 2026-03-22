@@ -374,7 +374,6 @@ body::before {
     .gallery-grid { grid-template-columns: 1fr; }
     .next-title { font-size: 32px; }
 }
-@charset " UTF-8\;
 
 /* Project Grid & Cards - Premium Glassmorphism */
 .project-grid-dark {
