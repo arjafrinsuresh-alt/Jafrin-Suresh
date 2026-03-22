@@ -246,7 +246,6 @@ async function renderResume() {
 /**
  * TASK 2: METRIC COUNT-UP ANIMATION
  */
-const countUpElements = document.querySelectorAll('.metric-number');
 
 const countUpObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -274,5 +273,7 @@ function animateCount(el, target) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const countUpElements = document.querySelectorAll('.metric-number');
     countUpElements.forEach(el => countUpObserver.observe(el));
 });
+
