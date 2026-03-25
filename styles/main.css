@@ -279,14 +279,16 @@ body::before {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 70px;
-    align-items: center;
+    align-items: stretch; /* Let photo match paragraph height */
 }
-.profile-col { display: flex; align-items: center; justify-content: center; }
+.profile-col { display: flex; align-items: stretch; justify-content: center; }
 .profile-img {
     width: 100%;
     max-width: 260px;
-    height: auto;  /* Proportional scaling */
-    object-fit: contain;
+    height: 100%;       /* Match the bio column height */
+    min-height: 320px;
+    object-fit: cover;  /* Fill without distortion */
+    object-position: center top;
     border-radius: 18px;
     filter: grayscale(1);
     transition: filter 0.5s ease, transform 0.5s ease;
