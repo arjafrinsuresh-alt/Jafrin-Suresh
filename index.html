@@ -22,17 +22,22 @@
 
 <body class="dark-mode-enforced">
     <!-- Loading Screen -->
-    <div id="loading-screen" style="position:fixed; inset:0; background:#0a0a09; z-index:999999; display:flex; align-items:center; justify-content:center; transition:opacity 1s ease, visibility 1s;">
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed; inset:0; background:#0a0a09; z-index:999999; display:flex; align-items:center; justify-content:center; animation: fadeOutLoader 0.8s forwards; animation-delay: 1.5s; pointer-events: none;">
         <div class="abstract-loader">
             <style>
                 .abstract-loader { position: relative; width: 80px; height: 80px; }
-                .circle { position: absolute; border: 1.5px solid #D4AF37; border-radius: 50%; animation: abstract-pulse 2s infinite ease-in-out; }
+                .circle { position: absolute; border: 1.5px solid #6b4c1e; border-radius: 50%; animation: abstract-pulse 2s infinite ease-in-out; }
                 .circle-1 { inset: 0; animation-delay: 0s; }
                 .circle-2 { inset: 15px; animation-delay: 0.3s; }
                 .circle-3 { inset: 30px; animation-delay: 0.6s; }
                 @keyframes abstract-pulse {
                     0%, 100% { transform: scale(0.85); opacity: 0.2; }
                     50% { transform: scale(1.1); opacity: 0.8; }
+                }
+                @keyframes fadeOutLoader {
+                    from { opacity: 1; visibility: visible; pointer-events: all; }
+                    to { opacity: 0; visibility: hidden; pointer-events: none; }
                 }
             </style>
             <div class="circle circle-1"></div>
@@ -84,32 +89,34 @@
                         <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="profile-img">
                     </div>
                     <div class="bio-col reveal-up" style="transition-delay: 0.1s;">
-                        <h1 class="hero-name">Hi, I'm Jafrin Suretha Suresh</h1>
-                        <p class="role-location">ARCHITECTURAL DESIGNER & BIM TECHNOLOGIST · LONDON, UK</p>
-                        
-                        <div class="bio-text">
-                            <p>I'm a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies and BIM from the <strong>University of Strathclyde</strong>. I offer end-to-end project delivery experience across RIBA Work Stages 0–4 on residential and commercial schemes. Technically proficient in <strong>Revit, AutoCAD, and ISO 19650-compliant</strong> information management, I focus on sustainable design and BREEAM frameworks, with expertise in federated model coordination and clash detection.</p>
+                        <div class="bio-content-body">
+                            <h1 class="hero-name">Hi, I'm Jafrin Suretha Suresh</h1>
+                            <p class="role-location">ARCHITECTURAL DESIGNER & BIM TECHNOLOGIST · LONDON, UK</p>
+                            
+                            <div class="bio-text">
+                                <p>I'm a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies and BIM from the <strong>University of Strathclyde</strong>. I offer end-to-end project delivery experience across RIBA Work Stages 0–4 on residential and commercial schemes. Technically proficient in <strong>Revit, AutoCAD, and ISO 19650-compliant</strong> information management, I focus on sustainable design and BREEAM frameworks, with expertise in federated model coordination and clash detection.</p>
+                            </div>
+                            
+                            <p class="simple-contact">LONDON, UK · +44 7586 392913 · AR.JAFRIN.SURESH@GMAIL.COM · LINKEDIN</p>
                         </div>
-                        
-                        <p class="simple-contact">LONDON, UK · +44 7586 392913 · AR.JAFRIN.SURESH@GMAIL.COM · LINKEDIN</p>
 
-                        <!-- Highlights inside Bio / About -->
+                        <!-- Metrics Right Below Bio -->
                         <div class="highlights-grid">
                             <div class="metric-card reveal-up" style="transition-delay: 0.2s;">
-                                <span class="metric-number" data-target="35">0</span><span class="metric-number">+</span>
-                                <span class="metric-label">Technical Drawings</span>
+                                <span class="metric-number" data-target="35">0</span>
+                                <span class="metric-label">Technical Sheets</span>
                             </div>
                             <div class="metric-card reveal-up" style="transition-delay: 0.3s;">
-                                <span class="metric-number" data-target="10">0</span><span class="metric-number">+</span>
+                                <span class="metric-number" data-target="10">0</span>
                                 <span class="metric-label">Live Projects</span>
                             </div>
                             <div class="metric-card reveal-up" style="transition-delay: 0.4s;">
-                                <span class="metric-number" data-target="6">0</span><span class="metric-number">+</span>
-                                <span class="metric-label">High-End Renders</span>
+                                <span class="metric-number" data-target="7">0</span>
+                                <span class="metric-label">Core Tools Mastered</span>
                             </div>
                             <div class="metric-card reveal-up" style="transition-delay: 0.5s;">
-                                <span class="metric-number" data-target="2">0</span><span class="metric-number">+</span>
-                                <span class="metric-label">Regional Hubs</span>
+                                <span class="metric-number" data-target="2">0</span>
+                                <span class="metric-label">Countries Worked</span>
                             </div>
                         </div>
                     </div>
@@ -173,7 +180,7 @@
     <section id="projects" class="projects-section bg-white">
         <!-- Parallax blur layer -->
         <div class="projects-bg-blur" id="projects-blur">
-            <img src="images/project1-thumb.jpg" alt="Blur 1">
+            <img src="images/Project 1.0.jpeg" alt="Blur 1">
             <img src="images/project2-thumb.jpg" alt="Blur 2">
             <img src="images/project3-thumb.jpg" alt="Blur 3">
         </div>

@@ -9,9 +9,6 @@ const navMenu = document.getElementById('nav-menu');
 
 
 
-/**
- * TASK 2: PROJECT SLIDER
- */
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('project-track');
     const prevBtn = document.getElementById('slider-prev');
@@ -378,18 +375,22 @@ const countUpObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 function animateCount(el, target) {
+    if (!target || isNaN(target)) return;
     let current = 0;
     const duration = 2000;
-    const stepTime = Math.abs(Math.floor(duration / target));
+    const increment = target / (duration / 16);
     
     const timer = setInterval(() => {
-        current += 1;
-        el.innerText = current + (target === 35 || target === 10 || target === 6 || target === 2 ? '+' : '');
+        current += increment;
+        const displayVal = Math.floor(current);
         
-        if (current >= target) {
+        el.innerText = displayVal + (target === 35 || target === 10 || target === 7 || target === 2 ? '+' : '');
+        
+        if (displayVal >= target) {
+            el.innerText = target + (target === 35 || target === 10 || target === 7 || target === 2 ? '+' : '');
             clearInterval(timer);
         }
-    }, stepTime);
+    }, 16);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
