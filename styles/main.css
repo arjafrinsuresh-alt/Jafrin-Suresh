@@ -254,26 +254,55 @@ body::before {
     padding: 120px 0 80px;
 }
 
-/* Blurred bokeh photographic background */
+/* Vivid bokeh background with blurred orbs */
 .about-hero-bg {
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(ellipse 60% 80% at 75% 60%, rgba(160, 100, 20, 0.45) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 70% at 15% 50%, rgba(30, 55, 20, 0.5) 0%, transparent 55%),
-        #0a0a09;
-    filter: blur(0px);
+    background: #0a0a09;
     z-index: 0;
+    overflow: hidden;
 }
+
+/* Large atmospheric blobs */
 .about-hero-bg::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 40% 60% at 20% 40%, rgba(25, 60, 20, 0.6) 0%, transparent 50%),
-                radial-gradient(ellipse 30% 50% at 80% 30%, rgba(180, 120, 10, 0.3) 0%, transparent 50%);
+    background:
+        radial-gradient(ellipse 60% 70% at 80% 65%, rgba(190, 115, 10, 0.65) 0%, rgba(140, 70, 5, 0.35) 40%, transparent 65%),
+        radial-gradient(ellipse 50% 65% at 12% 55%, rgba(18, 58, 14, 0.75) 0%, rgba(12, 42, 8, 0.4) 45%, transparent 68%),
+        radial-gradient(ellipse 35% 45% at 50% 90%, rgba(150, 85, 8, 0.3) 0%, transparent 55%);
+}
+
+/* Small crisp bokeh orbs */
+.about-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle 100px at 78% 38%, rgba(220, 140, 20, 0.5) 0%, transparent 100%),
+        radial-gradient(circle 150px at 88% 72%, rgba(200, 110, 12, 0.4) 0%, transparent 100%),
+        radial-gradient(circle 70px  at 68% 55%, rgba(230, 160, 30, 0.3) 0%, transparent 100%),
+        radial-gradient(circle 80px  at 8%  28%, rgba(30, 80, 18, 0.55) 0%, transparent 100%),
+        radial-gradient(circle 130px at 18% 70%, rgba(22, 70, 14, 0.5) 0%, transparent 100%),
+        radial-gradient(circle 55px  at 28% 42%, rgba(35, 90, 20, 0.4) 0%, transparent 100%);
+    filter: blur(3px);
 }
 
 .about-container { position: relative; z-index: 1; width: 100%; max-width: 1100px; }
+
+/* Glass panel floating over bokeh */
+.about-content-wrapper {
+    background: rgba(10, 10, 9, 0.45);
+    backdrop-filter: blur(22px) saturate(1.6);
+    -webkit-backdrop-filter: blur(22px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.07);
+    padding: 48px 52px;
+}
 
 .about-grid {
     display: grid;
