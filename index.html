@@ -13,26 +13,36 @@
         content="Architectural Designer, BIM Technologist, Revit, ISO 19650, BREEAM, Lumion, Architecture Portfolio">
 
     <!-- Google Fonts: Outift/Inter -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Link to local CSS files -->
-    <link rel="stylesheet" href="styles/main.css?v=5">
+    <link rel="stylesheet" href="styles/main.css?v=6">
     <link rel="stylesheet" href="styles/animations.css">
 </head>
 
 <body class="dark-mode-enforced">
-    <!-- TASK 5: LOADING SCREEN -->
-    <div id="loading-screen">
-        <div class="loader-content">
-            <div class="loader-circle"></div>
-            <div class="loader-text">JA</div>
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="position:fixed; inset:0; background:#0a0a09; z-index:999999; display:flex; align-items:center; justify-content:center; transition:opacity 1s ease, visibility 1s;">
+        <div class="abstract-loader">
+            <style>
+                .abstract-loader { position: relative; width: 80px; height: 80px; }
+                .circle { position: absolute; border: 1.5px solid #D4AF37; border-radius: 50%; animation: abstract-pulse 2s infinite ease-in-out; }
+                .circle-1 { inset: 0; animation-delay: 0s; }
+                .circle-2 { inset: 15px; animation-delay: 0.3s; }
+                .circle-3 { inset: 30px; animation-delay: 0.6s; }
+                @keyframes abstract-pulse {
+                    0%, 100% { transform: scale(0.85); opacity: 0.2; }
+                    50% { transform: scale(1.1); opacity: 0.8; }
+                }
+            </style>
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
         </div>
     </div>
 
-
     <nav class="top-nav">
+
         <div class="container nav-container">
 
             
@@ -52,7 +62,6 @@
                         <a href="projects/professional-experience.html" class="sub-link">Professional Experience</a>
                         <a href="projects/residential-extension.html" class="sub-link">Residential Extension</a>
                         <a href="projects/airport-terminal.html" class="sub-link">Airport Expansion</a>
-                        <a href="projects/academic-projects.html" class="sub-link">Academic Projects</a>
                         <a href="projects/visualizations.html" class="sub-link">Visualisations</a>
                     </div>
                 </div>
@@ -66,60 +75,42 @@
 
 
 
-    <!-- SECTION 2: ABOUT -->
-    <section id="about" class="about-section bg-white" style="padding-top: 160px;">
-        <div class="container">
-            <div class="about-grid-brief">
-                <div class="about-photo-col">
-                    <div class="photo-container reveal-photo">
-                        <div class="photo-reveal-overlay"></div>
-                        <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="profile-photo-img">
+    <!-- SECTION 1: ABOUT (centered) -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-content-wrapper">
+                <div class="about-grid">
+                    <div class="profile-col reveal-up">
+                        <img src="images/profile.png" alt="Jafrin Suretha Suresh" class="profile-img">
                     </div>
-                </div>
-                <div class="about-text-col reveal-up">
-                    <h2 class="section-heading"
-                        style="font-weight: 300; line-height: 1.2; text-transform: none; margin-bottom: 8px; font-style: normal;">
-                        Hi, I'm Jafrin Suretha Suresh</h2>
-                    <p
-                        style="font-weight: 400; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; color: var(--color-muted); margin-bottom: 24px;">
-                        Architectural Designer & BIM Technologist · London, UK</p>
-                    <p class="bio-paragraph"
-                        style="font-weight: 400; font-style: normal; margin-bottom: 32px; color: var(--color-text);">
-                        I'm a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies and BIM from the <strong>University of Strathclyde</strong>. 
-                        I offer end-to-end project delivery experience across RIBA Work Stages 0-4 on residential and commercial schemes. 
-                        Technically proficient in <strong>Revit, AutoCAD, and ISO 19650-compliant</strong> information management, I focus on sustainable design and BREEAM frameworks, with expertise in federated model coordination and clash detection.
-                    </p>
-                    <div class="location-contact-line"
-                        style="font-weight: 400; font-size: 13px; color: var(--color-muted); font-style: normal; opacity: 0.8;">
-                        London, UK · +44 7586 392913 · 
-                        <a href="mailto:ar.jafrin.suresh@gmail.com"
-                            style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;"
-                            onmouseover="this.style.borderBottom='1px solid var(--color-muted)'"
-                            onmouseout="this.style.borderBottom='1px solid transparent'">ar.jafrin.suresh@gmail.com</a>
-                        ·
-                        <a href="https://linkedin.com/in/jafrinsuresh" target="_blank"
-                            style="color: inherit; text-decoration: none; transition: text-decoration 0.2s; border-bottom: 1px solid transparent;"
-                            onmouseover="this.style.borderBottom='1px solid var(--color-muted)'"
-                            onmouseout="this.style.borderBottom='1px solid transparent'">linkedin</a>
-                    </div>
+                    <div class="bio-col reveal-up" style="transition-delay: 0.1s;">
+                        <h1 class="hero-name">Hi, I'm Jafrin Suretha Suresh</h1>
+                        <p class="role-location">ARCHITECTURAL DESIGNER & BIM TECHNOLOGIST · LONDON, UK</p>
+                        
+                        <div class="bio-text">
+                            <p>I'm a RIBA Part 2 Architectural Designer and BIM Technologist with an MSc in Advanced Construction Technologies and BIM from the <strong>University of Strathclyde</strong>. I offer end-to-end project delivery experience across RIBA Work Stages 0–4 on residential and commercial schemes. Technically proficient in <strong>Revit, AutoCAD, and ISO 19650-compliant</strong> information management, I focus on sustainable design and BREEAM frameworks, with expertise in federated model coordination and clash detection.</p>
+                        </div>
+                        
+                        <p class="simple-contact">LONDON, UK · +44 7586 392913 · AR.JAFRIN.SURESH@GMAIL.COM · LINKEDIN</p>
 
-                    <!-- Key Highlights (Moved and Animated) -->
-                    <div class="highlights-grid" style="margin-top: 60px;">
-                        <div class="metric-card reveal-up">
-                            <div class="metric-number" data-target="35">0</div>
-                            <div class="metric-label">Technical Drawings</div>
-                        </div>
-                        <div class="metric-card reveal-up" style="transition-delay: 0.1s;">
-                            <div class="metric-number" data-target="10">0</div>
-                            <div class="metric-label">Live Projects</div>
-                        </div>
-                        <div class="metric-card reveal-up" style="transition-delay: 0.2s;">
-                            <div class="metric-number" data-target="6">0</div>
-                            <div class="metric-label">High-End Renders</div>
-                        </div>
-                        <div class="metric-card reveal-up" style="transition-delay: 0.3s;">
-                            <div class="metric-number" data-target="2">0</div>
-                            <div class="metric-label">Regional Hubs</div>
+                        <!-- Highlights inside Bio / About -->
+                        <div class="highlights-grid">
+                            <div class="metric-card reveal-up" style="transition-delay: 0.2s;">
+                                <span class="metric-number" data-target="35">0</span><span class="metric-number">+</span>
+                                <span class="metric-label">Technical Drawings</span>
+                            </div>
+                            <div class="metric-card reveal-up" style="transition-delay: 0.3s;">
+                                <span class="metric-number" data-target="10">0</span><span class="metric-number">+</span>
+                                <span class="metric-label">Live Projects</span>
+                            </div>
+                            <div class="metric-card reveal-up" style="transition-delay: 0.4s;">
+                                <span class="metric-number" data-target="6">0</span><span class="metric-number">+</span>
+                                <span class="metric-label">High-End Renders</span>
+                            </div>
+                            <div class="metric-card reveal-up" style="transition-delay: 0.5s;">
+                                <span class="metric-number" data-target="2">0</span><span class="metric-number">+</span>
+                                <span class="metric-label">Regional Hubs</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,43 +120,49 @@
 
 
 
-    <!-- TECHNICAL EXPERTISE -->
-    <section id="skills" class="skills-section bg-gray">
-        <div class="container">
-            <h2 class="section-title text-center reveal-up"
-                style="margin-bottom: 80px; font-size: clamp(48px, 8vw, 72px); letter-spacing: -3px; font-weight: 700;">
-                TECHNICAL SKILLS</h2>
-            <div class="skills-grid-columns">
-                <div class="skill-column reveal-stagger">
-                    <h4 class="skill-category-label">BIM & CAD</h4>
-                    <div class="skill-chips-container">
-                        <span class="skill-chip">Revit</span>
-                        <span class="skill-chip">AutoCAD</span>
-                        <span class="skill-chip">Navisworks</span>
-                        <span class="skill-chip">BIM 360</span>
-                        <span class="skill-chip">COBie</span>
+    <!-- SECTION 2: SKILLS (full page) -->
+    <section id="skills" class="skills-section">
+        <div class="container skills-container">
+            <div class="skills-center-content">
+                <h2 class="section-title text-center reveal-up">Technical Skills</h2>
+                <div class="skills-grid-columns reveal-up delay-1">
+                    <!-- Column 1: BIM & Project Management -->
+                    <div class="skill-category">
+                        <h3 class="category-title">BIM & Management</h3>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">ISO 19650 Compliance</span>
+                            <span class="skill-chip">BIM Execution Plans (BEP)</span>
+                            <span class="skill-chip">Federated Model Coordination</span>
+                            <span class="skill-chip">Clash Detection</span>
+                            <span class="skill-chip">CDE Management</span>
+                            <span class="skill-chip">BREEAM Frameworks</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-column reveal-stagger">
-                    <h4 class="skill-category-label">Visualisation</h4>
-                    <div class="skill-chips-container">
-                        <span class="skill-chip">Lumion</span>
-                        <span class="skill-chip">TwinMotion</span>
-                        <span class="skill-chip">Enscape</span>
-                        <span class="skill-chip">V-Ray</span>
-                        <span class="skill-chip">SketchUp</span>
-                        <span class="skill-chip">Rhino</span>
-                        <span class="skill-chip">Photorealistic Rendering</span>
-                        <span class="skill-chip">Walkthrough Animation</span>
+
+                    <!-- Column 2: Design & Documentation -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Design & Documentation</h3>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">RIBA Stages 0–4</span>
+                            <span class="skill-chip">Technical Detailing</span>
+                            <span class="skill-chip">Planning Applications</span>
+                            <span class="skill-chip">On-Site Surveys</span>
+                            <span class="skill-chip">Site Appraisals</span>
+                            <span class="skill-chip">Building Regulations</span>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-column reveal-stagger">
-                    <h4 class="skill-category-label">Production</h4>
-                    <div class="skill-chips-container">
-                        <span class="skill-chip">Photoshop</span>
-                        <span class="skill-chip">InDesign</span>
-                        <span class="skill-chip">Illustrator</span>
-                        <span class="skill-chip">Technical Drawing Production</span>
+
+                    <!-- Column 3: Software Proficiency -->
+                    <div class="skill-category">
+                        <h3 class="category-title">Software Suite</h3>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">Autodesk Revit</span>
+                            <span class="skill-chip">AutoCAD</span>
+                            <span class="skill-chip">Navisworks Manage</span>
+                            <span class="skill-chip">Rhino 3D / Grasshopper</span>
+                            <span class="skill-chip">Lumion / V-Ray</span>
+                            <span class="skill-chip">Adobe Creative Suite</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +207,7 @@
                 <article class="project-card-dark reveal-up"
                     onclick="window.location.href='projects/residential-extension.html'">
                     <div class="card-image-box">
-                        <img src="images/1.1.jpg" alt="Residential Extension Planning">
+                        <img src="images/2.0.jpg" alt="Residential Extension Planning">
                     </div>
                     <div class="card-body">
                         <div class="card-info">
@@ -234,19 +231,6 @@
                     </div>
                 </article>
 
-                <!-- Project 4 -->
-                <article class="project-card-dark reveal-up"
-                    onclick="window.location.href='projects/academic-projects.html'">
-                    <div class="card-image-box">
-                        <img src="images/project1-img2.jpg" alt="Academic Projects">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-info">
-                            <h3 class="card-title">Academic Projects</h3>
-                            <p class="card-year">2018 – 2023</p>
-                        </div>
-                    </div>
-                </article>
 
                 <!-- Project 5 -->
                 <article class="project-card-dark reveal-up"
@@ -439,8 +423,7 @@
     </script>
     <script src="scripts/pdfBase64.js"></script>
 
-    <div id="lightbox"
-        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:99999; align-items:center; justify-content:center;">
+    <div id="lightbox">
         <img id="lightbox-img"
             style="max-width:85vw; max-height:88vh; object-fit:contain; border-radius:4px; display:block;">
         <button id="lb-prev"

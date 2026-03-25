@@ -9,7 +9,7 @@
     <meta name="description" content="A portfolio of high-end CGI and architectural representation works.">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/animations.css">
@@ -87,10 +87,10 @@
 
     <footer class="next-project-footer">
         <div class="container">
-            <a href="../index.html#projects" class="next-project-link reveal-up">
+            <a href="professional-experience.html" class="next-project-link reveal-up">
                 <div class="next-content">
                     <span class="next-label">Next project</span>
-                    <h3 class="next-title">View All Works</h3>
+                    <h3 class="next-title">Professional Experience</h3>
                 </div>
                 <div class="next-arrow">→</div>
             </a>
@@ -98,7 +98,7 @@
     </footer>
 
     <!-- Lightbox container -->
-    <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:99999; align-items:center; justify-content:center;">
+    <div id="lightbox">
         <img id="lightbox-img" style="max-width:85vw; max-height:88vh; object-fit:contain; border-radius:4px; display:block;">
         <button id="lb-prev" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8592;</button>
         <button id="lb-next" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); background:none; border:none; color:white; font-size:48px; cursor:pointer; opacity:0.7; line-height:1;">&#8594;</button>
@@ -113,8 +113,24 @@
             '../images/5.3.png'
         ];
         let currentIdx = 0;
-        function openLightbox(idx) { currentIdx = idx; const lb = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); img.src = galleryImages[idx]; lb.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; document.body.style.overflow = ''; }
+        function openLightbox(idx) {
+            currentIdx = idx;
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = galleryImages[idx];
+            lb.style.display = 'flex';
+            setTimeout(() => lb.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('active');
+            setTimeout(() => {
+                lb.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
         function nextImage() { currentIdx = (currentIdx + 1) % galleryImages.length; document.getElementById('lightbox-img').src = galleryImages[currentIdx]; }
         function prevImage() { currentIdx = (currentIdx - 1 + galleryImages.length) % galleryImages.length; document.getElementById('lightbox-img').src = galleryImages[currentIdx]; }
         document.getElementById('lb-close').onclick = closeLightbox;

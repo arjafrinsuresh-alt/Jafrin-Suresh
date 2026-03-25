@@ -6,18 +6,8 @@ const sections = document.querySelectorAll('section');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navMenu = document.getElementById('nav-menu');
 
-/**
- * TASK 5: LOADING SCREEN
- */
-window.addEventListener('load', () => {
-    const loader = document.getElementById('loading-screen');
-    if (loader) {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 800);
-    }
-});
+
+
 
 /**
  * TASK 2: PROJECT SLIDER
@@ -55,18 +45,82 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.disabled = currentIndex >= maxIndex;
     }
 
+    // TASK 3: AUTO-ROLL EVERY 3S
+    let sliderInterval = setInterval(() => {
+        const cardsPerView = getCardsPerView();
+        const maxIndex = totalCards - cardsPerView;
+        if (currentIndex >= maxIndex) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+        updateSlider();
+    }, 3000);
+
+    function resetInterval() {
+        clearInterval(sliderInterval);
+        sliderInterval = setInterval(() => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = totalCards - cardsPerView;
+            if (currentIndex >= maxIndex) {
+                currentIndex = 0;
+            } else {
+                currentIndex++;
+            }
+            updateSlider();
+        }, 3000);
+    }
+
     prevBtn.addEventListener('click', () => {
         currentIndex--;
         updateSlider();
+        resetInterval();
     });
 
     nextBtn.addEventListener('click', () => {
         currentIndex++;
         updateSlider();
+        resetInterval();
     });
 
     window.addEventListener('resize', updateSlider);
     updateSlider(); // Initial call
+});
+
+/**
+ * TASK 1: LIGHTBOX ZOOM ON SCROLL
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    if (!lb || !lbImg) return;
+
+    let scale = 1;
+    lb.addEventListener('wheel', (e) => {
+        if (lb.style.display === 'flex' || lb.classList.contains('active')) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.15 : 0.15;
+            scale += delta;
+            scale = Math.min(Math.max(0.5, scale), 4);
+            lbImg.style.transform = `scale(${scale})`;
+            
+            if (scale > 1) {
+                lbImg.classList.add('zoomed');
+            } else {
+                lbImg.classList.remove('zoomed');
+            }
+        }
+    }, { passive: false });
+
+    // Reset scale when lightbox is closed
+    const observer = new MutationObserver(() => {
+        if (lb.style.display === 'none' || !lb.classList.contains('active')) {
+            scale = 1;
+            lbImg.style.transform = 'scale(1)';
+            lbImg.classList.remove('zoomed');
+        }
+    });
+    observer.observe(lb, { attributes: true, attributeFilter: ['style', 'class'] });
 });
 
 /**
